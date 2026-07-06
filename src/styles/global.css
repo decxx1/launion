@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+	--color-launion: #0b5886;
+	--color-launion-light: #096db7;
+	--font-montserrat: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+}

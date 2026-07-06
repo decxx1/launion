@@ -1,0 +1,22 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/index/Hero.astro';
+
+const preloadImages = [
+	{
+		href: "/images/home/hero.png",
+		as: "image",
+		type: "image/png",
+	},
+];
+---
+
+<Layout
+	title="LA UNION S.R.L. | Transporte de Pasajeros"
+	canonical="https://launionsrl.com.ar"
+	metaDescription="LA UNION S.R.L. conecta destinos y acerca historias. Comprá tus pasajes de colectivo de larga distancia de forma rápida y segura."
+	metaImg="/images/home/hero.png"
+	preLoad={preloadImages}
+>
+	<Hero />
+</Layout>

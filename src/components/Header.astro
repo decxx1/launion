@@ -1,0 +1,134 @@
+---
+const navLinks = [
+	{ label: "INICIO", href: "/" },
+	{ label: "NOSOTROS", href: "/nosotros" },
+	{ label: "SERVICIOS", href: "/servicios" },
+	{ label: "ENCOMIENDAS", href: "/encomiendas" },
+	{ label: "PUNTOS DE VENTA", href: "/puntos-de-venta" },
+	{ label: "CONTACTO", href: "/contacto" },
+];
+---
+
+<!-- Desktop: nav en pestaña blanca superior derecha -->
+<header class="absolute top-0 right-0 z-50 hidden lg:block">
+	<div class="rounded-bl-[4.5rem] bg-white px-10 py-6 pl-12">
+		<nav aria-label="Navegación principal">
+			<ul class="flex items-center gap-6 text-[0.7rem] font-semibold tracking-wide text-black xl:gap-8 xl:text-xs">
+				{
+					navLinks.map((link) => (
+						<li>
+							<a
+								href={link.href}
+								class="transition-opacity hover:opacity-70"
+							>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<!-- Mobile: logo + hamburguesa -->
+<header class="absolute top-0 right-0 left-0 z-50 flex items-center justify-between px-5 py-5 lg:hidden">
+	<a href="/" aria-label="LA UNION S.R.L. - Inicio">
+		<img
+			src="/images/logos/logo.svg"
+			alt="LA UNION S.R.L."
+			class="h-10 w-auto"
+			width="140"
+			height="60"
+		/>
+	</a>
+	<button
+		type="button"
+		id="mobile-menu-btn"
+		class="flex h-11 w-14 items-center justify-center rounded-l-2xl bg-white"
+		aria-label="Abrir menú"
+		aria-expanded="false"
+		aria-controls="mobile-menu"
+	>
+		<svg
+			width="22"
+			height="16"
+			viewBox="0 0 22 16"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+		>
+			<rect width="22" height="2.5" rx="1" fill="#0b5886"></rect>
+			<rect y="6.75" width="22" height="2.5" rx="1" fill="#0b5886"></rect>
+			<rect y="13.5" width="22" height="2.5" rx="1" fill="#0b5886"></rect>
+		</svg>
+	</button>
+</header>
+
+<!-- Mobile menu overlay -->
+<div
+	id="mobile-menu"
+	class="pointer-events-none fixed inset-0 z-60 opacity-0 transition-opacity duration-300 lg:hidden"
+	aria-hidden="true"
+>
+	<div
+		id="mobile-menu-backdrop"
+		class="absolute inset-0 bg-black/50"
+	></div>
+	<nav
+		class="absolute top-0 right-0 flex h-full w-[min(100%,20rem)] translate-x-full flex-col bg-launion pt-24 transition-transform duration-300"
+		aria-label="Menú móvil"
+	>
+		<ul class="flex flex-col gap-1 px-8">
+			{
+				navLinks.map((link) => (
+					<li>
+						<a
+							href={link.href}
+							class="mobile-nav-link block border-b border-white/20 py-4 text-sm font-semibold tracking-wide text-white"
+						>
+							{link.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</div>
+
+<script>
+	const menuBtn = document.getElementById("mobile-menu-btn");
+	const menu = document.getElementById("mobile-menu");
+	const backdrop = document.getElementById("mobile-menu-backdrop");
+	const navPanel = menu?.querySelector("nav");
+	const navLinks = menu?.querySelectorAll(".mobile-nav-link");
+
+	function openMenu() {
+		if (!menu || !menuBtn || !navPanel) return;
+		menu.classList.remove("pointer-events-none", "opacity-0");
+		menu.classList.add("opacity-100");
+		navPanel.classList.remove("translate-x-full");
+		menuBtn.setAttribute("aria-expanded", "true");
+		menu.setAttribute("aria-hidden", "false");
+		document.body.style.overflow = "hidden";
+	}
+
+	function closeMenu() {
+		if (!menu || !menuBtn || !navPanel) return;
+		menu.classList.add("pointer-events-none", "opacity-0");
+		menu.classList.remove("opacity-100");
+		navPanel.classList.add("translate-x-full");
+		menuBtn.setAttribute("aria-expanded", "false");
+		menu.setAttribute("aria-hidden", "true");
+		document.body.style.overflow = "";
+	}
+
+	menuBtn?.addEventListener("click", () => {
+		const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+		if (isOpen) closeMenu();
+		else openMenu();
+	});
+
+	backdrop?.addEventListener("click", closeMenu);
+	navLinks?.forEach((link) => link.addEventListener("click", closeMenu));
+</script>

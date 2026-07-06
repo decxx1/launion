@@ -1,0 +1,101 @@
+---
+// Supports weights 100-900
+import '@fontsource-variable/montserrat/wght-italic.css';
+
+import "@/styles/global.css";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp.astro";
+
+import type { Preload } from "@/types/Preload";
+
+interface Props {
+	title: string;
+	canonical: string;
+	metaDescription: string;
+	metaImg: string;
+	preLoad?: Array<Preload>;
+}
+
+const { title, canonical, metaDescription, metaImg, preLoad } = Astro.props;
+const urlBase = Astro.url.origin;
+const fullImg = urlBase + metaImg;
+
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<!-- Favicons -->
+		<link href="/images/logos/logo.svg" type="image/svg+xml" rel="icon" />
+		<!-- Favicon compatibilidad -->
+		<link href="/images/logos/favicons/faviconx64.png" type="image/png" sizes="64x64" rel="icon" />
+		<link href="/images/logos/favicons/faviconx56.png" type="image/png" sizes="56x56" rel="icon" />
+		<link href="/images/logos/favicons/faviconx32.png" type="image/png" sizes="32x32" rel="icon" />
+		<link href="/images/logos/favicons/faviconx180.png" rel="apple-touch-icon" sizes="180x180" />
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>{title}</title>
+
+		<!-- SEO -->
+		<link rel="canonical" href={canonical} />
+		<!-- GOOGLE -->
+		<meta name="description" content={metaDescription} />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="Mon, 01 Jul 1970 00:00:00 GMT" />
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		<!-- FACEBOOK OPEN GRAPH TAGS -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={fullImg} />
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:url" content={canonical} />
+		<meta name="twitter:image" content={fullImg} />
+
+		{
+			preLoad?.map(({ href, as, type }) => (
+				<link rel="preload" {as} {href} {type} />
+			))
+		}
+	</head>
+	<body
+		class="font-montserrat scrollbar scrollbar-w-3 scrollbar-thumb-rounded-[0.25rem] scrollbar-track-gray-200 scrollbar-thumb-gray-400 bg-black"
+	>
+		<div id="main-content-wrapper" class="relative z-10 transition-[margin-bottom] duration-300">
+			<Header />
+			<main>
+				<slot />
+			</main>
+			<FloatingWhatsApp />
+		</div>
+		<Footer />
+
+	</body>
+</html>
+
+<style is:global>
+	/*recaptcha*/
+	.grecaptcha-badge {
+		width: 70px !important;
+		height: 60px !important;
+		overflow: hidden !important;
+		transition: all 0.3s ease !important;
+		left: 4px !important;
+		z-index: 100;
+	}
+
+	.grecaptcha-badge:hover {
+		width: 256px !important;
+	}
+</style>
