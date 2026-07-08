@@ -1,0 +1,118 @@
+---
+const routes = [
+	{ label: "LOCAL", href: "#" },
+	{ label: "URBANO PERIFÉRICO", href: "#" },
+	{ label: "SAN RAFAEL BOWEN", href: "#" },
+	{ label: "MENDOZA BOWEN", href: "#" },
+	{ label: "SAN RAFAEL BUENOS AIRES", href: "#" },
+	{ label: "MENDOZA BUENOS AIRES", href: "#" },
+];
+---
+
+<section class="relative overflow-hidden bg-white py-10 sm:py-12 lg:py-16">
+	<!-- Rombo de fondo (lado izquierdo) -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-[72%] left-0 h-[110vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 sm:h-[115vh] lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-1/2 left-0 hidden h-[165vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
+		/>
+	</div>
+
+	<div class="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10 xl:px-14">
+		<!-- Título -->
+		<div
+			class="flex items-center justify-center gap-3 rounded-tl-[3.5rem] rounded-br-[3.5rem] bg-launion px-5 py-3.5 sm:gap-4 sm:px-7 sm:py-4 lg:px-8"
+		>
+			<img
+				src="/images/icons/icon-clock.svg"
+				alt=""
+				class="size-9 shrink-0 sm:size-10 lg:size-11"
+				aria-hidden="true"
+			/>
+			<h2
+				class="text-sm font-bold leading-tight text-white sm:text-base lg:text-lg xl:text-xl"
+			>
+				Descargá los horarios de nuestras líneas de colectivo
+			</h2>
+		</div>
+
+		<!-- Botones en rombo -->
+		<div
+			class="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 sm:mt-8 sm:gap-4 lg:mt-10 lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:pb-0 xl:gap-5"
+		>
+			{
+				routes.map(({ label, href }) => (
+					<a
+						href={href}
+						class="group relative flex w-30 shrink-0 snap-center flex-col items-center justify-center transition-opacity hover:opacity-90 lg:w-full"
+					>
+						<div class="relative aspect-226/217 w-full">
+							<img
+								src="/images/shapes/shape-button-diamond.svg"
+								alt=""
+								class="absolute inset-0 h-full w-full"
+								aria-hidden="true"
+							/>
+							<span
+								class="absolute inset-0 flex flex-col items-center justify-start gap-1 pr-3 pl-2 pt-4 lg:pt-6 sm:gap-2 md:gap-3 sm:pl-2 sm:pr-4"
+							>
+								<img
+									src="/images/icons/icon-bus.svg"
+									alt=""
+									class="size-7 sm:size-8 lg:size-14"
+									aria-hidden="true"
+								/>
+								<span class="text-center text-[0.6rem] uppercase sm:text-xs lg:text-sm px-2 leading-tight font-bold tracking-wide text-white ">
+									{label}
+								</span>
+							</span>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+
+	<!-- Imagen del colectivo -->
+	<div class="relative z-10 mt-8 sm:mt-10 lg:mt-12 mr-56">
+		<div class="schedules-image-clip relative aspect-855/210 w-full overflow-hidden">
+			<img
+				src="/images/home/schedules.png"
+				alt="Colectivo de LA UNION S.R.L."
+				class="absolute inset-0 h-full w-full object-cover object-[center_40%] sm:object-center"
+				loading="lazy"
+			/>
+			<div
+				class="pointer-events-none absolute inset-0 bg-linear-to-r from-launion from-0% via-launion/20 via-35% to-transparent to-100%"
+				aria-hidden="true"
+			/>
+		</div>
+	</div>
+</section>
+
+<style>
+	.schedules-image-clip {
+		clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%);
+	}
+
+	@media (min-width: 640px) {
+		.schedules-image-clip {
+			clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.schedules-image-clip {
+			clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
+		}
+	}
+</style>
