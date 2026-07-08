@@ -4,6 +4,11 @@ import Hero from '@/components/index/Hero.astro';
 
 const preloadImages = [
 	{
+		href: "/images/home/hero-mobile.png",
+		as: "image",
+		type: "image/png",
+	},
+	{
 		href: "/images/home/hero.png",
 		as: "image",
 		type: "image/png",
@@ -17,6 +22,7 @@ const preloadImages = [
 	metaDescription="LA UNION S.R.L. conecta destinos y acerca historias. Comprá tus pasajes de colectivo de larga distancia de forma rápida y segura."
 	metaImg="/images/home/hero.png"
 	preLoad={preloadImages}
+	hideFooter={true}
 >
 	<Hero />
 </Layout>

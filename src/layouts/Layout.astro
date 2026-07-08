@@ -15,9 +15,10 @@ interface Props {
 	metaDescription: string;
 	metaImg: string;
 	preLoad?: Array<Preload>;
+	hideFooter?: boolean;
 }
 
-const { title, canonical, metaDescription, metaImg, preLoad } = Astro.props;
+const { title, canonical, metaDescription, metaImg, preLoad, hideFooter = false } = Astro.props;
 const urlBase = Astro.url.origin;
 const fullImg = urlBase + metaImg;
 
@@ -79,7 +80,7 @@ const fullImg = urlBase + metaImg;
 			</main>
 			<FloatingWhatsApp />
 		</div>
-		<Footer />
+		{!hideFooter && <Footer />}
 
 	</body>
 </html>

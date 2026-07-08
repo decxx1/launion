@@ -4,4 +4,7 @@
 	--color-launion: #0b5886;
 	--color-launion-light: #096db7;
 	--font-montserrat: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+	--breakpoint-xs: 30rem;
+	--breakpoint-2xl: 100rem;
+	--breakpoint-3xl: 120rem;
 }

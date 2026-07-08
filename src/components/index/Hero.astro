@@ -4,171 +4,126 @@ const ticketUrl = "https://launionsrl.com.ar";
 
 <section class="relative h-screen w-full overflow-hidden">
 	<!-- Imagen de fondo -->
-	<img
-		src="/images/home/hero.png"
-		alt="Colectivo de LA UNION S.R.L. en la ciudad"
-		class="absolute inset-0 h-full w-full object-cover object-center"
-		fetchpriority="high"
-	/>
+	<picture>
+		<source
+			media="(min-width: 1024px)"
+			srcset="/images/home/hero.png"
+		/>
+		<img
+			src="/images/home/hero-mobile.png"
+			alt="Colectivo de LA UNION S.R.L."
+			class="absolute inset-0 h-full w-full object-cover object-center"
+			fetchpriority="high"
+		/>
+	</picture>
 
-	<!-- Formas geométricas — Desktop -->
-	<div class="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
-		<svg
-			class="absolute inset-0 h-full w-full"
-			viewBox="0 0 1440 900"
-			preserveAspectRatio="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path
-				d="M0,0 L0,900 L560,900 C680,900 710,520 760,450 C710,380 680,0 520,0 Z"
-				fill="#c5cdd4"
-			></path>
-			<path
-				d="M0,0 L0,900 L540,900 C660,900 690,520 740,450 C690,380 660,0 500,0 Z"
-				fill="#096db7"
-			></path>
-			<path
-				d="M0,0 L0,900 L520,900 C640,900 670,520 720,450 C670,380 640,0 480,0 Z"
-				fill="#0b5886"
-			></path>
-		</svg>
-	</div>
-
-	<!-- Formas geométricas — Mobile -->
-	<div class="pointer-events-none absolute inset-0 lg:hidden" aria-hidden="true">
-		<svg
-			class="absolute inset-0 h-full w-full"
-			viewBox="0 0 390 844"
-			preserveAspectRatio="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path
-				d="M0,420 L0,844 L390,844 L390,620 C320,580 280,500 260,420 Z"
-				fill="#c5cdd4"
-			></path>
-			<path
-				d="M0,430 L0,844 L390,844 L390,630 C310,590 270,510 255,430 Z"
-				fill="#096db7"
-			></path>
-			<path
-				d="M0,440 L0,844 L390,844 L390,640 C300,600 260,520 250,440 Z"
-				fill="#0b5886"
-			></path>
-			<!-- Franjas decorativas inferiores -->
-			<path d="M0,800 L120,844 L0,844 Z" fill="#096db7"></path>
-			<path d="M0,820 L80,844 L0,844 Z" fill="#e8ecef"></path>
-		</svg>
+	<!-- Rombo -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond.svg"
+			alt="Figura geométrica en forma de rombo"
+			class="absolute top-[72%] left-0 sm:left-10 h-[110vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:h-[115vh] lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond.svg"
+			alt="Figura geométrica en forma de rombo"
+			class="absolute top-1/2 left-0 hidden h-[165vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
+		/>
 	</div>
 
 	<!-- Logo desktop -->
 	<a
 		href="/"
-		class="absolute top-8 left-8 z-20 hidden lg:block xl:left-12"
+		class="absolute top-8 left-8 z-20 hidden lg:block xl:top-16 xl:left-12 2xl:top-20 2xl:left-32"
 		aria-label="LA UNION S.R.L. - Inicio"
 	>
 		<img
 			src="/images/logos/logo.svg"
 			alt="LA UNION S.R.L."
-			class="h-14 w-auto xl:h-16"
-			width="200"
-			height="86"
+			class="h-auto w-32 lg:w-48 xl:w-54 2xl:w-56"
 		/>
 	</a>
 
 	<!-- Texto principal -->
 	<div
-		class="absolute z-20 flex flex-col text-white
-			bottom-[38%] left-6 max-w-[85%]
-			lg:top-1/2 lg:bottom-auto lg:left-10 lg:max-w-md lg:-translate-y-1/3
-			xl:left-16 xl:max-w-lg"
+		class="absolute z-20 flex flex-col text-white text-right
+			bottom-[24%] left-6 max-w-[85%]
+			sm:bottom-[32%]
+			lg:top-1/2 lg:bottom-auto lg:left-20 lg:max-w-md lg:translate-y-[-50%]
+			xl:left-16 xl:max-w-lg 2xl:left-28"
 	>
-		<h1 class="leading-[0.95] font-bold tracking-tight">
-			<span class="relative block text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl">
-				<svg
-					class="absolute -top-3 left-0 h-3 w-10 sm:-top-4 sm:h-4 sm:w-12 lg:-top-5 lg:h-5 lg:w-14"
-					viewBox="0 0 56 12"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-					aria-hidden="true"
-				>
-					<path
-						d="M4 10 C14 2, 28 2, 52 10"
-						stroke="white"
-						stroke-width="2.5"
-						stroke-linecap="round"
-						fill="none"
-					></path>
-				</svg>
+		<h1 class="font-bold tracking-tight">
+			<span class="relative block text-4xl sm:text-5xl lg:text-7xl xl:text-8xl">
+				<svg class="absolute top-0 xl:top-1 left-12 sm:left-7 lg:left-8 xl:left-12 w-6 sm:w-8 lg:w-9 xl:w-12" xmlns="http://www.w3.org/2000/svg" id="Capa_2" data-name="Capa 2" viewBox="0 0 50.34 22.68"><path id="LANDING" fill="#fff" d="M25.18 7.22C14.6 7.22 5.3 13.38 0 22.68v-7.23C5.3 6.16 14.6 0 25.18 0s19.85 6.14 25.16 15.4v7.23C45.03 13.37 35.75 7.22 25.18 7.22"/></svg>
 				unimos
 			</span>
-			<span class="block text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl">
+			<span class="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
 				destinos
 			</span>
 		</h1>
-		<p class="mt-3 text-base font-medium sm:text-lg lg:mt-5 lg:text-xl">
+		<p class="mt-3 text-base font-medium sm:text-lg lg:mt-5 lg:text-2xl xl:text-3xl tracking-wide xl:tracking-widest">
 			Acercamos historias
 		</p>
 	</div>
 
 	<!-- CTA -->
 	<div
-		class="absolute right-0 bottom-0 left-0 z-20 flex items-end justify-end
-			lg:left-auto lg:w-[55%] xl:w-[50%]"
+		class="absolute -right-2 bottom-22 z-30 w-80 sm:w-120 lg:w-[48%] xl:w-[44%] 2xl:w-180"
 	>
-		<!-- Fondo CTA desktop -->
-		<svg
-			class="absolute right-0 bottom-0 hidden h-auto w-full lg:block"
-			viewBox="0 0 800 200"
-			preserveAspectRatio="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				d="M120,0 L800,0 L800,200 L0,200 L80,100 Z"
-				fill="#0b5886"
-			></path>
-		</svg>
+		<div class="relative w-full">
+			<img
+				src="/images/shapes/shape-arrow-left.svg"
+				alt=""
+				class="block h-full w-full"
+				aria-hidden="true"
+			/>
 
-		<!-- Fondo CTA mobile -->
-		<div
-			class="absolute right-0 bottom-0 left-0 h-36 bg-launion lg:hidden"
-			aria-hidden="true"
-		></div>
-
-		<div
-			class="relative flex w-full flex-col items-end gap-3 px-5 py-5
-				sm:flex-row sm:items-center sm:justify-end sm:gap-6 sm:px-8 sm:py-6
-				lg:px-10 lg:py-8"
-		>
-			<p
-				class="text-right text-sm font-bold text-white sm:text-base lg:text-lg xl:text-xl"
+			<div
+				class="absolute inset-0 flex flex-col justify-center gap-1.5 py-2.5 pl-16 pr-0
+					sm:gap-2 sm:py-3 sm:pl-20
+					lg:gap-2 lg:py-4 lg:pl-[12%]"
 			>
-				¡Comprá tus pasajes ahora!
-			</p>
-
-			<a
-				href={ticketUrl}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="group flex shrink-0 items-center gap-2 bg-white pr-3 pl-6
-					[clip-path:polygon(12%_0%,100%_0%,100%_100%,0%_100%)]
-					transition-opacity hover:opacity-90
-					sm:gap-3 sm:pr-4 sm:pl-8
-					lg:[clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)]"
-			>
-				<span
-					class="py-3 text-sm font-extrabold tracking-wide text-launion sm:py-3.5 sm:text-base"
+				<p
+					class="max-w-64 text-base leading-tight font-bold text-white italic
+						sm:max-w-none sm:text-lg lg:text-2xl xl:text-3xl"
 				>
-					CLICK ACÁ
-				</span>
-				<img
-					src="/images/icons/clickIcon.svg"
-					alt=""
-					class="h-9 w-9 sm:h-10 sm:w-10"
-					width="40"
-					height="36"
-				/>
-			</a>
+					¡Comprá tus pasajes ahora!
+				</p>
+
+				<a
+					href={ticketUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative ml-auto block w-full transition-opacity hover:opacity-95"
+				>
+					<img
+						src="/images/shapes/shape-arrow-left-white.svg"
+						alt="Figura geométrica en forma de flecha para el botón"
+						class="block h-full w-full"
+						aria-hidden="true"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-start 
+						gap-2.5 pr-5 pl-[12%]
+						sm:gap-3 sm:pr-6 sm:pl-[11%]
+						lg:gap-3 lg:pr-7 lg:pl-[10%]"
+					>
+						<span
+							class="text-xl font-extrabold tracking-wide text-launion sm:text-2xl lg:text-[1.65rem] xl:text-[1.85rem]"
+						>
+							CLICK ACÁ
+						</span>
+						<img
+							src="/images/icons/clickIcon.svg"
+							alt=""
+							class="size-9 shrink-0 sm:size-10 lg:size-11 xl:size-12"
+						/>
+					</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>

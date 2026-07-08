@@ -11,9 +11,9 @@ const navLinks = [
 
 <!-- Desktop: nav en pestaña blanca superior derecha -->
 <header class="absolute top-0 right-0 z-50 hidden lg:block">
-	<div class="rounded-bl-[4.5rem] bg-white px-10 py-6 pl-12">
+	<div class="rounded-bl-[4.5rem] bg-white py-5 pr-8 pl-10 xl:py-6 xl:pr-12 xl:pl-28">
 		<nav aria-label="Navegación principal">
-			<ul class="flex items-center gap-6 text-[0.7rem] font-semibold tracking-wide text-black xl:gap-8 xl:text-xs">
+			<ul class="flex items-center gap-4 text-sm font-semibold tracking-wide whitespace-nowrap text-black xl:gap-6 xl:text-base 2xl:gap-7 2xl:text-lg">
 				{
 					navLinks.map((link) => (
 						<li>
@@ -37,9 +37,7 @@ const navLinks = [
 		<img
 			src="/images/logos/logo.svg"
 			alt="LA UNION S.R.L."
-			class="h-10 w-auto"
-			width="140"
-			height="60"
+			class="h-12 xs:h-14 sm:h-16 md:h-20 w-auto"
 		/>
 	</a>
 	<button
@@ -58,9 +56,9 @@ const navLinks = [
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
 		>
-			<rect width="22" height="2.5" rx="1" fill="#0b5886"></rect>
-			<rect y="6.75" width="22" height="2.5" rx="1" fill="#0b5886"></rect>
-			<rect y="13.5" width="22" height="2.5" rx="1" fill="#0b5886"></rect>
+			<rect width="22" height="2.5" rx="1" fill="#000000"></rect>
+			<rect y="6.75" width="22" height="2.5" rx="1" fill="#000000"></rect>
+			<rect y="13.5" width="22" height="2.5" rx="1" fill="#000000"></rect>
 		</svg>
 	</button>
 </header>
