@@ -39,7 +39,7 @@ const routes = [
 				aria-hidden="true"
 			/>
 			<h2
-				class="text-sm font-bold leading-tight text-white sm:text-base lg:text-lg xl:text-xl"
+				class="text-base lg:text-lg xl:text-xl font-semibold sm:font-bold leading-tight text-white"
 			>
 				Descargá los horarios de nuestras líneas de colectivo
 			</h2>
@@ -47,13 +47,13 @@ const routes = [
 
 		<!-- Botones en rombo -->
 		<div
-			class="mt-12 md:mt-6 sm:mt-8 lg:mt-10 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 items-center justify-center pb-2 lg:pb-0"
+			class="my-16 sm:my-10 md:my-16 lg:my-20 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 items-center justify-items-center pb-2 lg:pb-0"
 		>
 			{
 				routes.map(({ label, href }) => (
 					<a
 						href={href}
-						class="group relative flex w-32 sm:w-44 shrink-0 snap-center flex-col items-center justify-center transition-opacity hover:opacity-90 xl:w-full"
+						class="group relative flex w-32 sm:w-44 xl:w-full shrink-0 snap-center flex-col items-center justify-center transition-opacity hover:opacity-90"
 					>
 						<div class="relative aspect-226/217 w-full">
 							<img
@@ -83,8 +83,8 @@ const routes = [
 	</div>
 
 	<!-- Imagen del colectivo -->
-	<div class="relative z-10 mt-8 sm:mt-10 lg:mt-12 mr-56">
-		<div class="schedules-image-clip relative aspect-855/210 w-full overflow-hidden">
+	<div class="relative z-10 mr-10 md:mr-20 lg:mr-32 xl:mr-56">
+		<div class="schedules-image-clip relative aspect-700/250 sm:aspect-855/210 w-full overflow-hidden">
 			<img
 				src="/images/home/schedules.webp"
 				alt="Colectivo de LA UNION S.R.L."
@@ -92,27 +92,37 @@ const routes = [
 				loading="lazy"
 			/>
 			<div
-				class="pointer-events-none absolute inset-0 bg-linear-to-r from-launion from-0% via-launion/20 via-35% to-transparent to-100%"
+				class="pointer-events-none absolute inset-0 bg-linear-to-r from-launion from-0% via-launion/20 via-15% sm:via-35% to-transparent to-100%"
 				aria-hidden="true"
 			/>
 		</div>
 	</div>
 </section>
-
+<svg width="0" height="0" style="position:absolute">
+	<defs>
+	  <clipPath id="flecha-clip-base" clipPathUnits="objectBoundingBox">
+		<path d="M 0 0 L 0.83 0 Q 0.84 0 0.85 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.85 0.97 Q 0.84 1 0.83 1 L 0 1 Z" />
+	  </clipPath>
+	  <clipPath id="flecha-clip-sm" clipPathUnits="objectBoundingBox">
+		<path d="M 0 0 L 0.85 0 Q 0.86 0 0.87 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.87 0.97 Q 0.86 1 0.85 1 L 0 1 Z" />
+	  </clipPath>
+	  <clipPath id="flecha-clip-lg" clipPathUnits="objectBoundingBox">
+		<path d="M 0 0 L 0.87 0 Q 0.88 0 0.89 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.89 0.97 Q 0.88 1 0.87 1 L 0 1 Z" />
+	  </clipPath>
+	</defs>
+  </svg>
 <style>
 	.schedules-image-clip {
-		clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%);
-	}
-
-	@media (min-width: 640px) {
-		.schedules-image-clip {
-			clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.schedules-image-clip {
-			clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
-		}
-	}
+    clip-path: url(#flecha-clip-base);
+}
+@media (min-width: 640px) {
+    .schedules-image-clip {
+        clip-path: url(#flecha-clip-sm);
+    }
+}
+@media (min-width: 1024px) {
+    .schedules-image-clip {
+        clip-path: url(#flecha-clip-lg);
+    }
+}
 </style>
