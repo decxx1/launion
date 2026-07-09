@@ -1,0 +1,117 @@
+---
+import TourPackageCard from "@/components/index/TourPackageCard.astro";
+
+const packages = [
+	{
+		title: "TERMAS DE RÍO HONDO",
+		image: "/images/termas-rio-hondo.jpg",
+		imageAlt: "Termas de Río Hondo",
+		duration: "5 Días | 7 Noches",
+		details: ["Desayuno y cena", "Habitación doble"],
+		price: "U$D 850",
+		elevated: false,
+	},
+	{
+		title: "TERMAS DE RÍO HONDO",
+		image: "/images/termas-rio-hondo.jpg",
+		imageAlt: "Termas de Río Hondo",
+		duration: "5 Días | 7 Noches",
+		details: ["Desayuno y cena", "Habitación doble"],
+		price: "U$D 850",
+		elevated: true,
+	},
+	{
+		title: "TERMAS DE RÍO HONDO",
+		image: "/images/termas-rio-hondo.jpg",
+		imageAlt: "Termas de Río Hondo",
+		duration: "5 Días | 7 Noches",
+		details: ["Desayuno y cena", "Habitación doble"],
+		price: "U$D 850",
+		elevated: false,
+	},
+];
+---
+
+<section class="relative overflow-hidden bg-[#dce8f0] py-12 sm:py-16 lg:py-20">
+	<!-- Rombo de fondo (lado derecho, hacia arriba) -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt="figura de rombo para el fondo"
+			class="rotate-180 absolute top-[28%] right-0 h-[110vh] w-auto max-w-none translate-x-[70%] -translate-y-1/2 select-none sm:top-[34%] sm:right-10 sm:h-[115vh] lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt="figura de rombo para el fondo"
+			class="rotate-180 absolute top-[35%] right-0 hidden h-[165vh] w-auto max-w-none translate-x-[56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[58%] 2xl:translate-x-[46%]"
+		/>
+	</div>
+
+	<div class="relative z-10 container mx-auto max-w-7xl px-4">
+		<!-- Encabezado -->
+		<div
+			class="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8 lg:gap-12"
+		>
+			<img
+				src="/images/colectivo-la-union.png"
+				alt="Colectivo de LA UNION S.R.L."
+				class="h-auto w-56 shrink-0 sm:w-64 lg:w-80 xl:w-96"
+				loading="lazy"
+			/>
+			<div class="text-center font-bold sm:text-left leading-tight">
+				<p
+					class="text-xl text-launion sm:text-2xl lg:text-3xl xl:text-4xl"
+				>
+					Descubrí nuestros
+				</p>
+				<h2
+					class="text-3xl text-launion sm:text-4xl lg:text-5xl xl:text-6xl"
+				>
+					paquetes turísticos
+				</h2>
+			</div>
+		</div>
+
+		<!-- Cards -->
+		<div
+			class="mt-12 grid grid-cols-1 items-end justify-items-center gap-8 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:mt-16 lg:grid-cols-3 lg:gap-8 xl:gap-10"
+		>
+			{
+				packages.map((pkg) => (
+					<TourPackageCard
+						title={pkg.title}
+						image={pkg.image}
+						imageAlt={pkg.imageAlt}
+						duration={pkg.duration}
+						details={pkg.details}
+						price={pkg.price}
+						elevated={pkg.elevated}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <clipPath id="tour-card-clip-base" clipPathUnits="objectBoundingBox">
+            <path
+                d="M 0 1 L 0 0.50 Q 0 0.48 0.022 0.457 L 0.44 0.025 Q 0.5 0 0.56 0.025 L 0.978 0.457 Q 1 0.48 1 0.50 L 1 1 Z"
+            ></path>
+        </clipPath>
+        <clipPath id="tour-card-clip-sm" clipPathUnits="objectBoundingBox">
+            <path
+                d="M 0 1 L 0 0.44 Q 0 0.42 0.022 0.40 L 0.44 0.025 Q 0.5 0 0.56 0.025 L 0.978 0.40 Q 1 0.42 1 0.44 L 1 1 Z"
+            ></path>
+        </clipPath>
+        <clipPath id="tour-card-clip-lg" clipPathUnits="objectBoundingBox">
+            <path
+                d="M 0 1 L 0 0.38 Q 0 0.36 0.022 0.343 L 0.44 0.025 Q 0.5 0 0.56 0.025 L 0.978 0.343 Q 1 0.36 1 0.38 L 1 1 Z"
+            ></path>
+        </clipPath>
+    </defs>
+</svg>

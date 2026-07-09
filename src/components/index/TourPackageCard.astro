@@ -1,0 +1,92 @@
+---
+interface Props {
+	title: string;
+	image: string;
+	imageAlt: string;
+	duration: string;
+	details: string[];
+	price: string;
+	priceLabel?: string;
+	elevated?: boolean;
+	href?: string;
+}
+
+const {
+	title,
+	image,
+	imageAlt,
+	duration,
+	details,
+	price,
+	priceLabel = "P/PAX",
+	elevated = false,
+	href = "#",
+} = Astro.props;
+---
+
+<a
+	href={href}
+	class:list={[
+		"group relative flex w-full max-w-xs flex-col transition-opacity hover:opacity-95 sm:max-w-sm",
+		elevated && "lg:-translate-y-10 xl:-translate-y-14",
+	]}
+>
+	<div class="tour-package-card-clip relative flex flex-col overflow-hidden bg-launion">
+		<div class="relative aspect-4/3 w-full shrink-0">
+			<img
+				src={image}
+				alt={imageAlt}
+				class="mt-1 gradient-transparent-to-b absolute inset-0 h-full w-full object-cover"
+				loading="lazy"
+			/>
+	
+		</div>
+
+		<div class="relative flex flex-1 flex-col px-5 pt-2 pb-8 sm:pb-10 sm:px-6">
+			<h3
+				class="mb-6 text-center text-lg sm:text-xl lg:text-2xl px-8 font-bold tracking-wide text-white uppercase sm:mb-8"
+			>
+				{title}
+			</h3>
+
+			<div class="mt-auto tracking-normal max-w-[55%] space-y-1 text-xs sm:text-sm font-medium text-white">
+				<p>{duration}</p>
+				{
+					details.map((detail) => (
+						<p>{detail}</p>
+					))
+				}
+			</div>
+		</div>
+
+		<div
+			class="absolute right-4 bottom-0 rounded-tl-2xl rounded-tr-2xl bg-launion-extra-light px-4 pt-2 pb-8 sm:pb-10 text-right text-white sm:px-5"
+		>
+			<p class="text-2xl font-bold leading-none sm:text-3xl lg:text-4xl">
+				{price}
+			</p>
+			<p class="mt-1 text-xs font-medium sm:text-sm">{priceLabel}</p>
+		</div>
+	</div>
+</a>
+
+<style>
+	.tour-package-card-clip {
+		clip-path: url(#tour-card-clip-base);
+	}
+
+	@media (min-width: 640px) {
+		.tour-package-card-clip {
+			clip-path: url(#tour-card-clip-sm);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.tour-package-card-clip {
+			clip-path: url(#tour-card-clip-lg);
+		}
+	}
+	.gradient-transparent-to-b {
+		mask-image: linear-gradient(black 70%, transparent);
+	}
+</style>
