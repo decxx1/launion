@@ -1,0 +1,202 @@
+---
+const valores = [
+	["Respeto", "Responsabilidad", "Seriedad", "Empatía"],
+	["Personalización", "Calidez humana", "Confianza", "Compromiso"],
+	["Seguridad", "Eficiencia", "Innovación"],
+];
+---
+
+<section class="relative overflow-hidden bg-white py-10 sm:py-12 lg:py-16 xl:py-20">
+	<!-- Rombo de fondo (lado izquierdo) -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-[72%] left-0 h-[150vh] sm:h-[170vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-1/2 left-0 hidden h-[190vh] xl:h-[240vh] w-auto max-w-none translate-x-[-56%] translate-y-[-44%] select-none lg:block xl:translate-x-[-58%] 2xl:translate-x-[-44%]"
+		/>
+	</div>
+
+	<div
+		class="relative z-10 container mx-auto px-4 lg:min-h-144 xl:min-h-160"
+	>
+		<div
+			class="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24"
+		>
+			<!-- Nosotros -->
+			<div>
+				<div
+					class="relative mb-5 inline-flex h-11 sm:h-12 min-w-48 sm:min-w-56 md:min-w-64 md:h-20 items-center"
+				>
+					<img
+						src="/images/shapes/arrow-right-blue.svg"
+						alt="flecha derecha"
+						class="absolute inset-0 h-full w-full object-fill"
+						aria-hidden="true"
+					/>
+					<h2
+						class="text-xl sm:text-4xl lg:text-5xl relative z-10 pl-4 lg:pl-8 pr-4 lg:pr-14 font-bold text-white"
+					>
+						Nosotros
+					</h2>
+				</div>
+				<p class="text-sm sm:text-base lg:text-lg">
+					Somos una empresa de transporte con más de 50 años de trayectoria
+					que nació con un objetivo claro: unir personas, lugares e historias.
+					Crecimos junto a nuestra comunidad.<br />
+					Logramos expandir nuestro servicio a todo el departamento de General Alvear,
+					incorporamos nuevas modalidades de traslado y sumamos destinos que nos
+					permitieron ir cada vez más lejos, dentro de la provincia y a nivel nacional e internacional.<br />
+					Cada paso busca mejorar la experiencia de quienes viajan con nosotros.<br />
+					Hoy, ese compromiso se refleja en un servicio de última generación,
+					con unidades modernas, detalles de confort y servicio a bordo.<br />
+					Nuestro equipo acompaña en cada tramo, brindando atención constante y profesional.<br />
+					Ofrecemos una experiencia integral que comienza en el viaje y continúa en cada destino.
+				</p>
+			</div>
+
+			<!-- Misión y Visión escalonadas -->
+			<div class="flex flex-col gap-10 sm:gap-12 lg:gap-14 lg:pt-2">
+				<div class="lg:max-w-md">
+					<div
+						class="relative mb-4 inline-flex h-11 min-w-44 items-center sm:h-12 sm:min-w-52"
+					>
+						<img
+							src="/images/shapes/arrow-right-blue.svg"
+							alt=""
+							class="absolute inset-0 h-full w-full object-fill"
+							aria-hidden="true"
+						/>
+						<h2
+							class="relative z-10 pl-8 pr-14 text-lg sm:text-xl md:text-2xl font-bold text-white"
+						>
+							Misión
+						</h2>
+					</div>
+					<p class="text-sm sm:text-base">
+						Acompañar a cada persona en su viaje,
+						brindando un servicio confiable, seguro y de calidad,
+						con un equipo comprometido y unidades que
+						garantizan comodidad en cada trayecto.
+					</p>
+				</div>
+
+				<div class="lg:ml-16 lg:max-w-md xl:ml-24">
+					<div
+						class="relative mb-4 inline-flex h-11 min-w-44 items-center sm:h-12 sm:min-w-52"
+					>
+						<img
+							src="/images/shapes/arrow-right-blue.svg"
+							alt=""
+							class="absolute inset-0 h-full w-full object-fill"
+							aria-hidden="true"
+						/>
+						<h2
+							class="relative z-10 pl-8 pr-14 text-lg sm:text-xl md:text-2xl font-bold text-white"
+						>
+							Visión
+						</h2>
+					</div>
+					<p class="text-sm sm:text-base">
+						Ser referentes en transporte de pasajeros, elegidos
+						por la confianza, la cercanía y la experiencia que
+						ofrecemos en cada viaje.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Imagen del colectivo -->
+	<div
+		class="nosotros-image-clip relative z-10 mt-10 ml-auto aspect-855/350 sm:aspect-855/300 md:aspect-855/250 lg:aspect-855/200 xl:aspect-855/155 w-[92%] overflow-hidden sm:mt-12  sm:w-[68%] md:w-[62%] lg:absolute lg:top-[62%] lg:right-0 lg:mt-0 lg:w-[58%] lg:-translate-y-1/2 xl:top-[65%] xl:w-[55%]"
+	>
+		<img
+			src="/images/home/nosotros-la-union.png"
+			alt="Colectivo de LA UNION S.R.L. en ruta"
+			class="absolute inset-0 h-full w-full object-cover object-left md:object-center"
+			loading="lazy"
+		/>
+		<div
+			class="pointer-events-none absolute inset-0 bg-linear-to-l from-launion from-0% via-launion/30 via-25% sm:via-35% to-transparent to-100%"
+			aria-hidden="true"
+		/>
+	</div>
+
+	<!-- Valores -->
+	<div class="relative z-10 container mx-auto mt-10 max-w-7xl px-4 sm:mt-12 lg:mt-16">
+		<div class="lg:max-w-4xl">
+			<div
+				class="relative mb-5 inline-flex h-11 min-w-48 items-center sm:h-12 sm:min-w-56 md:h-20 md:min-w-64"
+			>
+				<img
+					src="/images/shapes/arrow-right-blue.svg"
+					alt="flecha derecha"
+					class="absolute inset-0 h-full w-full object-fill"
+					aria-hidden="true"
+				/>
+				<h2
+					class="text-xl sm:text-4xl md:text-5xl relative z-10 pl-8 pr-14 font-bold text-white"
+				>
+					Valores
+				</h2>
+			</div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 md:grid-cols-3 sm:gap-x-8 px-6">
+				{
+					valores.map((column) => (
+						<ul class="text-base font-semibold sm:font-bold sm:text-lg lg:text-xl list-disc">
+							{column.map((valor) => (
+								<li>{valor}</li>
+							))}
+						</ul>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+	<defs>
+		<clipPath id="flecha-clip-right-base" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.17 0 Q 0.16 0 0.15 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.15 0.97 Q 0.16 1 0.17 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="flecha-clip-right-sm" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.15 0 Q 0.14 0 0.13 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.13 0.97 Q 0.14 1 0.15 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="flecha-clip-right-lg" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.13 0 Q 0.12 0 0.11 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.11 0.97 Q 0.12 1 0.13 1 L 1 1 Z"
+			></path>
+		</clipPath>
+	</defs>
+</svg>
+
+<style>
+	.nosotros-image-clip {
+		clip-path: url(#flecha-clip-right-base);
+	}
+
+	@media (min-width: 640px) {
+		.nosotros-image-clip {
+			clip-path: url(#flecha-clip-right-sm);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.nosotros-image-clip {
+			clip-path: url(#flecha-clip-right-lg);
+		}
+	}
+</style>
