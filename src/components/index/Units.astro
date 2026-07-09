@@ -1,0 +1,287 @@
+---
+const mediaDistanciaFeatures = [
+	"Semicama para recorridos provinciales.",
+	"Servicio a bordo: bebida y snack.",
+	"Pantallas de 23''.",
+	"Wifi.",
+];
+
+const camaEjecutivoFeatures = [
+	"Servicio a bordo: bebida, snack, cena caliente, mantas y almohadas individuales.",
+	"Pantallas de 23 pulgadas",
+	"Wifi y puertos USB",
+	"Posiciones reclinables de 160°",
+];
+
+const camaSuiteFeatures = [
+	"Servicio a bordo: bebida, snack, cena caliente, mantas y almohadas individuales.",
+	"Pantallas de 23 pulgadas",
+	"Wifi y puertos USB",
+	"Reclinación total",
+];
+---
+
+<section class="relative overflow-hidden bg-white py-10 sm:py-12 lg:py-16">
+	<!-- Rombo de fondo -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-[72%] left-0 h-[110vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 sm:h-[115vh] lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-1/2 left-0 hidden h-[165vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
+		/>
+	</div>
+
+	<!-- Imagen superior -->
+	<div
+		class="units-top-clip relative z-10 ml-auto aspect-900/130 w-[90%] overflow-hidden sm:aspect-900/120 lg:aspect-900/110"
+	>
+		<img
+			src="/images/home/unidades.png"
+			alt="Interiores de colectivos de LA UNION S.R.L."
+			class="absolute inset-0 h-full w-full object-cover object-center"
+			loading="lazy"
+		/>
+		<div
+			class="pointer-events-none absolute inset-0 bg-linear-to-l from-launion from-0% via-launion/85 via-30% to-transparent to-50%"
+			aria-hidden="true"
+		/>
+		<div
+			class="absolute inset-y-0 right-0 flex w-[42%] items-center justify-end px-4 sm:px-8 lg:px-12"
+		>
+			<h2
+				class="text-right text-lg leading-tight font-bold text-white sm:text-2xl lg:text-3xl xl:text-4xl"
+			>
+				Servicio<br />
+				<span class="text-xl sm:text-3xl lg:text-4xl xl:text-5xl"
+					>en nuestras unidades</span
+				>
+			</h2>
+		</div>
+	</div>
+
+	<div class="relative z-10 container mx-auto max-w-7xl px-4">
+		<!-- Intro -->
+		<div class="mx-auto mt-8 max-w-4xl space-y-2 text-center sm:mt-10">
+			<p class="text-sm sm:text-base lg:text-lg">
+				Viajar con Unión es hacerlo con confort, seguridad y tecnología al
+				servicio de cada pasajero.
+			</p>
+			<p class="text-sm sm:text-base lg:text-lg">
+				Contamos con unidades preparadas para distintos tipos de recorrido,
+				desde traslados urbanos hasta viajes de media y larga distancia.
+			</p>
+		</div>
+
+		<!-- Cards -->
+		<div class="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+				<!-- Urbano -->
+				<div
+					class="flex items-start gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
+				>
+					<img
+						src="/images/icons/icon-bus.svg"
+						alt=""
+						class="size-12 shrink-0 sm:size-14"
+						aria-hidden="true"
+					/>
+					<div>
+						<h3 class="text-lg font-bold uppercase sm:text-xl">Urbano</h3>
+						<p class="mt-1 text-sm sm:text-base">
+							Micros destinados a recorridos cortos o urbanos.
+						</p>
+					</div>
+				</div>
+
+				<!-- Media distancia -->
+				<div
+					class="flex items-start gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
+				>
+					<img
+						src="/images/icons/icon-bus.svg"
+						alt=""
+						class="size-12 shrink-0 sm:size-14"
+						aria-hidden="true"
+					/>
+					<div>
+						<h3 class="text-lg font-bold uppercase sm:text-xl">
+							Media distancia
+						</h3>
+						<ul class="mt-2 space-y-0.5 text-sm sm:text-base">
+							{
+								mediaDistanciaFeatures.map((feature) => (
+									<li>{feature}</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Larga distancia -->
+			<div class="rounded-2xl bg-launion px-5 py-6 text-white sm:px-8 sm:py-8">
+				<h3
+					class="mb-6 text-center text-lg font-bold uppercase sm:mb-8 sm:text-xl lg:text-2xl"
+				>
+					Larga distancia
+				</h3>
+				<div
+					class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-white/30"
+				>
+					<!-- Cama ejecutivo -->
+					<div
+						class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6 lg:pr-8"
+					>
+						<img
+							src="/images/icons/ejecutive.svg"
+							alt=""
+							class="mx-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
+							aria-hidden="true"
+						/>
+						<div>
+							<h4 class="text-base font-bold uppercase sm:text-lg">
+								Cama ejecutivo
+							</h4>
+							<ul class="mt-2 space-y-1 text-sm sm:text-base">
+								{
+									camaEjecutivoFeatures.map((feature) => (
+										<li>{feature}</li>
+									))
+								}
+							</ul>
+						</div>
+					</div>
+
+					<!-- Cama suite -->
+					<div
+						class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6 lg:pl-8"
+					>
+						<img
+							src="/images/icons/suite.svg"
+							alt=""
+							class="mx-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
+							aria-hidden="true"
+						/>
+						<div>
+							<h4 class="text-base font-bold uppercase sm:text-lg">
+								Cama suite
+							</h4>
+							<ul class="mt-2 space-y-1 text-sm sm:text-base">
+								{
+									camaSuiteFeatures.map((feature) => (
+										<li>{feature}</li>
+									))
+								}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Outro -->
+		<p class="mx-auto mt-8 max-w-4xl text-center text-sm sm:mt-10 sm:text-base lg:text-lg">
+			Nuestras unidades están equipadas con sistemas avanzados como frenos ABS,
+			control de estabilidad y señalización inteligente, junto a un
+			mantenimiento constante que garantiza viajes confiables.
+		</p>
+	</div>
+
+	<!-- Imagen inferior -->
+	<div
+		class="units-bottom-clip relative z-10 mt-8 mr-auto aspect-900/130 w-[90%] overflow-hidden sm:mt-10 sm:aspect-900/120 lg:aspect-900/110"
+	>
+		<img
+			src="/images/home/suite-ejecutivo.png"
+			alt="Cama ejecutivo y suite de LA UNION S.R.L."
+			class="absolute inset-0 h-full w-full object-cover object-center"
+			loading="lazy"
+		/>
+		<div
+			class="pointer-events-none absolute inset-0 bg-linear-to-r from-launion from-0% via-launion/85 via-30% to-transparent to-50%"
+			aria-hidden="true"
+		/>
+		<div
+			class="absolute inset-y-0 left-0 flex w-[50%] items-center px-4 sm:px-8 lg:px-12"
+		>
+			<p
+				class="text-base leading-tight font-bold text-white sm:text-xl lg:text-2xl xl:text-3xl"
+			>
+				Con Unión disfrutás cada kilómetro del camino.
+			</p>
+		</div>
+	</div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+	<defs>
+		<clipPath id="units-clip-top-base" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.17 0 Q 0.16 0 0.15 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.15 0.97 Q 0.16 1 0.17 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="units-clip-top-sm" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.15 0 Q 0.14 0 0.13 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.13 0.97 Q 0.14 1 0.15 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="units-clip-top-lg" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.13 0 Q 0.12 0 0.11 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.11 0.97 Q 0.12 1 0.13 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="units-clip-bottom-base" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 0 0 L 0.83 0 Q 0.84 0 0.85 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.85 0.97 Q 0.84 1 0.83 1 L 0 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="units-clip-bottom-sm" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 0 0 L 0.85 0 Q 0.86 0 0.87 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.87 0.97 Q 0.86 1 0.85 1 L 0 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id="units-clip-bottom-lg" clipPathUnits="objectBoundingBox">
+			<path
+				d="M 0 0 L 0.87 0 Q 0.88 0 0.89 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.89 0.97 Q 0.88 1 0.87 1 L 0 1 Z"
+			></path>
+		</clipPath>
+	</defs>
+</svg>
+
+<style>
+	.units-top-clip {
+		clip-path: url(#units-clip-top-base);
+	}
+
+	.units-bottom-clip {
+		clip-path: url(#units-clip-bottom-base);
+	}
+
+	@media (min-width: 640px) {
+		.units-top-clip {
+			clip-path: url(#units-clip-top-sm);
+		}
+
+		.units-bottom-clip {
+			clip-path: url(#units-clip-bottom-sm);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.units-top-clip {
+			clip-path: url(#units-clip-top-lg);
+		}
+
+		.units-bottom-clip {
+			clip-path: url(#units-clip-bottom-lg);
+		}
+	}
+</style>
