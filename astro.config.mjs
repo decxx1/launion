@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -14,5 +14,14 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [react(), sitemap()]
+  integrations: [react(), sitemap()],
+  env: {
+    schema: {
+      WHATSAPP_PHONE: envField.string({ context: "client", access: "public", optional: true }),
+      EMAIL: envField.string({ context: "client", access: "public", optional: true }),
+      SECRET_KEY: envField.string({ context: "client", access: "public", optional: true }),
+      SITE_KEY: envField.string({ context: "client", access: "public", optional: true }),
+      ENDPOINT: envField.string({ context: "client", access: "public", optional: true }),
+    }
+  }
 });

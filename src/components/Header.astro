@@ -9,35 +9,65 @@ const navLinks = [
 ];
 ---
 
-<!-- Desktop: nav en pestaña blanca superior derecha -->
-<header class="absolute top-0 right-0 z-50 hidden lg:block">
-	<div class="rounded-bl-[4.5rem] bg-white py-5 pr-8 pl-10 xl:py-6 xl:pr-12 xl:pl-28">
-		<nav aria-label="Navegación principal">
-			<ul class="flex items-center gap-4 text-sm font-semibold tracking-wide whitespace-nowrap text-black xl:gap-6 xl:text-base 2xl:gap-7 2xl:text-lg">
-				{
-					navLinks.map((link) => (
-						<li>
-							<a
-								href={link.href}
-								class="transition-opacity hover:opacity-70"
-							>
-								{link.label}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</nav>
-	</div>
-</header>
+<!-- Desktop: pestaña superior derecha → dos islas pill (logo + nav) al scrollear -->
+<div class="pointer-events-none fixed inset-x-0 top-0 z-50 hidden h-0 lg:block">
+	<header
+		id="desktop-header"
+		class="group/nav pointer-events-auto absolute top-0 left-full z-50 -translate-x-full transition-[top,left,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform data-scrolled:top-4 data-scrolled:left-[calc(50%-2.5rem)] data-scrolled:-translate-x-1/2"
+	>
+		<div
+			class="flex items-center gap-0 rounded-bl-[4.5rem] bg-white py-5 pr-8 pl-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:py-6 xl:pr-12 xl:pl-28 group-data-scrolled/nav:gap-3 group-data-scrolled/nav:rounded-none group-data-scrolled/nav:bg-transparent group-data-scrolled/nav:p-0 group-data-scrolled/nav:xl:gap-4"
+		>
+			<a
+				href="/"
+				class="header-logo block max-w-0 shrink-0 overflow-hidden opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:max-w-[18rem] group-data-scrolled/nav:rounded-full group-data-scrolled/nav:bg-white group-data-scrolled/nav:px-5 group-data-scrolled/nav:py-3 group-data-scrolled/nav:opacity-100 group-data-scrolled/nav:shadow-[0_10px_40px_-12px_rgba(11,88,134,0.28)] group-data-scrolled/nav:xl:max-w-[20rem] group-data-scrolled/nav:xl:px-6 group-data-scrolled/nav:xl:py-3.5"
+				aria-label="LA UNION S.R.L. - Inicio"
+				tabindex="-1"
+				aria-hidden="true"
+			>
+				<img
+					src="/images/logos/logo-horizontal-azul.svg"
+					alt=""
+					class="h-auto w-44 xl:w-52"
+					width="522"
+					height="35"
+				/>
+			</a>
+			<nav
+				aria-label="Navegación principal"
+				class="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:rounded-full group-data-scrolled/nav:bg-white group-data-scrolled/nav:px-8 group-data-scrolled/nav:py-3.5 group-data-scrolled/nav:shadow-[0_10px_40px_-12px_rgba(11,88,134,0.28)] group-data-scrolled/nav:xl:px-10 group-data-scrolled/nav:xl:py-4"
+			>
+				<ul
+					class="flex items-center justify-center gap-4 text-sm font-semibold tracking-wide whitespace-nowrap text-black transition-[gap,font-size] duration-500 xl:gap-6 xl:text-base 2xl:gap-7 2xl:text-lg group-data-scrolled/nav:gap-3.5 group-data-scrolled/nav:text-[0.8125rem] group-data-scrolled/nav:xl:gap-5 group-data-scrolled/nav:xl:text-sm group-data-scrolled/nav:2xl:gap-5 group-data-scrolled/nav:2xl:text-base"
+				>
+					{
+						navLinks.map((link) => (
+							<li>
+								<a
+									href={link.href}
+									class="transition-colors hover:text-launion"
+								>
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</div>
+	</header>
+</div>
 
 <!-- Mobile: logo + hamburguesa -->
-<header class="absolute top-0 right-0 left-0 z-50 flex items-center justify-between px-5 py-5 lg:hidden">
+<header
+	id="mobile-header"
+	class="group/mobile fixed top-0 right-0 left-0 z-50 flex items-center justify-between px-5 py-5 transition-[background-color,backdrop-filter,padding,box-shadow] duration-500 ease-out lg:hidden data-scrolled:bg-launion/90 data-scrolled:py-3.5 data-scrolled:shadow-lg data-scrolled:backdrop-blur-md"
+>
 	<a href="/" aria-label="LA UNION S.R.L. - Inicio">
 		<img
-			src="/images/logos/logo.svg"
+			src="/images/logos/logo-horizontal-blanco.svg"
 			alt="LA UNION S.R.L."
-			class="h-12 xs:h-14 sm:h-16 md:h-20 w-auto"
+			class="h-12 w-auto transition-[height] duration-500 xs:h-14 sm:h-16 md:h-20 group-data-scrolled/mobile:h-3 group-data-scrolled/mobile:xs:h-4"
 		/>
 	</a>
 	<button
@@ -95,11 +125,34 @@ const navLinks = [
 </div>
 
 <script>
+	const desktopHeader = document.getElementById("desktop-header");
+	const mobileHeader = document.getElementById("mobile-header");
+	const headerLogo = desktopHeader?.querySelector(".header-logo");
+	const SCROLL_THRESHOLD = 48;
+
+	function setScrolled(scrolled: boolean) {
+		desktopHeader?.toggleAttribute("data-scrolled", scrolled);
+		mobileHeader?.toggleAttribute("data-scrolled", scrolled);
+		document.documentElement.classList.toggle("header-scrolled", scrolled);
+
+		if (headerLogo instanceof HTMLAnchorElement) {
+			headerLogo.tabIndex = scrolled ? 0 : -1;
+			headerLogo.setAttribute("aria-hidden", scrolled ? "false" : "true");
+		}
+	}
+
+	function onScroll() {
+		setScrolled(window.scrollY > SCROLL_THRESHOLD);
+	}
+
+	onScroll();
+	window.addEventListener("scroll", onScroll, { passive: true });
+
 	const menuBtn = document.getElementById("mobile-menu-btn");
 	const menu = document.getElementById("mobile-menu");
 	const backdrop = document.getElementById("mobile-menu-backdrop");
 	const navPanel = menu?.querySelector("nav");
-	const navLinks = menu?.querySelectorAll(".mobile-nav-link");
+	const mobileNavLinks = menu?.querySelectorAll(".mobile-nav-link");
 
 	function openMenu() {
 		if (!menu || !menuBtn || !navPanel) return;
@@ -128,5 +181,5 @@ const navLinks = [
 	});
 
 	backdrop?.addEventListener("click", closeMenu);
-	navLinks?.forEach((link) => link.addEventListener("click", closeMenu));
+	mobileNavLinks?.forEach((link) => link.addEventListener("click", closeMenu));
 </script>

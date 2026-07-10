@@ -1,0 +1,125 @@
+---
+interface Props {
+	id: string;
+	image: string;
+	imageAlt: string;
+	/** Text on the right (arrow clip on left) or left (arrow clip on right) */
+	align?: "end" | "start";
+	imageClass?: string;
+	loading?: "lazy" | "eager";
+}
+
+const {
+	id,
+	image,
+	imageAlt,
+	align = "end",
+	imageClass = "object-cover object-center",
+	loading = "lazy",
+} = Astro.props;
+
+const isEnd = align === "end";
+const clipBase = `${id}-base`;
+const clipSm = `${id}-sm`;
+const clipLg = `${id}-lg`;
+---
+
+<div
+	class:list={[
+		"arrow-image-banner relative z-10 overflow-hidden",
+		isEnd
+			? "ml-auto aspect-900/200 w-full xs:w-[90%] sm:aspect-900/120 lg:aspect-900/110"
+			: "mr-auto mt-8 aspect-900/200 w-full sm:mt-10 sm:aspect-900/120 sm:w-[90%] lg:aspect-900/110",
+	]}
+	data-align={align}
+	style={`--clip-base: url(#${clipBase}); --clip-sm: url(#${clipSm}); --clip-lg: url(#${clipLg});`}
+>
+	<img
+		src={image}
+		alt={imageAlt}
+		class:list={[
+			"absolute inset-0 h-full w-full",
+			imageClass,
+			!isEnd && "pl-8 sm:pl-10 md:pl-44 lg:pl-56 xl:pl-80",
+		]}
+		loading={loading}
+	/>
+	<div
+		class:list={[
+			"pointer-events-none absolute inset-0",
+			isEnd
+				? "bg-linear-to-l from-launion from-0% via-launion/85 via-30% to-transparent to-50%"
+				: "bg-linear-to-r from-launion from-0% via-launion/85 via-30% to-transparent to-50%",
+		]}
+		aria-hidden="true"
+	/>
+	<div
+		class:list={[
+			"absolute inset-y-0 flex items-center",
+			isEnd
+				? "right-0 w-[42%] justify-end px-4 sm:px-8 lg:px-12"
+				: "left-0 w-[70%] xs:w-[42%] sm:w-[50%] lg:w-[42%] px-4 sm:px-8 lg:px-12",
+		]}
+	>
+		<div
+			class:list={[
+				"leading-tight font-bold text-white",
+				isEnd
+					? "text-left text-lg sm:text-2xl md:text-3xl xl:text-4xl"
+					: "text-base xs:text-lg sm:text-xl md:text-2xl xl:text-4xl",
+			]}
+		>
+			<slot />
+		</div>
+	</div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+	<defs>
+		{
+			isEnd ? (
+				<>
+					<clipPath id={clipBase} clipPathUnits="objectBoundingBox">
+						<path d="M 1 0 L 0.17 0 Q 0.16 0 0.15 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.15 0.97 Q 0.16 1 0.17 1 L 1 1 Z" />
+					</clipPath>
+					<clipPath id={clipSm} clipPathUnits="objectBoundingBox">
+						<path d="M 1 0 L 0.15 0 Q 0.14 0 0.13 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.13 0.97 Q 0.14 1 0.15 1 L 1 1 Z" />
+					</clipPath>
+					<clipPath id={clipLg} clipPathUnits="objectBoundingBox">
+						<path d="M 1 0 L 0.13 0 Q 0.12 0 0.11 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.11 0.97 Q 0.12 1 0.13 1 L 1 1 Z" />
+					</clipPath>
+				</>
+			) : (
+				<>
+					<clipPath id={clipBase} clipPathUnits="objectBoundingBox">
+						<path d="M 0 0 L 0.83 0 Q 0.84 0 0.85 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.85 0.97 Q 0.84 1 0.83 1 L 0 1 Z" />
+					</clipPath>
+					<clipPath id={clipSm} clipPathUnits="objectBoundingBox">
+						<path d="M 0 0 L 0.85 0 Q 0.86 0 0.87 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.87 0.97 Q 0.86 1 0.85 1 L 0 1 Z" />
+					</clipPath>
+					<clipPath id={clipLg} clipPathUnits="objectBoundingBox">
+						<path d="M 0 0 L 0.87 0 Q 0.88 0 0.89 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.89 0.97 Q 0.88 1 0.87 1 L 0 1 Z" />
+					</clipPath>
+				</>
+			)
+		}
+	</defs>
+</svg>
+
+<style>
+	.arrow-image-banner {
+		clip-path: var(--clip-base);
+	}
+
+	@media (min-width: 640px) {
+		.arrow-image-banner {
+			clip-path: var(--clip-sm);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.arrow-image-banner {
+			clip-path: var(--clip-lg);
+		}
+	}
+</style>

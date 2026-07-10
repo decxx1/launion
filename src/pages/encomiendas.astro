@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Encomiendas from "@/components/encomiendas/Encomiendas.astro";
+import { SITE_KEY } from "astro:env/client";
+---
+
+<Layout
+	title="Encomiendas Diarias Seguras y Ágiles | LA UNION"
+	canonical="https://launionsrl.com.ar/encomiendas"
+	metaDescription="Enviá encomiendas con LA UNION S.R.L. Servicio diario entre ciudades, con entregas ágiles y seguras. Consultá puntos de entrega y retiro en Mendoza."
+	metaImg="/images/encomiendas/encomiendas.png"
+>
+	<Encomiendas />
+</Layout>
+<!-- recaptcha v3 -->
+<script async src={'https://www.google.com/recaptcha/api.js?render=' + SITE_KEY}></script>

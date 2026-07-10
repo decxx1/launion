@@ -1,4 +1,6 @@
 ---
+import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
+
 const mediaDistanciaFeatures = [
 	"Semicama para recorridos provinciales.",
 	"Servicio a bordo: bebida y snack.",
@@ -43,31 +45,17 @@ const camaSuiteFeatures = [
 		/>
 	</div>
 
-	<!-- Imagen superior -->
-	<div
-		class="units-top-clip relative z-10 ml-auto aspect-900/200 sm:aspect-900/120 lg:aspect-900/110 w-full xs:w-[90%] overflow-hidden"
+	<ArrowImageBanner
+		id="servicios-top"
+		image="/images/servicios/unidades.png"
+		imageAlt="Interiores de colectivos de LA UNION S.R.L."
+		align="end"
 	>
-		<img
-			src="/images/home/unidades.png"
-			alt="Interiores de colectivos de LA UNION S.R.L."
-			class="absolute inset-0 h-full w-full object-cover object-center"
-			loading="lazy"
-		/>
-		<div
-			class="pointer-events-none absolute inset-0 bg-linear-to-l from-launion from-0% via-launion/85 via-30% to-transparent to-50%"
-			aria-hidden="true"
-		/>
-		<div
-			class="absolute inset-y-0 right-0 flex w-[42%] items-center justify-end px-4 sm:px-8 lg:px-12"
-		>
-			<h2
-				class="text-left text-lg sm:text-2xl md:text-3xl xl:text-4xl leading-tight font-bold text-white"
-			>
-				Servicio <br class="hidden sm:block" />
-				en nuestras unidades
-			</h2>
-		</div>
-	</div>
+		<h2>
+			Servicio <br class="hidden sm:block" />
+			en nuestras unidades
+		</h2>
+	</ArrowImageBanner>
 
 	<div class="relative z-10 container mx-auto max-w-7xl px-4">
 		<!-- Intro -->
@@ -207,93 +195,12 @@ const camaSuiteFeatures = [
 		</p>
 	</div>
 
-	<!-- Imagen inferior -->
-	<div
-		class="units-bottom-clip relative z-10 mt-8 mr-auto aspect-900/200 sm:aspect-900/120 lg:aspect-900/110 w-full sm:w-[90%] overflow-hidden sm:mt-10"
+	<ArrowImageBanner
+		id="servicios-bottom"
+		image="/images/servicios/suite-ejecutivo.png"
+		imageAlt="Cama ejecutivo y suite de LA UNION S.R.L."
+		align="start"
 	>
-		<img
-			src="/images/home/suite-ejecutivo.png"
-			alt="Cama ejecutivo y suite de LA UNION S.R.L."
-			class="pl-8 sm:pl-10 md:pl-44 lg:pl-56 xl:pl-80 absolute inset-0 h-full w-full object-cover object-center"
-			loading="lazy"
-		/>
-		<div
-			class="pointer-events-none absolute inset-0 bg-linear-to-r from-launion from-0% via-launion/85 via-30% to-transparent to-50%"
-			aria-hidden="true"
-		/>
-		<div
-			class="absolute inset-y-0 left-0 flex w-[70%] xs:w-[42%] sm:w-[50%] lg:w-[42%] items-center px-4 sm:px-8 lg:px-12"
-		>
-			<p
-				class="text-base xs:text-lg sm:text-xl md:text-2xl xl:text-4xl leading-tight font-bold text-white"
-			>
-				Con Unión disfrutás cada kilómetro del camino.
-			</p>
-		</div>
-	</div>
+		<p>Con Unión disfrutás cada kilómetro del camino.</p>
+	</ArrowImageBanner>
 </section>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-	<defs>
-		<clipPath id="units-clip-top-base" clipPathUnits="objectBoundingBox">
-			<path
-				d="M 1 0 L 0.17 0 Q 0.16 0 0.15 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.15 0.97 Q 0.16 1 0.17 1 L 1 1 Z"
-			></path>
-		</clipPath>
-		<clipPath id="units-clip-top-sm" clipPathUnits="objectBoundingBox">
-			<path
-				d="M 1 0 L 0.15 0 Q 0.14 0 0.13 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.13 0.97 Q 0.14 1 0.15 1 L 1 1 Z"
-			></path>
-		</clipPath>
-		<clipPath id="units-clip-top-lg" clipPathUnits="objectBoundingBox">
-			<path
-				d="M 1 0 L 0.13 0 Q 0.12 0 0.11 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.11 0.97 Q 0.12 1 0.13 1 L 1 1 Z"
-			></path>
-		</clipPath>
-		<clipPath id="units-clip-bottom-base" clipPathUnits="objectBoundingBox">
-			<path
-				d="M 0 0 L 0.83 0 Q 0.84 0 0.85 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.85 0.97 Q 0.84 1 0.83 1 L 0 1 Z"
-			></path>
-		</clipPath>
-		<clipPath id="units-clip-bottom-sm" clipPathUnits="objectBoundingBox">
-			<path
-				d="M 0 0 L 0.85 0 Q 0.86 0 0.87 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.87 0.97 Q 0.86 1 0.85 1 L 0 1 Z"
-			></path>
-		</clipPath>
-		<clipPath id="units-clip-bottom-lg" clipPathUnits="objectBoundingBox">
-			<path
-				d="M 0 0 L 0.87 0 Q 0.88 0 0.89 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.89 0.97 Q 0.88 1 0.87 1 L 0 1 Z"
-			></path>
-		</clipPath>
-	</defs>
-</svg>
-
-<style>
-	.units-top-clip {
-		clip-path: url(#units-clip-top-base);
-	}
-
-	.units-bottom-clip {
-		clip-path: url(#units-clip-bottom-base);
-	}
-
-	@media (min-width: 640px) {
-		.units-top-clip {
-			clip-path: url(#units-clip-top-sm);
-		}
-
-		.units-bottom-clip {
-			clip-path: url(#units-clip-bottom-sm);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.units-top-clip {
-			clip-path: url(#units-clip-top-lg);
-		}
-
-		.units-bottom-clip {
-			clip-path: url(#units-clip-bottom-lg);
-		}
-	}
-</style>
