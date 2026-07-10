@@ -7,17 +7,21 @@ const mediaDistanciaFeatures = [
 ];
 
 const camaEjecutivoFeatures = [
-	"Servicio a bordo: bebida, snack, cena caliente, mantas y almohadas individuales.",
+	"Servicio a bordo: comida fría o caliente a elección, postre y bebida, merienda y desayuno.",
 	"Pantallas de 23 pulgadas",
 	"Wifi y puertos USB",
-	"Posiciones reclinables de 160°",
+	"Reclinación 160°, reposacabezas ergonómico y climatización integral.",
+	"Mantas y almohadas individuales.",
+	"Atención personalizada.",
 ];
 
 const camaSuiteFeatures = [
-	"Servicio a bordo: bebida, snack, cena caliente, mantas y almohadas individuales.",
-	"Pantallas de 23 pulgadas",
+	"Servicio a bordo: comida fría o caliente a elección, postre y bebida, merienda y desayuno.",
+	"Pantallas individuales.",
 	"Wifi y puertos USB",
-	"Reclinación total",
+	"Reclinación total, reposacabezas ergonómico y climatización integral.",
+	"Mantas y almohadas individuales.",
+	"Atención personalizada.",
 ];
 ---
 
@@ -95,8 +99,8 @@ const camaSuiteFeatures = [
 					</div>
 					<div class="col-span-12 xs:col-span-9 self-start">
 						<h3 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">Urbano</h3>
-						<p class="mt-1 text-sm sm:text-base font-medium">
-							Micros destinados a recorridos cortos o urbanos.
+						<p class="mt-1 text-sm sm:text-base font-medium list-disc">
+							<li>Micros destinados a recorridos cortos o urbanos.</li>
 						</p>
 					</div>
 				</div>
@@ -117,7 +121,7 @@ const camaSuiteFeatures = [
 						<h3 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
 							Media distancia
 						</h3>
-						<ul class="mt-2 space-y-0.5 text-sm sm:text-base font-medium">
+						<ul class="mt-2 space-y-0.5 text-sm sm:text-base font-medium list-disc">
 							{
 								mediaDistanciaFeatures.map((feature) => (
 									<li>{feature}</li>
@@ -142,7 +146,7 @@ const camaSuiteFeatures = [
 					<div
 						class="flex flex-col gap-4 lg:pr-8"
 					>
-						<h4 class="text-lg sm:text-xl font-bold uppercase">
+						<h4 class="text-lg sm:text-xl md:text-2xl font-bold uppercase">
 							Cama ejecutivo
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
@@ -154,7 +158,7 @@ const camaSuiteFeatures = [
 							/>
 							<div>
 								
-								<ul class="mt-2 space-y-1 text-sm sm:text-base">
+								<ul class="mt-2 md:mt-0 space-y-1 text-sm sm:text-base font-medium list-disc">
 									{
 										camaEjecutivoFeatures.map((feature) => (
 											<li>{feature}</li>
@@ -169,7 +173,7 @@ const camaSuiteFeatures = [
 					<div
 						class="flex flex-col gap-4 lg:pl-8"
 					>
-						<h4 class="text-lg sm:text-xl font-bold uppercase">
+						<h4 class="text-lg sm:text-xl md:text-2xl font-bold uppercase">
 							Cama suite
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
@@ -181,7 +185,7 @@ const camaSuiteFeatures = [
 							/>
 							<div>
 								
-								<ul class="mt-2 space-y-1 text-sm sm:text-base">
+								<ul class="mt-2 md:mt-0 space-y-1 text-sm sm:text-base font-medium list-disc">
 									{
 										camaSuiteFeatures.map((feature) => (
 											<li>{feature}</li>
