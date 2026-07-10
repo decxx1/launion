@@ -41,7 +41,7 @@ const camaSuiteFeatures = [
 
 	<!-- Imagen superior -->
 	<div
-		class="units-top-clip relative z-10 ml-auto aspect-900/130 w-[90%] overflow-hidden sm:aspect-900/120 lg:aspect-900/110"
+		class="units-top-clip relative z-10 ml-auto aspect-900/200 sm:aspect-900/120 lg:aspect-900/110 w-full xs:w-[90%] overflow-hidden"
 	>
 		<img
 			src="/images/home/unidades.png"
@@ -57,24 +57,22 @@ const camaSuiteFeatures = [
 			class="absolute inset-y-0 right-0 flex w-[42%] items-center justify-end px-4 sm:px-8 lg:px-12"
 		>
 			<h2
-				class="text-right text-lg leading-tight font-bold text-white sm:text-2xl lg:text-3xl xl:text-4xl"
+				class="text-left text-lg sm:text-2xl md:text-3xl xl:text-4xl leading-tight font-bold text-white"
 			>
-				Servicio<br />
-				<span class="text-xl sm:text-3xl lg:text-4xl xl:text-5xl"
-					>en nuestras unidades</span
-				>
+				Servicio <br class="hidden sm:block" />
+				en nuestras unidades
 			</h2>
 		</div>
 	</div>
 
 	<div class="relative z-10 container mx-auto max-w-7xl px-4">
 		<!-- Intro -->
-		<div class="mx-auto mt-8 max-w-4xl space-y-2 text-center sm:mt-10">
-			<p class="text-sm sm:text-base lg:text-lg">
+		<div class="mx-auto mt-8 max-w-7xl space-y-2 sm:mt-10 text-left font-semibold text-sm sm:text-base lg:text-lg">
+			<p>
 				Viajar con Unión es hacerlo con confort, seguridad y tecnología al
 				servicio de cada pasajero.
 			</p>
-			<p class="text-sm sm:text-base lg:text-lg">
+			<p>
 				Contamos con unidades preparadas para distintos tipos de recorrido,
 				desde traslados urbanos hasta viajes de media y larga distancia.
 			</p>
@@ -82,20 +80,22 @@ const camaSuiteFeatures = [
 
 		<!-- Cards -->
 		<div class="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 sm:gap-5">
 				<!-- Urbano -->
 				<div
-					class="flex items-start gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
+					class="grid grid-cols-12 gap-2 sm:gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
 				>
-					<img
-						src="/images/icons/icon-bus.svg"
-						alt=""
-						class="size-12 shrink-0 sm:size-14"
-						aria-hidden="true"
-					/>
-					<div>
-						<h3 class="text-lg font-bold uppercase sm:text-xl">Urbano</h3>
-						<p class="mt-1 text-sm sm:text-base">
+					<div class="col-span-12 xs:col-span-3 flex items-center justify-center">
+						<img
+							src="/images/icons/icon-bus.svg"
+							alt="ícono de un micro"
+							class="size-12 sm:size-14 md:size-24"
+							aria-hidden="true"
+						/>
+					</div>
+					<div class="col-span-12 xs:col-span-9 self-start">
+						<h3 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">Urbano</h3>
+						<p class="mt-1 text-sm sm:text-base font-medium">
 							Micros destinados a recorridos cortos o urbanos.
 						</p>
 					</div>
@@ -103,19 +103,21 @@ const camaSuiteFeatures = [
 
 				<!-- Media distancia -->
 				<div
-					class="flex items-start gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
+					class="grid grid-cols-12 gap-2 sm:gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
 				>
-					<img
-						src="/images/icons/icon-bus.svg"
-						alt=""
-						class="size-12 shrink-0 sm:size-14"
-						aria-hidden="true"
-					/>
-					<div>
-						<h3 class="text-lg font-bold uppercase sm:text-xl">
+					<div class="col-span-12 xs:col-span-3 flex items-center justify-center">
+						<img
+							src="/images/icons/icon-bus.svg"
+							alt="ícono de un micro"
+							class="size-12 sm:size-14 md:size-24"
+							aria-hidden="true"
+						/>
+					</div>
+					<div class="col-span-12 xs:col-span-9 self-start">
+						<h3 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
 							Media distancia
 						</h3>
-						<ul class="mt-2 space-y-0.5 text-sm sm:text-base">
+						<ul class="mt-2 space-y-0.5 text-sm sm:text-base font-medium">
 							{
 								mediaDistanciaFeatures.map((feature) => (
 									<li>{feature}</li>
@@ -129,58 +131,64 @@ const camaSuiteFeatures = [
 			<!-- Larga distancia -->
 			<div class="rounded-2xl bg-launion px-5 py-6 text-white sm:px-8 sm:py-8">
 				<h3
-					class="mb-6 text-center text-lg font-bold uppercase sm:mb-8 sm:text-xl lg:text-2xl"
+					class="mb-16 lg:mb-10 text-center text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
 				>
 					Larga distancia
 				</h3>
 				<div
-					class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-white/30"
+					class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0 lg:divide-x-2 lg:divide-white"
 				>
 					<!-- Cama ejecutivo -->
 					<div
-						class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6 lg:pr-8"
+						class="flex flex-col gap-4 lg:pr-8"
 					>
-						<img
-							src="/images/icons/ejecutive.svg"
-							alt=""
-							class="mx-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
-							aria-hidden="true"
-						/>
-						<div>
-							<h4 class="text-base font-bold uppercase sm:text-lg">
-								Cama ejecutivo
-							</h4>
-							<ul class="mt-2 space-y-1 text-sm sm:text-base">
-								{
-									camaEjecutivoFeatures.map((feature) => (
-										<li>{feature}</li>
-									))
-								}
-							</ul>
+						<h4 class="text-lg sm:text-xl font-bold uppercase">
+							Cama ejecutivo
+						</h4>
+						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+							<img
+								src="/images/icons/ejecutive.svg"
+								alt="iconos de cama ejecutivo"
+								class="mr-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
+								aria-hidden="true"
+							/>
+							<div>
+								
+								<ul class="mt-2 space-y-1 text-sm sm:text-base">
+									{
+										camaEjecutivoFeatures.map((feature) => (
+											<li>{feature}</li>
+										))
+									}
+								</ul>
+							</div>
 						</div>
 					</div>
 
 					<!-- Cama suite -->
 					<div
-						class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6 lg:pl-8"
+						class="flex flex-col gap-4 lg:pl-8"
 					>
-						<img
-							src="/images/icons/suite.svg"
-							alt=""
-							class="mx-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
-							aria-hidden="true"
-						/>
-						<div>
-							<h4 class="text-base font-bold uppercase sm:text-lg">
-								Cama suite
-							</h4>
-							<ul class="mt-2 space-y-1 text-sm sm:text-base">
-								{
-									camaSuiteFeatures.map((feature) => (
-										<li>{feature}</li>
-									))
-								}
-							</ul>
+						<h4 class="text-lg sm:text-xl font-bold uppercase">
+							Cama suite
+						</h4>
+						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+							<img
+								src="/images/icons/suite.svg"
+								alt="iconos de cama suite"
+								class="mr-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
+								aria-hidden="true"
+							/>
+							<div>
+								
+								<ul class="mt-2 space-y-1 text-sm sm:text-base">
+									{
+										camaSuiteFeatures.map((feature) => (
+											<li>{feature}</li>
+										))
+									}
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -188,7 +196,7 @@ const camaSuiteFeatures = [
 		</div>
 
 		<!-- Outro -->
-		<p class="mx-auto mt-8 max-w-4xl text-center text-sm sm:mt-10 sm:text-base lg:text-lg">
+		<p class="mx-auto mt-8 max-w-7xl text-left font-semibold text-sm sm:mt-10 sm:text-base lg:text-lg">
 			Nuestras unidades están equipadas con sistemas avanzados como frenos ABS,
 			control de estabilidad y señalización inteligente, junto a un
 			mantenimiento constante que garantiza viajes confiables.
@@ -197,12 +205,12 @@ const camaSuiteFeatures = [
 
 	<!-- Imagen inferior -->
 	<div
-		class="units-bottom-clip relative z-10 mt-8 mr-auto aspect-900/130 w-[90%] overflow-hidden sm:mt-10 sm:aspect-900/120 lg:aspect-900/110"
+		class="units-bottom-clip relative z-10 mt-8 mr-auto aspect-900/200 sm:aspect-900/120 lg:aspect-900/110 w-full sm:w-[90%] overflow-hidden sm:mt-10"
 	>
 		<img
 			src="/images/home/suite-ejecutivo.png"
 			alt="Cama ejecutivo y suite de LA UNION S.R.L."
-			class="absolute inset-0 h-full w-full object-cover object-center"
+			class="pl-8 sm:pl-10 md:pl-44 lg:pl-56 xl:pl-80 absolute inset-0 h-full w-full object-cover object-center"
 			loading="lazy"
 		/>
 		<div
@@ -210,10 +218,10 @@ const camaSuiteFeatures = [
 			aria-hidden="true"
 		/>
 		<div
-			class="absolute inset-y-0 left-0 flex w-[50%] items-center px-4 sm:px-8 lg:px-12"
+			class="absolute inset-y-0 left-0 flex w-[70%] xs:w-[42%] sm:w-[50%] lg:w-[42%] items-center px-4 sm:px-8 lg:px-12"
 		>
 			<p
-				class="text-base leading-tight font-bold text-white sm:text-xl lg:text-2xl xl:text-3xl"
+				class="text-base xs:text-lg sm:text-xl md:text-2xl xl:text-4xl leading-tight font-bold text-white"
 			>
 				Con Unión disfrutás cada kilómetro del camino.
 			</p>
