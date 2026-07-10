@@ -21,11 +21,12 @@ interface Props {
 const { title, canonical, metaDescription, metaImg, preLoad, hideFooter = false } = Astro.props;
 const urlBase = Astro.url.origin;
 const fullImg = urlBase + metaImg;
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class:list={[!isHome && "header-scrolled"]}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -47,7 +48,7 @@ const fullImg = urlBase + metaImg;
 		<!-- GOOGLE -->
 		<meta name="description" content={metaDescription} />
 		<meta http-equiv="Cache-Control" content="no-cache" />
-		<meta http-equiv="Expires" content="Mon, 01 Jul 1970 00:00:00 GMT" />
+		<meta http-equiv="Expires" content="Mon, 01 Jan 1970 00:00:00 GMT" />
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
 		<!-- FACEBOOK OPEN GRAPH TAGS -->
@@ -74,7 +75,7 @@ const fullImg = urlBase + metaImg;
 		class="font-montserrat scrollbar scrollbar-w-3 scrollbar-thumb-rounded-[0.25rem] scrollbar-track-gray-200 scrollbar-thumb-gray-400 bg-black"
 	>
 		<div id="main-content-wrapper" class="relative z-10 transition-[margin-bottom] duration-300">
-			<Header />
+			<Header forceScrolled={!isHome} />
 			<main>
 				<slot />
 			</main>
