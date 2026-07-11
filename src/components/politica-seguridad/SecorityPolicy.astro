@@ -1,0 +1,302 @@
+---
+import PageTitleHeader from "@/components/PageTitleHeader.astro";
+
+const principiosSeguridadVial = [
+	"Cumplimiento de todos los requisitos legales aplicables, en materia de Seguridad Vial.",
+	"Reducir continuamente la siniestralidad, su gravedad y frecuencia.",
+	"Asegurar el estado y la seguridad de nuestras instalaciones, unidades y procesos de la organización.",
+	"Mejorar continuamente el desempeño del sistema de seguridad vial.",
+	"Inculcar en nuestros colaboradores el compromiso con la seguridad vial.",
+	"Comunicar esta política a todos los miembros de la organización, poniéndola a disposición del público y toda otra parte interesada.",
+];
+
+const principiosCalidad = [
+	"Cumplir con los valores de la organización: respeto, seriedad, fiabilidad, capacidad de respuesta, seguridad, empatía, calidez humana y eficiencia operacional.",
+	"Satisfacer plenamente los requerimientos de nuestros clientes y partes interesadas en base a conocer sus necesidades.",
+	"Transportar a los pasajeros con unidades modernas con la mayor seguridad, cumplimiento y calidad en cada operación.",
+	"Tratar con la mayor rapidez los reclamos por parte de nuestros clientes.",
+	"Velar por la disminución de los riesgos en el desarrollo de nuestra actividad, sean éstos laborales, económicos, financieros, operativos o de gestión.",
+	"Cumplir con las normas legales vigentes y otros requisitos que suscriban nuestra organización con relación a la calidad.",
+	"Informar, formar y motivar a todas las personas de la organización; para que tengan la capacidad suficiente para ejercer su trabajo de forma satisfactoria y con los menores riesgos posibles para su seguridad, la de nuestros clientes y los usuarios de nuestros servicios.",
+	"Sistematizar la mejora continua de nuestros servicios.",
+];
+---
+
+<section class="relative overflow-hidden bg-white pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
+	<!-- Rombo de fondo gris (altura fija al viewport) -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg-gray.svg"
+			alt="rombo de fondo gris"
+			loading="lazy"
+			class="absolute top-[72%] right-0 h-[150vh] w-auto max-w-none translate-x-[70%] -translate-y-1/2 select-none sm:top-[66%] sm:right-10 sm:h-[170vh] lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg-gray.svg"
+			alt="rombo de fondo gris"
+			loading="lazy"
+			class="absolute top-1/2 right-0 hidden h-[250vh] xl:h-[300vh] w-auto max-w-none translate-x-[56%] translate-y-[-44%] select-none lg:block  xl:translate-x-[58%] 2xl:translate-x-[50%]"
+		/>
+	</div>
+
+	<PageTitleHeader title="Política de Seguridad" id="politica-header" />
+
+	<div class="relative z-10 mx-auto max-w-5xl px-4">
+		<div class="space-y-12 sm:space-y-14 lg:space-y-16">
+			<!-- Política de seguridad vial -->
+			<article class="policy-section">
+				<div
+					class="relative mb-6 inline-flex h-11 min-w-56 items-center sm:mb-7 sm:h-12 sm:min-w-64 md:h-14 md:min-w-72"
+				>
+					<img
+						src="/images/shapes/arrow-right-blue.svg"
+						alt="flecha derecha azul"
+						class="absolute inset-0 h-full w-full object-cover"
+						aria-hidden="true"
+						loading="lazy"
+					/>
+					<h2
+						class="relative z-10 pl-6 pr-12 text-base font-bold text-white sm:pl-8 sm:pr-14 sm:text-lg md:text-xl lg:text-2xl"
+					>
+						Política de seguridad vial
+					</h2>
+				</div>
+
+				<div class="policy-prose space-y-4">
+					<p>
+						TRANSPORTE LA UNIÓN S.R.L. destinará los recursos financieros,
+						humanos y técnicos adecuados para dar cumplimiento a esta política,
+						en lineamiento con la Norma IRAM 3810.
+					</p>
+					<p>
+						La Política de la Seguridad Vial supone la necesidad de comprometer
+						a todo el personal implicado en las áreas que influyen en la
+						seguridad vial, a fin de que se genere una actuación colaborativa
+						que garantice la integridad física del personal, de nuestros
+						clientes y de la comunidad.
+					</p>
+					<p>
+						Nos comprometemos a disminuir la probabilidad de ocurrencia de
+						incidentes y accidentes para reducir los siniestros viales.
+					</p>
+				</div>
+
+				<h3 class="policy-subtitle">
+					Para el cumplimiento de esta política se establecen los siguientes
+					principios:
+				</h3>
+
+				<ul class="policy-list">
+					{
+						principiosSeguridadVial.map((item) => (
+							<li class="policy-list-item">
+								<img
+									src="/images/icons/icon-disc.svg"
+									alt="icono de disco"
+									loading="lazy"
+									class="policy-list-icon"
+									aria-hidden="true"
+								/>
+								<span>{item}</span>
+							</li>
+						))
+					}
+				</ul>
+			</article>
+
+			<!-- Política de calidad -->
+			<article class="policy-section">
+				<div
+					class="relative mb-6 inline-flex h-11 min-w-48 items-center sm:mb-7 sm:h-12 sm:min-w-56 md:h-14 md:min-w-64"
+				>
+					<img
+						src="/images/shapes/arrow-right-blue.svg"
+						alt="flecha derecha azul"
+						class="absolute inset-0 h-full w-full object-cover"
+						aria-hidden="true"
+						loading="lazy"
+					/>
+					<h2
+						class="relative z-10 pl-6 pr-12 text-base font-bold text-white sm:pl-8 sm:pr-14 sm:text-lg md:text-xl lg:text-2xl"
+					>
+						Política de calidad
+					</h2>
+				</div>
+
+				<div class="policy-prose space-y-4">
+					<p>
+						TRANSPORTE LA UNIÓN S.R.L. establece y lidera un Sistema de
+						Gestión de la Calidad orientado a responder a las necesidades y
+						expectativas de nuestros clientes y partes interesadas, en
+						cumplimiento con los requisitos de la Norma ISO 9001:2015, así como
+						con las disposiciones legales, normativas y reglamentarias
+						vigentes.
+					</p>
+					<p>
+						En función de este compromiso con la calidad, la mejora continua y
+						la seguridad en nuestras operaciones, definimos la siguiente
+						Política de Calidad:
+					</p>
+				</div>
+
+				<ul class="policy-list">
+					{
+						principiosCalidad.map((item) => (
+							<li class="policy-list-item">
+								<img
+									src="/images/icons/icon-disc.svg"
+									alt="icono de disco"
+									loading="lazy"
+									class="policy-list-icon"
+									aria-hidden="true"
+								/>
+								<span>{item}</span>
+							</li>
+						))
+					}
+				</ul>
+
+				<div class="policy-prose mt-6 space-y-4 sm:mt-7">
+					<p>
+						Consecuentemente, la Dirección de TRANSPORTE LA UNIÓN S.R.L. se
+						compromete a facilitar todos los medios necesarios para cumplir con
+						esta política, así como adecuarla a la evolución que vaya teniendo
+						el mercado y las tecnologías.
+					</p>
+					<p>
+						La Política establecida es revisada periódicamente comprobando que
+						es adecuada a la situación de la empresa. Esta Política ha de ser
+						asumida y entendida por todos los niveles de la organización, para
+						lo cual, es comunicada al personal de TRANSPORTE LA UNIÓN S.R.L. y
+						está expuesta en distintos puntos de la empresa y disponible para
+						terceros.
+					</p>
+				</div>
+			</article>
+
+			<!-- Normas de equipaje -->
+			<article class="policy-section">
+				<div
+					class="relative mb-6 inline-flex h-11 min-w-52 items-center sm:mb-7 sm:h-12 sm:min-w-60 md:h-14 md:min-w-72"
+				>
+					<img
+						src="/images/shapes/arrow-right-blue.svg"
+						alt="flecha derecha azul"
+						class="absolute inset-0 h-full w-full object-cover"
+						aria-hidden="true"
+						loading="lazy"
+					/>
+					<h2
+						class="relative z-10 pl-6 pr-12 text-base font-bold text-white sm:pl-8 sm:pr-14 sm:text-lg md:text-xl lg:text-2xl"
+					>
+						Normas de equipaje
+					</h2>
+				</div>
+
+				<div class="policy-prose space-y-4">
+					<p>
+						Cada pasajero tiene derecho a transportar sin costo una (1) valija
+						en bodega.
+					</p>
+					<p>
+						En caso de exceder esta cantidad, el equipaje adicional será
+						aceptado únicamente si la capacidad del ómnibus lo permite y previo
+						pago del importe correspondiente. Dicho importe se calcula según
+						las tarifas vigentes del servicio de encomiendas.
+					</p>
+					<p class="font-semibold text-launion">
+						Resolución 47/1995 – Artículos 1 y 2 – Secretaría de Transporte
+					</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<style>
+	.policy-section {
+		border-bottom: 1px solid rgb(11 88 134 / 0.12);
+		padding-bottom: 2.5rem;
+	}
+
+	.policy-section:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.policy-prose p {
+		font-size: 0.875rem;
+		font-weight: 500;
+		line-height: 1.7;
+		color: rgb(31 41 55);
+	}
+
+	@media (min-width: 640px) {
+		.policy-prose p {
+			font-size: 1rem;
+		}
+	}
+
+	.policy-subtitle {
+		margin-top: 1.5rem;
+		margin-bottom: 1rem;
+		font-size: 0.9375rem;
+		font-weight: 700;
+		line-height: 1.5;
+		color: var(--color-launion);
+	}
+
+	@media (min-width: 640px) {
+		.policy-subtitle {
+			margin-top: 1.75rem;
+			font-size: 1.0625rem;
+		}
+	}
+
+	.policy-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.875rem;
+	}
+
+	@media (min-width: 640px) {
+		.policy-list {
+			gap: 1rem;
+		}
+	}
+
+	.policy-list-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		line-height: 1.6;
+		color: rgb(31 41 55);
+	}
+
+	@media (min-width: 640px) {
+		.policy-list-item {
+			gap: 1rem;
+			font-size: 1rem;
+		}
+	}
+
+	.policy-list-icon {
+		margin-top: 0.375rem;
+		width: 0.75rem;
+		height: 0.75rem;
+		flex-shrink: 0;
+	}
+
+	@media (min-width: 640px) {
+		.policy-list-icon {
+			margin-top: 0.5rem;
+			width: 0.875rem;
+			height: 0.875rem;
+		}
+	}
+</style>
