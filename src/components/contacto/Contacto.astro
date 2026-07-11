@@ -1,9 +1,17 @@
 ---
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
 import ContactoForm from "@/components/contacto/ContactoForm.tsx";
+import {
+	SCHEDULES,
+	PHONE,
+	PHONE_FORMAT,
+	ADDRESS,
+	MAP_IFRAME,
+} from "astro:env/server";
+import { EMAIL } from "astro:env/client";
 
-const mapSrc =
-	"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.392970718099!2d-67.5133268533738!3d-34.99686684531412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967805a357d5ddc3%3A0x71376de8a5b320e5!2sLa%20Union%20S.R.L.!5e0!3m2!1ses!2sar!4v1783709387463!5m2!1ses!2sar";
+const phoneHref = PHONE ? `tel:+54${PHONE}` : undefined;
+const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 ---
 
 <section class="relative overflow-hidden bg-[#dce8f0] pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
@@ -56,30 +64,42 @@ const mapSrc =
 					<div
 						class="aspect-square w-full overflow-hidden rounded-2xl bg-white/10 sm:aspect-4/3 lg:aspect-square"
 					>
-						<iframe
-							src={mapSrc}
-							title="Ubicación de LA UNION S.R.L. en Google Maps"
-							class="h-full w-full border-0"
-							allowfullscreen
-							loading="lazy"
-							referrerpolicy="strict-origin-when-cross-origin"
-						></iframe>
+						{
+							MAP_IFRAME && (
+								<iframe
+									src={MAP_IFRAME}
+									title="Ubicación de LA UNION S.R.L. en Google Maps"
+									class="h-full w-full border-0"
+									allowfullscreen
+									loading="lazy"
+									referrerpolicy="strict-origin-when-cross-origin"
+								></iframe>
+							)
+						}
 					</div>
 					<div class="space-y-1 text-sm font-medium text-white sm:text-base">
-						<p>Calle Centenario 150, Bowen, Gral. Alvear, Mendoza.</p>
-						<a
-							href="tel:+542625480041"
-							class="block transition-opacity hover:opacity-80"
-						>
-							(2625) 480041
-						</a>
-						<a
-							href="mailto:info@launionsrl.com.ar"
-							class="block transition-opacity hover:opacity-80"
-						>
-							info@launionsrl.com.ar
-						</a>
-						<p>Horarios de atención: lunes a sábado 8 a 12 h y 16.30 a 20 h.</p>
+						{ADDRESS && <p>{ADDRESS}</p>}
+						{
+							phoneHref && PHONE_FORMAT && (
+								<a
+									href={phoneHref}
+									class="block transition-opacity hover:opacity-80"
+								>
+									{PHONE_FORMAT}
+								</a>
+							)
+						}
+						{
+							emailHref && EMAIL && (
+								<a
+									href={emailHref}
+									class="block transition-opacity hover:opacity-80"
+								>
+									{EMAIL}
+								</a>
+							)
+						}
+						{SCHEDULES && <p>{SCHEDULES}</p>}
 					</div>
 				</div>
 			</div>
