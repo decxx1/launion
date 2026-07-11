@@ -1,0 +1,256 @@
+---
+import PageTitleHeader from "../PageTitleHeader.astro";
+import FAQAccordion, { type FaqItem } from "./FAQAccordion.astro";
+
+const faqs: FaqItem[] = [
+	{
+		question: "¿Cuánto tiempo antes debo presentarme en la Terminal si voy a viajar?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Para viajes nacionales, se recomienda presentarse con 30 minutos de anticipación. Para viajes a países limítrofes o internacionales, con 1 hora de anticipación.",
+			},
+		],
+	},
+	{
+		question: "¿Qué debo presentar al conductor del bus para viajar?",
+		answer: [{ type: "p", content: "Solo el pasaje y el DNI." }],
+	},
+	{
+		question: "¿Cuál es la documentación requerida para viajes internacionales?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"La documentación varía según la nacionalidad y la edad del pasajero.",
+			},
+			{
+				type: "ul",
+				items: [
+					"Ciudadanos argentinos mayores de 18 años: DNI y/o pasaporte.",
+					"Menores de 18 años que viajan solos: DNI, pasaporte y autorización original y fotocopia de los padres, certificada por escribano público o juez de paz.",
+					"Y la autorización correspondiente emitida según la normativa de CNRT.",
+					"Menores de 18 años que viajan con sus padres: DNI donde figuren los nombres de los padres, o pasaporte, o partida de nacimiento, o libreta de familia.",
+				],
+			},
+			{
+				type: "p",
+				content:
+					"Para pasajeros extranjeros, la documentación requerida depende del país de origen y destino. En todos los casos, debe presentarse documentación original, legible y actualizada.",
+			},
+		],
+	},
+	{
+		question: "¿Cuál es el equipaje permitido para viajar?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Con el pasaje, se puede transportar un bolso de mano y un bulto de hasta 15 kg. Si supera ese límite, se abonará el exceso de equipaje según la tarifa vigente de encomiendas.",
+			},
+		],
+	},
+	{
+		question: "Si viajo en micro, ¿tengo que pagar por llevar equipaje?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"No, siempre que lleves un bolso de mano y un bulto de hasta 15 kg. Si el peso excede ese límite, se cobra exceso de equipaje.",
+			},
+		],
+	},
+	{
+		question:
+			"Al final del viaje, ¿cómo hago para que me devuelvan el equipaje que despaché?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Debés presentar el ticket o comprobante entregado al despachar el equipaje.",
+			},
+		],
+	},
+	{
+		question:
+			"¿Dónde puedo consultar la plataforma de salida si no figura en el pasaje?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Podés consultarlo en la oficina de informes de la terminal, en la boletería de la empresa o a través de nuestro Servicio de Atención al Cliente.",
+			},
+		],
+	},
+	{
+		question: "¿Qué hago si mi pasaje no llega a mi correo electrónico?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Podés comunicarte con nuestro servicio de atención al cliente o escribirnos a info@launionsrl.com.ar para recibir asistencia.",
+			},
+		],
+	},
+	{
+		question: "¿Puedo devolver mi pasaje?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Sí. El reintegro depende de la anticipación con la que realices la devolución:",
+			},
+			{
+				type: "ul",
+				items: [
+					"Hasta 1 hora antes de la salida: 70% del valor abonado.",
+					"Entre 48 y 24 horas antes: 80%.",
+					"Con más de 48 horas de anticipación: 90%.",
+				],
+			},
+		],
+	},
+	{
+		question: "¿Puedo adquirir pasajes con descuento para estudiantes?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Sí hay descuento, para información comunicate exclusivamente en las oficinas de la empresa.",
+			},
+		],
+	},
+	{
+		question: "¿Cómo accedo al descuento para estudiantes?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Para conocer las condiciones y gestionar el beneficio, debés acercarte a nuestras oficinas. Será necesario presentar DNI o cédula, certificado de alumno regular y libreta vigente emitidos por la institución educativa.",
+			},
+		],
+	},
+	{
+		question:
+			"¿Qué documentación se necesita para salir del país con medicamentos y/o alimentos?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Las consultas sobre documentación sanitaria, alimentos y temas afines deben realizarse ante Sanidad de Frontera o los organismos correspondientes.",
+			},
+		],
+	},
+	{
+		question: "¿Dónde debo confirmar mi pasaje abierto?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"La fecha de viaje debe confirmarse en las boleterías de terminal.",
+			},
+		],
+	},
+	{
+		question: "¿Puedo viajar con mascotas?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"No. Por razones de higiene y seguridad, no está permitido el traslado de animales en el bus.",
+			},
+		],
+	},
+	{
+		question: "¿Los menores de edad abonan pasaje?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Los niños menores de 3 años, con DNI, no abonan pasaje. No tienen derecho a ocupar butaca ni a reclamar servicio a bordo.",
+			},
+		],
+	},
+	{
+		question:
+			"¿Cuántos menores pueden viajar con un adulto sin abonar pasaje?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Puede viajar un menor por adulto, siempre que el viaje se realice en condiciones adecuadas para ambos pasajeros.",
+			},
+		],
+	},
+	{
+		question: "¿Qué documentación es necesaria para que viaje un menor?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Todo menor de hasta 17 años inclusive que viaje sin uno de sus padres o tutor debe contar con la documentación exigida por la normativa vigente. Se debe presentar con antelación en boletería para verificar y validar los datos y la documentación correspondiente.",
+			},
+		],
+	},
+	{
+		question:
+			"¿Qué documentación debe presentar para viajar una persona con discapacidad?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Para viajes dentro de la provincia de Mendoza, se debe presentar fotocopia del CUD y del DNI del titular. Si requiere acompañante, también fotocopia del DNI de esa persona.",
+			},
+			{
+				type: "p",
+				content:
+					"Para viajes interprovinciales, debe gestionarse a través del sistema de CNRT para reserva de pasajes de discapacidad.",
+			},
+		],
+	},
+	{
+		question: "¿Con cuánto tiempo de anticipación debo solicitarlo?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Los pasajes deben solicitarse con más de 48 horas de anticipación. La emisión se realiza 48 horas antes del viaje.",
+			},
+		],
+	},
+	{
+		question: "¿Cómo puedo cambiar la fecha de mi pasaje?",
+		answer: [
+			{
+				type: "p",
+				content:
+					"Debés comunicarte con las oficinas de la empresa con la mayor anticipación posible para consultar disponibilidad y condiciones del cambio.",
+			},
+		],
+	},
+];
+---
+
+<section class="relative overflow-hidden bg-white pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
+	<!-- Rombo de fondo gris (lado derecho) -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg-gray.svg"
+			alt=""
+			class="absolute top-[72%] right-0 h-[150vh] w-auto max-w-none translate-x-[70%] -translate-y-1/2 select-none sm:top-[66%] sm:right-10 sm:h-[170vh] lg:hidden"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg-gray.svg"
+			alt=""
+			class="absolute top-1/2 right-0 hidden h-[250vh] xl:h-[300vh] w-auto max-w-none translate-x-[56%] xl:translate-x-[58%] 2xl:translate-x-[44%] translate-y-[-44%] select-none lg:block"
+		/>
+	</div>
+
+	<PageTitleHeader title="Preguntas frecuentes" id="faq-header" />
+
+	<FAQAccordion faqs={faqs} />
+</section>

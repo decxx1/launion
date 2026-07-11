@@ -1,0 +1,167 @@
+---
+export interface AnswerBlock {
+	type: "p" | "ul";
+	content?: string;
+	items?: string[];
+}
+
+export interface FaqItem {
+	question: string;
+	answer: AnswerBlock[];
+}
+
+interface Props {
+	faqs: FaqItem[];
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="relative z-10 mx-auto max-w-7xl">
+	<div class="faq-accordion mx-auto max-w-5xl px-4">
+		{
+			faqs.map((faq, index) => (
+				<details
+					class="faq-item group border-b border-launion/15 last:border-b-0"
+					open={index === 0}
+				>
+					<summary class="flex cursor-pointer list-none items-start gap-3 py-5 text-left font-bold text-launion transition-colors hover:text-launion-light sm:gap-4 sm:py-6 sm:text-lg lg:text-xl">
+						<span
+							class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-launion text-sm font-bold text-white sm:mt-1 sm:size-8 sm:text-base"
+							aria-hidden="true"
+						>
+							?
+						</span>
+						<span class="min-w-0 flex-1 pr-2">{faq.question}</span>
+						<span
+							class="faq-chevron mt-1 flex size-6 shrink-0 items-center justify-center text-launion transition-transform duration-300 group-open:-rotate-180 sm:size-7"
+							aria-hidden="true"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="size-5 sm:size-6"
+							>
+								<path d="M6 9l6 6 6-6" />
+							</svg>
+						</span>
+					</summary>
+					<div class="faq-answer-grid">
+						<div class="faq-answer-inner">
+							<div
+								class="faq-answer-content space-y-3 pb-5 pl-10 text-sm font-medium text-gray-800 sm:pb-6 sm:pl-12 sm:text-base"
+								id={`faq-answer-${index}`}
+							>
+								{
+									faq.answer.map((block) =>
+										block.type === "p" ? (
+											<p>{block.content}</p>
+										) : (
+											<ul class="list-disc space-y-1 pl-5">
+												{block.items?.map((item) => (
+													<li>{item}</li>
+												))}
+											</ul>
+										),
+									)
+								}
+							</div>
+						</div>
+					</div>
+				</details>
+			))
+		}
+	</div>
+</div>
+
+<style>
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-answer-grid {
+		display: grid;
+		grid-template-rows: 0fr;
+		opacity: 0;
+		transition:
+			grid-template-rows 0.35s ease-out,
+			opacity 0.3s ease-out;
+	}
+
+	.faq-answer-inner {
+		overflow: hidden;
+	}
+
+	.faq-item[open]:not(.faq-is-closing) .faq-answer-grid {
+		grid-template-rows: 1fr;
+		opacity: 1;
+	}
+
+	.faq-item.faq-is-closing .faq-answer-grid {
+		grid-template-rows: 0fr;
+		opacity: 0;
+	}
+</style>
+
+<script>
+	const accordion = document.querySelector(".faq-accordion");
+	const items = accordion?.querySelectorAll(".faq-item");
+
+	const closeItem = (item: HTMLDetailsElement) =>
+		new Promise<void>((resolve) => {
+			if (!item.open) {
+				resolve();
+				return;
+			}
+
+			item.classList.add("faq-is-closing");
+
+			const grid = item.querySelector(".faq-answer-grid");
+			let settled = false;
+
+			const finish = () => {
+				if (settled) return;
+				settled = true;
+				item.open = false;
+				item.classList.remove("faq-is-closing");
+				resolve();
+			};
+
+			grid?.addEventListener("transitionend", finish, { once: true });
+			window.setTimeout(finish, 400);
+		});
+
+	items?.forEach((item) => {
+		if (!(item instanceof HTMLDetailsElement)) return;
+
+		const summary = item.querySelector("summary");
+		if (!summary) return;
+
+		summary.addEventListener("click", (event) => {
+			event.preventDefault();
+
+			if (item.open && !item.classList.contains("faq-is-closing")) {
+				void closeItem(item);
+				return;
+			}
+
+			if (!item.open) {
+				const openItems = Array.from(items).filter(
+					(other): other is HTMLDetailsElement =>
+						other !== item &&
+						other instanceof HTMLDetailsElement &&
+						other.open,
+				);
+
+				Promise.all(openItems.map(closeItem)).then(() => {
+					item.open = true;
+				});
+			}
+		});
+	});
+</script>
