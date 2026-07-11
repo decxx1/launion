@@ -14,6 +14,14 @@ interface Props {
 }
 
 const { forceScrolled = false } = Astro.props;
+
+const currentPath =
+	Astro.url.pathname.replace(/\/$/, "") || "/";
+
+function isActiveLink(href: string): boolean {
+	if (href === "/") return currentPath === "/";
+	return currentPath === href;
+}
 ---
 
 <!-- Desktop: pestaña superior derecha → dos islas pill (logo + nav) al scrollear -->
@@ -50,16 +58,42 @@ const { forceScrolled = false } = Astro.props;
 					class="flex items-center justify-center gap-4 text-sm font-semibold tracking-wide whitespace-nowrap text-black transition-[gap,font-size] duration-500 xl:gap-6 xl:text-base 2xl:gap-7 2xl:text-lg group-data-scrolled/nav:gap-3.5 group-data-scrolled/nav:text-[0.8125rem] group-data-scrolled/nav:xl:gap-5 group-data-scrolled/nav:xl:text-sm group-data-scrolled/nav:2xl:gap-5 group-data-scrolled/nav:2xl:text-base"
 				>
 					{
-						navLinks.map((link) => (
-							<li>
-								<a
-									href={link.href}
-									class="transition-colors hover:text-launion"
-								>
-									{link.label}
-								</a>
-							</li>
-						))
+						navLinks.map((link) => {
+							const active = isActiveLink(link.href);
+							return (
+								<li>
+									<a
+										href={link.href}
+										class:list={[
+											"group/link relative inline-block pb-1.5 text-black transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-launion",
+											active && "text-launion",
+										]}
+										aria-current={active ? "page" : undefined}
+									>
+										{link.label}
+										<svg
+											class="pointer-events-none absolute -bottom-px left-0 h-2 w-full overflow-visible text-launion"
+											viewBox="0 0 100 8"
+											preserveAspectRatio="none"
+											aria-hidden="true"
+										>
+											<path
+												d="M1,6 Q50,1 99,6"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2.5"
+												stroke-linecap="round"
+												pathLength="100"
+												class:list={[
+													"[stroke-dasharray:100] [stroke-dashoffset:100] transition-[stroke-dashoffset] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:[stroke-dashoffset:0]",
+													active && "[stroke-dashoffset:0]",
+												]}
+											/>
+										</svg>
+									</a>
+								</li>
+							);
+						})
 					}
 				</ul>
 			</nav>
@@ -120,16 +154,23 @@ const { forceScrolled = false } = Astro.props;
 	>
 		<ul class="flex flex-col gap-1 px-8">
 			{
-				navLinks.map((link) => (
-					<li>
-						<a
-							href={link.href}
-							class="mobile-nav-link block border-b border-white/20 py-4 text-sm font-semibold tracking-wide text-white"
-						>
-							{link.label}
-						</a>
-					</li>
-				))
+				navLinks.map((link) => {
+					const active = isActiveLink(link.href);
+					return (
+						<li>
+							<a
+								href={link.href}
+								class:list={[
+									"mobile-nav-link relative block border-b border-white/20 py-4 pl-4 text-sm font-semibold tracking-wide text-white transition-colors duration-300",
+									active && "border-l-[3px] border-l-white bg-white/10 text-white",
+								]}
+								aria-current={active ? "page" : undefined}
+							>
+								{link.label}
+							</a>
+						</li>
+					);
+				})
 			}
 		</ul>
 	</nav>
