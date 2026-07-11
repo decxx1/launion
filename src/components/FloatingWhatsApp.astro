@@ -1,5 +1,8 @@
 ---
-const whatsappUrl = "https://wa.me/";
+import {
+	WHATSAPP_PHONE,
+} from "astro:env/client";
+const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}`;
 ---
 
 <a
