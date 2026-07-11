@@ -1,21 +1,59 @@
 ---
-const ticketUrl = "https://launionsrl.com.ar";
+const ticketUrl = "https://abmws.com.ar/luweb-nuebus/sale/paso1.php";
+
+const heroSlides = [
+	{
+		alt: "Colectivo de LA UNION S.R.L. en Buenos Aires",
+		desktop: "/images/home/hero-buenos-aires.webp",
+		mobile: "/images/home/hero-buenos-aires-mobile.webp",
+	},
+	{
+		alt: "Colectivo de LA UNION S.R.L. en Mendoza",
+		desktop: "/images/home/hero-mendoza.webp",
+		mobile: "/images/home/hero-mendoza-mobile.avif",
+	},
+	{
+		alt: "Colectivo de LA UNION S.R.L. en la región de Mendoza",
+		desktop: "/images/home/hero-mendoza-vid.webp",
+		mobile: "/images/home/hero-mendoza-vid-mobile.webp",
+	},
+];
 ---
 
 <section class="relative h-screen w-full overflow-hidden">
-	<!-- Imagen de fondo -->
-	<picture>
-		<source
-			media="(min-width: 1024px)"
-			srcset="/images/home/hero.webp"
-		/>
-		<img
-			src="/images/home/hero-mobile.webp"
-			alt="Colectivo de LA UNION S.R.L."
-			class="absolute inset-0 h-full w-full object-cover object-center"
-			fetchpriority="high"
-		/>
-	</picture>
+	<!-- Carrusel de imágenes de fondo -->
+	<div class="absolute inset-0" aria-hidden="true">
+		{
+			heroSlides.map((slide, index) => (
+				<>
+					<img
+						src={slide.mobile}
+						alt={slide.alt}
+						data-slide-index={index}
+						class:list={[
+							"hero-slide absolute inset-0 h-full w-full object-cover object-center lg:hidden",
+							index === 0 && "is-active",
+						]}
+						fetchpriority={index === 0 ? "high" : undefined}
+						loading={index === 0 ? "eager" : "lazy"}
+						decoding="async"
+					/>
+					<img
+						src={slide.desktop}
+						alt={slide.alt}
+						data-slide-index={index}
+						class:list={[
+							"hero-slide absolute inset-0 hidden h-full w-full object-cover object-center lg:block",
+							index === 0 && "is-active",
+						]}
+						fetchpriority={index === 0 ? "high" : undefined}
+						loading={index === 0 ? "eager" : "lazy"}
+						decoding="async"
+					/>
+				</>
+			))
+		}
+	</div>
 
 	<!-- Rombo -->
 	<div
@@ -133,3 +171,55 @@ const ticketUrl = "https://launionsrl.com.ar";
 		</div>
 	</div>
 </section>
+
+<style>
+	.hero-slide {
+		opacity: 0;
+		transition: opacity 1.2s ease-in-out;
+	}
+
+	.hero-slide.is-active {
+		opacity: 1;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-slide {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	const SLIDE_INTERVAL_MS = 5000;
+
+	function initHeroCarousel() {
+		const slides = Array.from(
+			document.querySelectorAll<HTMLImageElement>(".hero-slide"),
+		);
+		const slideCount = new Set(
+			slides.map((slide) => slide.dataset.slideIndex),
+		).size;
+		if (slideCount <= 1) return;
+
+		const prefersReducedMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+		if (prefersReducedMotion) return;
+
+		let currentIndex = 0;
+
+		const setActiveSlide = (index: number) => {
+			slides.forEach((slide) => {
+				const slideIndex = Number(slide.dataset.slideIndex);
+				slide.classList.toggle("is-active", slideIndex === index);
+			});
+		};
+
+		window.setInterval(() => {
+			currentIndex = (currentIndex + 1) % slideCount;
+			setActiveSlide(currentIndex);
+		}, SLIDE_INTERVAL_MS);
+	}
+
+	initHeroCarousel();
+</script>
