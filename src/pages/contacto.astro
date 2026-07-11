@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Contacto from "@/components/contacto/Contacto.astro";
+import { SITE_KEY } from "astro:env/client";
+---
+
+<Layout
+	title="Contacto y Consultas | LA UNION S.R.L."
+	canonical="https://launionsrl.com.ar/contacto"
+	metaDescription="Contactá a LA UNION S.R.L. Completá el formulario o visitanos en Bowen, Mendoza. Tel. (2625) 480041. Atención de lunes a sábado."
+	metaImg="/images/contacto/atencion-cliente.webp"
+>
+	<Contacto />
+</Layout>
+<!-- recaptcha v3 -->
+<script async src={'https://www.google.com/recaptcha/api.js?render=' + SITE_KEY}></script>

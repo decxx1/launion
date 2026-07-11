@@ -1,0 +1,232 @@
+---
+import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
+
+interface Location {
+	title: string;
+	details: string[];
+}
+
+interface Province {
+	name: string;
+	locations: Location[];
+}
+
+const provinces: Province[] = [
+	{
+		name: "Mendoza",
+		locations: [
+			{
+				title: "Casa Central – Bowen (Pasajes y encomiendas)",
+				details: [
+					"Centenario 150, Bowen, Gral. Alvear.",
+					"Tel: 02625 – 480041",
+					"WhatsApp: +54 9 2625 445079",
+					"Lunes a viernes de 8 a 12 h y de 16.30 a 20 h. Sábados de 8 a 12 h"
+				],
+			},
+			{
+				title: "Terminal Bowen (Pasajes y encomiendas)",
+				details: [
+					"Sarmiento S/N, Bowen, Gral. Alvear.",
+					"Tel: 02625 15404625",
+				],
+			},
+			{
+				title: "Terminal General Alvear (Pasajes y encomiendas)",
+				details: [
+					"Chaperouge 94, Gral. Alvear.",
+					"Tel: +54 9 02625 424550",
+					"WhatsApp: +54 9 2625 64 4251",
+					"Lunes a sábados de 7 a 22 h. Domingos de 14 a 15 h y de 19 a 20 h"
+				],
+			},
+			{
+				title: "Monte Comán (Pasajes y encomiendas)",
+				details: [
+					"Montevideo 87, San Rafael.",
+					"Tel: 0260 4490146 / 4490148",
+				],
+			},
+			{
+				title: "Real del Padre (Pasajes y encomiendas)",
+				details: [
+					"Río Negro y Chaco, San Rafael.",
+					"Tel: 02625 401741",
+				],
+			},
+			{
+				title: "Terminal San Rafael (Pasajes y encomiendas)",
+				details: [
+					"Granaderos y Gral. Paz, San Rafael.",
+					"Tel: 0260 4433233",
+					"WhatsApp: +54 9 2604 12 2086",
+					"Lunes a viernes de 8:30 a 13 h y de 16 a 20.30 h",
+					"Sábados de 8:30 a 13 h y de 16.30 a 19.30 h",
+					"Domingos de 16 a 18.15 h"
+				],
+			},
+			{
+				title: "Terminal Mendoza (Pasajes y encomiendas)",
+				details: [
+					"Local 21, Alberdi 435, San José, Ala Este.",
+					"Tel: +54 9 2613 35 4036",
+					"Lunes a sábados de 7 a 20 h. Domingos de 17 a 20 h"
+				],
+			},
+			{
+				title: "Punta del Agua (Pasajes y encomiendas)",
+				details: [
+					"Av. 25 de Mayo s/n, San Rafael",
+					"Tel: 02625 15528272",
+				],
+			},
+		],
+	},
+	{
+		name: "San Luis",
+		locations: [
+			{
+				title: "San Luis (Pasajes)",
+				details: [
+					"Tel y WhatsApp: +54 9 2665 000688",
+				],
+			},
+			{
+				title: "Villa Mercedes (Pasajes)",
+				details: [
+					"Tel y WhatsApp: +54 2657 306116",
+				],
+			},
+		],
+	},
+	{
+		name: "Buenos Aires",
+		locations: [
+			{
+				title: "Terminal de Liniers (Pasajes)",
+				details: [
+					"Local N° 23 – Rosaltur, Buenos Aires.",
+					"Tel: 011 4644 3633",
+				],
+			},
+			{
+				title: "Terminal Retiro (Pasajes)",
+				details: [
+					"Boleterias de Retiro, lado impar: Nº 47/49/51",
+					"Horarios de 8 a 21 h",
+					"Tel y WhatsApp: +54 9 11 5507 3550",
+					"-Boletería 76.",
+					"Tel: +54 9 11 5527 6488"
+				],
+			},
+			{
+				title: "Boletería Sarmiento (Encomiendas)",
+				details: [
+					"Sarmiento 1947, C.A.B.A.",
+					"Tel: 011 – 49541839",
+					"WhatsApp: 11-4954-1839",
+					"Lunes a viernes de 9 a 20.30 h"
+				],
+			},
+			{
+				title: "Terminal Retiro (Encomiendas)",
+				details: [
+					"Depósito N° 6, C.A.B.A.",
+					"Tel:  011 4313 3270",
+				],
+			},
+		],
+	},
+	{
+		name: "La Pampa",
+		locations: [
+			{
+				title: "Terminal Realicó (Pasajes y encomiendas)",
+				details: [
+					"Av. Mullally y Constitución, Realicó.",
+					"Tel: 02302 647795",
+				],
+			},
+		],
+	},
+];
+---
+
+<section class="relative overflow-hidden bg-[#dce8f0] pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
+	<!-- Rombo de fondo (más grande y desplazado a la derecha) -->
+	<div
+		class="pointer-events-none absolute inset-0 overflow-hidden"
+		aria-hidden="true"
+	>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-[72%] left-0 lg:hidden h-[200vh] sm:h-[250vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10"
+		/>
+		<img
+			src="/images/shapes/shape-diamond-bg.svg"
+			alt=""
+			class="absolute top-1/2 left-0 hidden lg:block h-[300vh] w-auto max-w-none translate-x-[-40%] 2xl:translate-x-[-34%] -translate-y-1/2 select-none"
+		/>
+	</div>
+
+	<ArrowImageBanner
+		id="puntos-de-venta-banner"
+		image="/images/punto-venta/puntos-de-venta.webp"
+		imageAlt="Mapa de Argentina y colectivo de LA UNION S.R.L."
+		align="end"
+	>
+		<h1 class="text-sm xs:text-lg sm:text-xl md:text-2xl xl:text-4xl">
+			Conocé nuestros puntos de venta y entrega en el país.
+		</h1>
+	</ArrowImageBanner>
+
+	<div class="relative z-10 container mx-auto mt-10 max-w-7xl px-4 sm:mt-12 lg:mt-16">
+		{
+			provinces.map((province) => (
+				<section class="mb-10 last:mb-0 sm:mb-12 lg:mb-14">
+					<div
+						class="relative mb-6 inline-flex h-12 min-w-56 items-center sm:mb-8 sm:h-14 sm:min-w-64 md:min-w-80 lg:min-w-96"
+					>
+						<img
+							src="/images/shapes/arrow-right-large-blue.svg"
+							alt="flecha grande azul para el punto de venta"
+							class="absolute inset-0 h-full w-full object-fill"
+							aria-hidden="true"
+						/>
+						<h2
+							class="relative z-10 pl-6 pr-14 text-xl font-bold text-white sm:pl-8 sm:pr-16 sm:text-2xl md:text-3xl"
+						>
+							{province.name}
+						</h2>
+					</div>
+
+					<ul
+						class="grid grid-cols-1 gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-7 md:grid-cols-2 lg:gap-x-14"
+					>
+						{
+							province.locations.map((location) => (
+								<li class="flex items-start gap-3 sm:gap-4">
+									<img
+										src="/images/icons/icon-disc.svg"
+										alt="icono de disco para el punto de venta"
+										class="mt-1.5 size-3 shrink-0 sm:mt-2 sm:size-3.5"
+										aria-hidden="true"
+									/>
+									<div class="space-y-0.5 text-sm text-gray-900 sm:text-base">
+										<p class="font-bold">{location.title}</p>
+										{
+											location.details.map((detail) => (
+												<p class="font-medium">{detail}</p>
+											))
+										}
+									</div>
+								</li>
+							))
+						}
+					</ul>
+				</section>
+			))
+		}
+	</div>
+</section>
