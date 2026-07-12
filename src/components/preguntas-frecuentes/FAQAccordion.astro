@@ -24,6 +24,9 @@ const { faqs } = Astro.props;
 				<details
 					class="faq-item group border-b border-launion/15 last:border-b-0"
 					open={index === 0}
+					data-aos="fade-up"
+					data-aos-duration="500"
+					data-aos-delay={index * 40}
 				>
 					<summary class="flex cursor-pointer list-none items-start gap-3 py-5 text-left font-bold text-launion transition-colors hover:text-launion-light sm:gap-4 sm:py-6 sm:text-lg lg:text-xl">
 						<span

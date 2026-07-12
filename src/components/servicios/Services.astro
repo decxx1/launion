@@ -53,7 +53,12 @@ const camaSuiteFeatures = [
 		imageAlt="Interiores de colectivos de LA UNION S.R.L."
 		align="end"
 	>
-		<h2 class="text-left ml-8 text-lg sm:text-2xl md:text-3xl xl:text-4xl">
+		<h2
+			class="text-left ml-8 text-lg sm:text-2xl md:text-3xl xl:text-4xl"
+			data-aos="fade-left"
+			data-aos-duration="800"
+			data-aos-delay="200"
+		>
 			Servicio <br class="hidden sm:block" />
 			en nuestras unidades
 		</h2>
@@ -62,11 +67,18 @@ const camaSuiteFeatures = [
 	<div class="relative z-10 container mx-auto max-w-7xl px-4">
 		<!-- Intro -->
 		<div class="mx-auto mt-8 max-w-7xl space-y-2 sm:mt-10 text-left font-semibold text-sm sm:text-base lg:text-lg">
-			<p>
+			<p
+				data-aos="fade-right"
+				data-aos-duration="800"
+			>
 				Viajar con Unión es hacerlo con confort, seguridad y tecnología al
 				servicio de cada pasajero.
 			</p>
-			<p>
+			<p
+				data-aos="fade-right"
+				data-aos-duration="800"
+				data-aos-delay="150"
+			>
 				Contamos con unidades preparadas para distintos tipos de recorrido,
 				desde traslados urbanos hasta viajes de media y larga distancia.
 			</p>
@@ -86,13 +98,27 @@ const camaSuiteFeatures = [
 							loading="lazy"
 							class="size-12 sm:size-14 md:size-24"
 							aria-hidden="true"
+							data-aos="fade-right"
+							data-aos-duration="800"
 						/>
 					</div>
 					<div class="col-span-12 xs:col-span-9 self-start">
-						<h3 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">Urbano</h3>
-						<p class="mt-1 text-sm sm:text-base font-medium list-disc">
+						<h3
+							class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
+							data-aos="fade-right"
+							data-aos-duration="800"
+							data-aos-delay="100"
+						>
+							Urbano
+						</h3>
+						<ul
+							class="mt-1 text-sm sm:text-base font-medium list-disc"
+							data-aos="fade-right"
+							data-aos-duration="800"
+							data-aos-delay="200"
+						>
 							<li>Micros destinados a recorridos cortos o urbanos.</li>
-						</p>
+						</ul>
 					</div>
 				</div>
 
@@ -107,13 +133,25 @@ const camaSuiteFeatures = [
 							loading="lazy"
 							class="size-12 sm:size-14 md:size-24"
 							aria-hidden="true"
+							data-aos="fade-left"
+							data-aos-duration="800"
 						/>
 					</div>
 					<div class="col-span-12 xs:col-span-9 self-start">
-						<h3 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
+						<h3
+							class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
+							data-aos="fade-left"
+							data-aos-duration="800"
+							data-aos-delay="100"
+						>
 							Media distancia
 						</h3>
-						<ul class="mt-2 space-y-0.5 text-sm sm:text-base font-medium list-disc">
+						<ul
+							class="mt-2 space-y-0.5 text-sm sm:text-base font-medium list-disc"
+							data-aos="fade-left"
+							data-aos-duration="800"
+							data-aos-delay="200"
+						>
 							{
 								mediaDistanciaFeatures.map((feature) => (
 									<li>{feature}</li>
@@ -128,6 +166,8 @@ const camaSuiteFeatures = [
 			<div class="rounded-2xl bg-launion px-5 py-6 text-white sm:px-8 sm:py-8">
 				<h3
 					class="mb-16 lg:mb-10 text-center text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
+					data-aos="fade-up"
+					data-aos-duration="800"
 				>
 					Larga distancia
 				</h3>
@@ -138,7 +178,11 @@ const camaSuiteFeatures = [
 					<div
 						class="flex flex-col gap-4 lg:pr-8"
 					>
-						<h4 class="text-lg sm:text-xl md:text-2xl font-bold uppercase">
+						<h4
+							class="text-lg sm:text-xl md:text-2xl font-bold uppercase"
+							data-aos="fade-right"
+							data-aos-duration="800"
+						>
 							Cama ejecutivo
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
@@ -148,10 +192,17 @@ const camaSuiteFeatures = [
 								loading="lazy"
 								class="mr-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
 								aria-hidden="true"
+								data-aos="fade-right"
+								data-aos-duration="800"
+								data-aos-delay="100"
 							/>
 							<div>
-								
-								<ul class="mt-2 md:mt-0 space-y-1 text-sm sm:text-base font-medium list-disc">
+								<ul
+									class="mt-2 md:mt-0 space-y-1 text-sm sm:text-base font-medium list-disc"
+									data-aos="fade-right"
+									data-aos-duration="800"
+									data-aos-delay="200"
+								>
 									{
 										camaEjecutivoFeatures.map((feature) => (
 											<li>{feature}</li>
@@ -166,7 +217,11 @@ const camaSuiteFeatures = [
 					<div
 						class="flex flex-col gap-4 lg:pl-8"
 					>
-						<h4 class="text-lg sm:text-xl md:text-2xl font-bold uppercase">
+						<h4
+							class="text-lg sm:text-xl md:text-2xl font-bold uppercase"
+							data-aos="fade-left"
+							data-aos-duration="800"
+						>
 							Cama suite
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
@@ -176,10 +231,17 @@ const camaSuiteFeatures = [
 								loading="lazy"
 								class="mr-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
 								aria-hidden="true"
+								data-aos="fade-left"
+								data-aos-duration="800"
+								data-aos-delay="100"
 							/>
 							<div>
-								
-								<ul class="mt-2 md:mt-0 space-y-1 text-sm sm:text-base font-medium list-disc">
+								<ul
+									class="mt-2 md:mt-0 space-y-1 text-sm sm:text-base font-medium list-disc"
+									data-aos="fade-left"
+									data-aos-duration="800"
+									data-aos-delay="200"
+								>
 									{
 										camaSuiteFeatures.map((feature) => (
 											<li>{feature}</li>
@@ -194,7 +256,11 @@ const camaSuiteFeatures = [
 		</div>
 
 		<!-- Outro -->
-		<p class="mx-auto mt-8 max-w-7xl text-left font-semibold text-sm sm:mt-10 sm:text-base lg:text-lg">
+		<p
+			class="mx-auto mt-8 max-w-7xl text-left font-semibold text-sm sm:mt-10 sm:text-base lg:text-lg"
+			data-aos="fade-right"
+			data-aos-duration="800"
+		>
 			Nuestras unidades están equipadas con sistemas avanzados como frenos ABS,
 			control de estabilidad y señalización inteligente, junto a un
 			mantenimiento constante que garantiza viajes confiables.
@@ -207,6 +273,13 @@ const camaSuiteFeatures = [
 		imageAlt="Cama ejecutivo y suite de LA UNION S.R.L."
 		align="start"
 	>
-		<p class="text-base xs:text-lg sm:text-xl md:text-2xl xl:text-4xl">Con Unión disfrutás cada kilómetro del camino.</p>
+		<p
+			class="text-base xs:text-lg sm:text-xl md:text-2xl xl:text-4xl"
+			data-aos="fade-right"
+			data-aos-duration="800"
+			data-aos-delay="200"
+		>
+			Con Unión disfrutás cada kilómetro del camino.
+		</p>
 	</ArrowImageBanner>
 </section>

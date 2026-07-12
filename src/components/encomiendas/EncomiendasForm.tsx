@@ -125,6 +125,9 @@ export default function EncomiendasForm({ puntos }: Props) {
 			ref={formRef}
 			onSubmit={handleSubmit}
 			className="flex flex-col gap-4"
+			data-aos="fade-right"
+			data-aos-duration="800"
+			data-aos-delay="100"
 		>
 			<Toaster
 				richColors

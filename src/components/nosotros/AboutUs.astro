@@ -36,6 +36,8 @@ const valores = [
 			<div>
 				<div
 					class="relative mb-5 inline-flex h-11 sm:h-12 min-w-48 sm:min-w-56 md:min-w-64 md:h-20 items-center"
+					data-aos="fade-right"
+					data-aos-duration="800"
 				>
 					<img
 						src="/images/shapes/arrow-right-blue.svg"
@@ -50,7 +52,12 @@ const valores = [
 						Nosotros
 					</h2>
 				</div>
-				<p class="text-sm sm:text-base lg:text-lg">
+				<p
+					class="text-sm sm:text-base lg:text-lg"
+					data-aos="fade-right"
+					data-aos-duration="800"
+					data-aos-delay="150"
+				>
 					Somos una empresa de transporte con más de 50 años de trayectoria
 					que nació con un objetivo claro: unir personas, lugares e historias.
 					Crecimos junto a nuestra comunidad.<br />
@@ -70,6 +77,8 @@ const valores = [
 				<div class="lg:max-w-md">
 					<div
 						class="relative mb-4 inline-flex h-11 min-w-44 items-center sm:h-12 sm:min-w-52"
+						data-aos="fade-left"
+						data-aos-duration="800"
 					>
 						<img
 							src="/images/shapes/arrow-right-blue.svg"
@@ -84,7 +93,12 @@ const valores = [
 							Misión
 						</h2>
 					</div>
-					<p class="text-sm sm:text-base">
+					<p
+						class="text-sm sm:text-base"
+						data-aos="fade-left"
+						data-aos-duration="800"
+						data-aos-delay="150"
+					>
 						Acompañar a cada persona en su viaje,
 						brindando un servicio confiable, seguro y de calidad,
 						con un equipo comprometido y unidades que
@@ -95,6 +109,9 @@ const valores = [
 				<div class="lg:ml-16 lg:max-w-md xl:ml-24">
 					<div
 						class="relative mb-4 inline-flex h-11 min-w-44 items-center sm:h-12 sm:min-w-52"
+						data-aos="fade-left"
+						data-aos-duration="800"
+						data-aos-delay="100"
 					>
 						<img
 							src="/images/shapes/arrow-right-blue.svg"
@@ -109,7 +126,12 @@ const valores = [
 							Visión
 						</h2>
 					</div>
-					<p class="text-sm sm:text-base">
+					<p
+						class="text-sm sm:text-base"
+						data-aos="fade-left"
+						data-aos-duration="800"
+						data-aos-delay="250"
+					>
 						Ser referentes en transporte de pasajeros, elegidos
 						por la confianza, la cercanía y la experiencia que
 						ofrecemos en cada viaje.
@@ -122,6 +144,10 @@ const valores = [
 	<!-- Imagen del colectivo -->
 	<div
 		class="nosotros-image-clip relative z-10 mt-10 ml-auto aspect-855/350 sm:aspect-855/300 md:aspect-855/250 lg:aspect-855/200 xl:aspect-855/155 w-[92%] overflow-hidden sm:mt-12  sm:w-[68%] md:w-[62%] lg:absolute lg:top-[62%] lg:right-0 lg:mt-0 lg:w-[58%] lg:-translate-y-1/2 xl:top-[65%] xl:w-[55%]"
+		data-aos="fade-left"
+		data-aos-duration="1000"
+		data-aos-delay="300"
+		data-aos-offset="0"
 	>
 		<img
 			src="/images/nosotros/nosotros-la-union.webp"
@@ -140,6 +166,8 @@ const valores = [
 		<div class="lg:max-w-4xl">
 			<div
 				class="relative mb-5 inline-flex h-11 min-w-48 items-center sm:h-12 sm:min-w-56 md:h-20 md:min-w-64"
+				data-aos="fade-right"
+				data-aos-duration="800"
 			>
 				<img
 					src="/images/shapes/arrow-right-blue.svg"
@@ -156,8 +184,13 @@ const valores = [
 			</div>
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 md:grid-cols-3 sm:gap-x-8 px-6">
 				{
-					valores.map((column) => (
-						<ul class="text-base font-semibold sm:font-bold sm:text-lg lg:text-xl list-disc">
+					valores.map((column, index) => (
+						<ul
+							class="text-base font-semibold sm:font-bold sm:text-lg lg:text-xl list-disc"
+							data-aos="fade-up"
+							data-aos-duration="600"
+							data-aos-delay={index * 100}
+						>
 							{column.map((valor) => (
 								<li>{valor}</li>
 							))}

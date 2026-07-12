@@ -178,17 +178,25 @@ const provinces: Province[] = [
 		imageAlt="Mapa de Argentina y colectivo de LA UNION S.R.L."
 		align="end"
 	>
-		<h1 class="text-sm xs:text-lg sm:text-xl md:text-2xl xl:text-4xl">
+		<h1
+			class="text-sm xs:text-lg sm:text-xl md:text-2xl xl:text-4xl"
+			data-aos="fade-left"
+			data-aos-duration="800"
+			data-aos-delay="200"
+		>
 			Conocé nuestros puntos de venta y entrega en el país.
 		</h1>
 	</ArrowImageBanner>
 
 	<div class="relative z-10 container mx-auto mt-10 max-w-7xl px-4 sm:mt-12 lg:mt-16">
 		{
-			provinces.map((province) => (
+			provinces.map((province, provinceIndex) => (
 				<section class="mb-10 last:mb-0 sm:mb-12 lg:mb-14">
 					<div
 						class="relative mb-6 inline-flex h-12 min-w-56 items-center sm:mb-8 sm:h-14 sm:min-w-64 md:min-w-80 lg:min-w-96"
+						data-aos="fade-right"
+						data-aos-duration="800"
+						data-aos-delay={provinceIndex * 100}
 					>
 						<img
 							src="/images/shapes/arrow-right-large-blue.svg"
@@ -208,8 +216,13 @@ const provinces: Province[] = [
 						class="grid grid-cols-1 gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-7 md:grid-cols-2 lg:gap-x-14"
 					>
 						{
-							province.locations.map((location) => (
-								<li class="flex items-start gap-3 sm:gap-4">
+							province.locations.map((location, index) => (
+								<li
+									class="flex items-start gap-3 sm:gap-4"
+									data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+									data-aos-duration="800"
+									data-aos-delay={100 + index * 75}
+								>
 									<img
 										src="/images/icons/icon-disc.svg"
 										alt="icono de disco para el punto de venta"

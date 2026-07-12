@@ -50,6 +50,8 @@ const principiosCalidad = [
 			<article class="policy-section">
 				<div
 					class="relative mb-6 inline-flex h-11 min-w-56 items-center sm:mb-7 sm:h-12 sm:min-w-64 md:h-14 md:min-w-72"
+					data-aos="fade-right"
+					data-aos-duration="500"
 				>
 					<img
 						src="/images/shapes/arrow-right-blue.svg"
@@ -65,7 +67,12 @@ const principiosCalidad = [
 					</h2>
 				</div>
 
-				<div class="policy-prose space-y-4">
+				<div
+					class="policy-prose space-y-4"
+					data-aos="fade"
+					data-aos-duration="500"
+					data-aos-delay="75"
+				>
 					<p>
 						TRANSPORTE LA UNIÓN S.R.L. destinará los recursos financieros,
 						humanos y técnicos adecuados para dar cumplimiento a esta política,
@@ -84,15 +91,25 @@ const principiosCalidad = [
 					</p>
 				</div>
 
-				<h3 class="policy-subtitle">
+				<h3
+					class="policy-subtitle"
+					data-aos="fade"
+					data-aos-duration="500"
+					data-aos-delay="100"
+				>
 					Para el cumplimiento de esta política se establecen los siguientes
 					principios:
 				</h3>
 
 				<ul class="policy-list">
 					{
-						principiosSeguridadVial.map((item) => (
-							<li class="policy-list-item">
+						principiosSeguridadVial.map((item, index) => (
+							<li
+								class="policy-list-item"
+								data-aos="fade"
+								data-aos-duration="500"
+								data-aos-delay={100 + index * 35}
+							>
 								<img
 									src="/images/icons/icon-disc.svg"
 									alt="icono de disco"
@@ -111,6 +128,8 @@ const principiosCalidad = [
 			<article class="policy-section">
 				<div
 					class="relative mb-6 inline-flex h-11 min-w-48 items-center sm:mb-7 sm:h-12 sm:min-w-56 md:h-14 md:min-w-64"
+					data-aos="fade-right"
+					data-aos-duration="500"
 				>
 					<img
 						src="/images/shapes/arrow-right-blue.svg"
@@ -126,7 +145,12 @@ const principiosCalidad = [
 					</h2>
 				</div>
 
-				<div class="policy-prose space-y-4">
+				<div
+					class="policy-prose space-y-4"
+					data-aos="fade"
+					data-aos-duration="500"
+					data-aos-delay="75"
+				>
 					<p>
 						TRANSPORTE LA UNIÓN S.R.L. establece y lidera un Sistema de
 						Gestión de la Calidad orientado a responder a las necesidades y
@@ -144,8 +168,13 @@ const principiosCalidad = [
 
 				<ul class="policy-list">
 					{
-						principiosCalidad.map((item) => (
-							<li class="policy-list-item">
+						principiosCalidad.map((item, index) => (
+							<li
+								class="policy-list-item"
+								data-aos="fade"
+								data-aos-duration="500"
+								data-aos-delay={100 + index * 35}
+							>
 								<img
 									src="/images/icons/icon-disc.svg"
 									alt="icono de disco"
@@ -159,7 +188,12 @@ const principiosCalidad = [
 					}
 				</ul>
 
-				<div class="policy-prose mt-6 space-y-4 sm:mt-7">
+				<div
+					class="policy-prose mt-6 space-y-4 sm:mt-7"
+					data-aos="fade"
+					data-aos-duration="500"
+					data-aos-delay="75"
+				>
 					<p>
 						Consecuentemente, la Dirección de TRANSPORTE LA UNIÓN S.R.L. se
 						compromete a facilitar todos los medios necesarios para cumplir con
@@ -181,6 +215,8 @@ const principiosCalidad = [
 			<article class="policy-section">
 				<div
 					class="relative mb-6 inline-flex h-11 min-w-52 items-center sm:mb-7 sm:h-12 sm:min-w-60 md:h-14 md:min-w-72"
+					data-aos="fade-right"
+					data-aos-duration="500"
 				>
 					<img
 						src="/images/shapes/arrow-right-blue.svg"
@@ -196,7 +232,12 @@ const principiosCalidad = [
 					</h2>
 				</div>
 
-				<div class="policy-prose space-y-4">
+				<div
+					class="policy-prose space-y-4"
+					data-aos="fade"
+					data-aos-duration="500"
+					data-aos-delay="75"
+				>
 					<p>
 						Cada pasajero tiene derecho a transportar sin costo una (1) valija
 						en bodega.

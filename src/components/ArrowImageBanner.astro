@@ -32,6 +32,9 @@ const clipLg = `${id}-lg`;
 			: "mr-auto mt-8 w-full sm:w-[90%] sm:mt-10 aspect-900/300 sm:aspect-900/120 lg:aspect-900/110",
 	]}
 	data-align={align}
+	data-aos={isEnd ? "fade-left" : "fade-right"}
+	data-aos-duration="1000"
+	data-aos-offset="0"
 	style={`--clip-base: url(#${clipBase}); --clip-sm: url(#${clipSm}); --clip-lg: url(#${clipLg});`}
 >
 	<img
