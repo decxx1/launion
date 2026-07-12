@@ -31,7 +31,9 @@ function isActiveLink(href: string): boolean {
 }
 ---
 
-<footer class="px-4 pb-6 sm:px-6 sm:pb-8 lg:px-8 overflow-hidden relative">
+<footer
+	class="px-4 pb-6 sm:px-6 sm:pb-8 lg:px-8 overflow-hidden relative"
+>
 	<!-- Rombo de fondo (lado izquierdo) -->
 	<div
 		class="pointer-events-none absolute inset-0 overflow-hidden"
@@ -73,10 +75,12 @@ function isActiveLink(href: string): boolean {
 							width="279"
 							height="119"
 							loading="lazy"
+							data-aos="flip-left"
 						/>
 					</a>
 					<div
 						class="mt-5 max-w-md space-y-3 text-sm leading-relaxed font-medium text-white/85 sm:mt-6 sm:text-base"
+						data-aos="fade"
 					>
 						<p>
 							Ofrecemos una experiencia integral que comienza en el viaje y
@@ -87,14 +91,15 @@ function isActiveLink(href: string): boolean {
 
 				<!-- Información -->
 				<div class="lg:col-span-3">
-					<h2
+					<h3
 						class="mb-4 text-[0.8125rem] font-bold tracking-[0.08em] uppercase text-white sm:mb-5 sm:text-sm"
+						data-aos="flip-up"
 					>
 						Información
-					</h2>
+					</h3>
 					<ul class="flex flex-col gap-2.5 sm:gap-3">
 						{
-							infoLinks.map((link) => (
+							infoLinks.map((link, index) => (
 								<li>
 									<a
 										href={link.href}
@@ -104,6 +109,9 @@ function isActiveLink(href: string): boolean {
 												"text-white underline underline-offset-4",
 										]}
 										aria-current={isActiveLink(link.href) ? "page" : undefined}
+										data-aos="fade"
+										data-aos-duration="500"
+										data-aos-delay={index * 300}
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -129,11 +137,12 @@ function isActiveLink(href: string): boolean {
 
 				<!-- Atención -->
 				<div class="lg:col-span-3">
-					<h2
+					<h3
 						class="mb-4 text-[0.8125rem] font-bold tracking-[0.08em] uppercase text-white sm:mb-5 sm:text-sm"
+						data-aos="flip-up"
 					>
 						Atención
-					</h2>
+					</h3>
 					<ul class="space-y-4 text-sm font-medium text-white/80 sm:text-base">
 						{
 							ADDRESS && MAP_URL && (
@@ -143,6 +152,9 @@ function isActiveLink(href: string): boolean {
 										target="_blank"
 										rel="noopener noreferrer"
 										class="group flex items-start gap-3 transition-opacity duration-200 hover:opacity-85"
+										data-aos="fade"
+										data-aos-duration="500"
+										data-aos-delay="400"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -161,8 +173,7 @@ function isActiveLink(href: string): boolean {
 										<span>
 											<span
 												class="mb-0.5 block text-xs font-bold tracking-[0.06em] uppercase text-white/90"
-												>Dirección</span
-											>
+												>Dirección</span>
 											<span class="block leading-normal">{ADDRESS}</span>
 										</span>
 									</a>
@@ -171,7 +182,12 @@ function isActiveLink(href: string): boolean {
 						}
 						{
 							SCHEDULES && (
-								<li class="flex items-start gap-3">
+								<li
+									class="flex items-start gap-3"
+									data-aos="fade"
+									data-aos-duration="500"
+									data-aos-delay="600"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
@@ -189,8 +205,7 @@ function isActiveLink(href: string): boolean {
 									<span>
 										<span
 											class="mb-0.5 block text-xs font-bold tracking-[0.06em] uppercase text-white/90"
-											>Horarios</span
-										>
+											>Horarios</span>
 										<span class="block leading-normal">{SCHEDULES}</span>
 									</span>
 								</li>
@@ -201,11 +216,12 @@ function isActiveLink(href: string): boolean {
 
 				<!-- Contacto -->
 				<div class="lg:col-span-3">
-					<h2
+					<h3
 						class="mb-4 text-[0.8125rem] font-bold tracking-[0.08em] uppercase text-white sm:mb-5 sm:text-sm"
+						data-aos="flip-up"
 					>
 						Contacto
-					</h2>
+					</h3>
 					<ul class="space-y-4 text-sm font-medium text-white/80 sm:text-base">
 						{
 							phoneHref && PHONE_FORMAT && (
@@ -213,6 +229,9 @@ function isActiveLink(href: string): boolean {
 									<a
 										href={phoneHref}
 										class="flex items-start gap-3 transition-opacity duration-200 hover:opacity-85"
+										data-aos="fade"
+										data-aos-duration="500"
+										data-aos-delay="400"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -247,6 +266,9 @@ function isActiveLink(href: string): boolean {
 										target="_blank"
 										rel="noopener noreferrer"
 										class="flex items-start gap-3 transition-opacity duration-200 hover:opacity-85"
+										data-aos="fade"
+										data-aos-duration="500"
+										data-aos-delay="600"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -275,6 +297,9 @@ function isActiveLink(href: string): boolean {
 									<a
 										href={emailHref}
 										class="flex items-start gap-3 transition-opacity duration-200 hover:opacity-85"
+										data-aos="fade"
+										data-aos-duration="500"
+										data-aos-delay="800"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -306,8 +331,11 @@ function isActiveLink(href: string): boolean {
 
 			<div
 				class="mt-10 flex flex-col gap-3 border-t border-white/15 pt-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+				data-aos="flip-right"
 			>
-				<p class="text-xs font-medium text-white/70 sm:text-sm">
+				<p
+					class="text-xs font-medium text-white/70 sm:text-sm"
+				>
 					Desarrollado por{" "}
 					<a
 						href="https://tresvecestres.com.ar/"
@@ -318,7 +346,9 @@ function isActiveLink(href: string): boolean {
 						Tres Veces Tres
 					</a>
 				</p>
-				<p class="text-xs font-semibold text-white/85 sm:text-right sm:text-sm">
+				<p
+					class="text-xs font-semibold text-white/85 sm:text-right sm:text-sm"
+				>
 					&copy; {new Date().getFullYear()} LA UNIÓN S.R.L.
 				</p>
 			</div>

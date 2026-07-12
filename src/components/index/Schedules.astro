@@ -33,6 +33,7 @@ const routes = [
 		<!-- Título -->
 		<div
 			class="flex items-center justify-center gap-3 rounded-tl-[3.5rem] rounded-br-[3.5rem] bg-launion px-5 py-3.5 sm:gap-4 sm:px-7 sm:py-4 lg:px-8"
+			data-aos="fade-up"
 		>
 			<img
 				src="/images/icons/icon-clock.svg"
@@ -53,10 +54,13 @@ const routes = [
 			class="my-16 sm:my-10 md:my-16 lg:my-20 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 items-center justify-items-center pb-2 lg:pb-0"
 		>
 			{
-				routes.map(({ label, href }) => (
+				routes.map(({ label, href }, index) => (
 					<a
 						href={href}
 						class="group relative flex w-32 sm:w-44 xl:w-full shrink-0 snap-center flex-col items-center justify-center transition-opacity hover:opacity-90"
+						data-aos="fade-up"
+						data-aos-duration="600"
+						data-aos-delay={index * 100}
 					>
 						<div class="relative aspect-226/217 w-full">
 							<img
@@ -89,7 +93,13 @@ const routes = [
 
 	<!-- Imagen del colectivo -->
 	<div class="relative z-10 mr-10 md:mr-20 lg:mr-32 xl:mr-56">
-		<div class="schedules-image-clip relative aspect-700/250 sm:aspect-855/210 w-full overflow-hidden">
+		<div 
+			class="schedules-image-clip relative aspect-700/250 sm:aspect-855/210 w-full overflow-hidden"
+			data-aos="fade-right"
+			data-aos-duration="1000"
+			data-aos-delay="800"
+			data-aos-offset="0"
+		>
 			<img
 				src="/images/home/schedules.webp"
 				alt="Colectivo de LA UNION S.R.L."
