@@ -76,16 +76,16 @@ const routes = [
 					<a
 						href={href}
 						download
-						class="group relative flex w-32 sm:w-44 xl:w-full shrink-0 snap-center flex-col items-center justify-center transition-opacity hover:opacity-90"
+						class="schedule-route-btn group relative flex w-32 sm:w-44 xl:w-full shrink-0 snap-center flex-col items-center justify-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-launion-light focus-visible:ring-offset-2"
 						data-aos="fade-up"
 						data-aos-duration="600"
 						data-aos-delay={index * 100}
 					>
-						<div class="relative aspect-226/217 w-full">
+						<div class="schedule-route-inner relative aspect-226/217 w-full">
 							<img
 								src="/images/shapes/shape-button-diamond.svg"
 								alt="figura de rombo para el botón"
-								class="absolute inset-0 h-full w-full"
+								class="schedule-route-diamond absolute inset-0 h-full w-full"
 								aria-hidden="true"
 								loading="lazy"
 							/>
@@ -95,11 +95,11 @@ const routes = [
 								<img
 									src="/images/icons/icon-bus.svg"
 									alt="icono de colectivo para horarios"
-									class="size-7 sm:size-10 xl:size-14"
+									class="schedule-route-icon size-7 sm:size-10 xl:size-14"
 									aria-hidden="true"
 									loading="lazy"
 								/>
-								<span class="text-center text-[0.6rem] uppercase sm:text-xs 2xl:text-sm px-2 leading-tight font-bold tracking-wide text-white">
+								<span class="schedule-route-label text-center text-[0.6rem] uppercase sm:text-xs 2xl:text-sm px-2 leading-tight font-bold tracking-wide text-white">
 									{label}
 								</span>
 							</span>
@@ -146,17 +146,94 @@ const routes = [
 	</defs>
   </svg>
 <style>
+	.schedule-route-inner {
+		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.schedule-route-btn:hover .schedule-route-inner,
+	.schedule-route-btn:focus-visible .schedule-route-inner {
+		transform: scale(1.06) translateY(-4px);
+	}
+
+	.schedule-route-btn:active .schedule-route-inner {
+		transform: scale(0.98) translateY(0);
+	}
+
+	.schedule-route-diamond {
+		transition:
+			filter 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.schedule-route-btn:hover .schedule-route-diamond,
+	.schedule-route-btn:focus-visible .schedule-route-diamond {
+		filter: brightness(1.12) saturate(1.08)
+			drop-shadow(0 12px 22px rgba(11, 88, 134, 0.42));
+		transform: translateY(-2px);
+	}
+
+	.schedule-route-icon {
+		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.schedule-route-btn:hover .schedule-route-icon,
+	.schedule-route-btn:focus-visible .schedule-route-icon {
+		transform: scale(1.12) translateY(-3px);
+	}
+
+	.schedule-route-label {
+		transition: letter-spacing 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.schedule-route-btn:hover .schedule-route-label,
+	.schedule-route-btn:focus-visible .schedule-route-label {
+		letter-spacing: 0.08em;
+	}
+
 	.schedules-image-clip {
-    clip-path: url(#flecha-clip-base);
-}
-@media (min-width: 640px) {
-    .schedules-image-clip {
-        clip-path: url(#flecha-clip-sm);
-    }
-}
-@media (min-width: 1024px) {
-    .schedules-image-clip {
-        clip-path: url(#flecha-clip-lg);
-    }
-}
+		clip-path: url(#flecha-clip-base);
+	}
+
+	@media (min-width: 640px) {
+		.schedules-image-clip {
+			clip-path: url(#flecha-clip-sm);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.schedules-image-clip {
+			clip-path: url(#flecha-clip-lg);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.schedule-route-inner,
+		.schedule-route-diamond,
+		.schedule-route-icon,
+		.schedule-route-label {
+			transition: none;
+		}
+
+		.schedule-route-btn:hover .schedule-route-inner,
+		.schedule-route-btn:focus-visible .schedule-route-inner,
+		.schedule-route-btn:active .schedule-route-inner {
+			transform: none;
+		}
+
+		.schedule-route-btn:hover .schedule-route-diamond,
+		.schedule-route-btn:focus-visible .schedule-route-diamond {
+			filter: brightness(1.08);
+			transform: none;
+		}
+
+		.schedule-route-btn:hover .schedule-route-icon,
+		.schedule-route-btn:focus-visible .schedule-route-icon {
+			transform: none;
+		}
+
+		.schedule-route-btn:hover .schedule-route-label,
+		.schedule-route-btn:focus-visible .schedule-route-label {
+			letter-spacing: inherit;
+		}
+	}
 </style>
