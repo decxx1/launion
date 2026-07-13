@@ -64,20 +64,27 @@ const heroSlides = [
 			src="/images/shapes/shape-diamond.svg"
 			alt="Figura geométrica en forma de rombo"
 			loading="lazy"
-			class="absolute top-[72%] left-0 sm:left-10 h-[110vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:h-[115vh] lg:hidden"
+			class="absolute top-[72%] left-0 sm:left-10 h-[max(110vh,120vw)] sm:h-[max(115vh,120vw)] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] lg:hidden"
 		/>
 		<img
 			src="/images/shapes/shape-diamond.svg"
 			loading="lazy"
 			alt="Figura geométrica en forma de rombo"
-			class="absolute top-1/2 left-0 hidden h-[165vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
+			class="absolute top-1/2 left-0 hidden lg:block h-[max(165vh,100vw)] xl:h-[max(175vh,120vw)] 2xl:h-[max(175vh,90vw)] w-auto max-w-none translate-x-[-56%] xl:translate-x-[-58%] 2xl:translate-x-[-46%] -translate-y-1/2 select-none"
 		/>
 	</div>
 
 	<!-- Logo desktop (se oculta al scrollear: el header pill lo reemplaza) -->
 	<a
 		href="/"
-		class="hero-logo absolute top-8 left-8 z-20 hidden transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:block xl:top-16 xl:left-12 2xl:top-20 2xl:left-32"
+		class="hero-logo absolute top-8 left-8 z-20 hidden transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:block xl:top-16 xl:left-12 2xl:top-20 2xl:left-32
+		
+		short:top-4 short:left-4 short:z-20
+		sm-short:top-6 sm-short:left-6 sm-short:z-20
+		lg-short:top-8 lg-short:left-8 lg-short:z-20
+		xl-short:top-10 xl-short:left-10 xl-short:z-20
+		2xl-short:top-12 2xl-short:left-12 2xl-short:z-20
+		"
 		aria-label="LA UNION S.R.L. - Inicio"
 	>
 		<img
@@ -98,26 +105,33 @@ const heroSlides = [
 			bottom-[24%] left-6 max-w-[85%]
 			sm:bottom-[32%]
 			lg:top-1/2 lg:bottom-auto lg:left-20 lg:max-w-md lg:translate-y-[-50%]
-			xl:left-16 xl:max-w-lg 2xl:left-28"
+			xl:left-16 xl:max-w-lg 2xl:left-28
+			
+			short:bottom-[20%] short:left-4 short:max-w-[72%]
+			sm-short:bottom-[24%]
+			lg-short:left-6 lg-short:max-w-md
+			xl-short:left-16 xl-short:max-w-lg
+			2xl-short:left-28 2xl-short:max-w-xl
+			"
 		data-aos="fade-right"
 	>
 		<h1 class="font-bold tracking-tight">
-			<span class="relative block text-4xl sm:text-5xl lg:text-7xl xl:text-8xl">
-				<svg class="absolute top-0 xl:top-1 left-12 sm:left-7 lg:left-8 xl:left-12 w-6 sm:w-8 lg:w-9 xl:w-12" xmlns="http://www.w3.org/2000/svg" id="Capa_2" data-name="Capa 2" viewBox="0 0 50.34 22.68"><path id="LANDING" fill="#fff" d="M25.18 7.22C14.6 7.22 5.3 13.38 0 22.68v-7.23C5.3 6.16 14.6 0 25.18 0s19.85 6.14 25.16 15.4v7.23C45.03 13.37 35.75 7.22 25.18 7.22"/></svg>
+			<span class="relative block text-4xl sm:text-5xl lg:text-7xl xl:text-8xl sm-short:text-4xl lg-short:text-6xl xl-short:text-7xl">
+				<svg class="absolute top-0 xl:top-1 left-12 sm:left-7 lg:left-8 xl:left-12 w-6 sm:w-8 lg:w-9 xl:w-12  sm-short:left-12 lg-short:left-7 xl-short:left-8 sm-short:w-6 lg-short:w-8 xl-short:w-9" xmlns="http://www.w3.org/2000/svg" id="Capa_2" data-name="Capa 2" viewBox="0 0 50.34 22.68"><path id="LANDING" fill="#fff" d="M25.18 7.22C14.6 7.22 5.3 13.38 0 22.68v-7.23C5.3 6.16 14.6 0 25.18 0s19.85 6.14 25.16 15.4v7.23C45.03 13.37 35.75 7.22 25.18 7.22"/></svg>
 				unimos
 			</span>
-			<span class="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+			<span class="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl sm-short:text-3xl lg-short:text-4xl xl-short:text-5xl">
 				destinos
 			</span>
 		</h1>
-		<p class="mt-3 text-base font-medium sm:text-lg lg:mt-5 lg:text-2xl xl:text-3xl tracking-wide xl:tracking-widest">
+		<p class="mt-3 text-base font-medium sm:text-lg lg:mt-5 lg:text-2xl xl:text-3xl tracking-wide xl:tracking-widest xl-short:tracking-wide 2xl-short:tracking-widest sm-short:text-base lg-short:text-xl xl-short:text-2xl">
 			Acercamos historias
 		</p>
 	</div>
 
 	<!-- CTA -->
 	<div
-		class="absolute -right-2 bottom-22 z-30 w-80 sm:w-120 lg:w-[48%] xl:w-[44%] 2xl:w-180"
+		class="absolute -right-2 bottom-22 z-30 w-80 sm:w-120 lg:w-[48%] xl:w-[44%] 2xl:w-180 sm-short:w-80 lg-short:w-96 xl-short:w-120 2xl-short:w-xl"
 		data-aos="fade-left"
 		data-aos-anchor="#example-anchor"
 		data-aos-offset="500"
@@ -135,11 +149,17 @@ const heroSlides = [
 			<div
 				class="absolute inset-0 flex flex-col justify-center gap-1.5 py-2.5 pl-16 pr-0
 					sm:gap-2 sm:py-3 sm:pl-20
-					lg:gap-2 lg:py-4 lg:pl-[12%]"
+					lg:gap-2 lg:py-4 lg:pl-[12%]
+					
+					sm-short:gap-1 sm-short:py-2 sm-short:pl-12 sm-short:pr-0
+					md-short:gap-1.5 md-short:py-2.5 md-short:pl-16 md-short:pr-0
+					lg-short:gap-2 lg-short:py-3 lg-short:pl-20 lg-short:pr-0
+					xl-short:gap-2.5 xl-short:py-3.5 xl-short:pl-24 xl-short:pr-0
+					2xl-short:gap-3 2xl-short:py-4 2xl-short:pl-28 2xl-short:pr-0"
 			>
 				<p
 					class="max-w-64 text-base leading-tight font-bold text-white italic
-						sm:max-w-none sm:text-lg lg:text-2xl xl:text-3xl"
+						sm:max-w-none sm:text-lg lg:text-2xl xl:text-3xl sm-short:text-base lg-short:text-xl xl-short:text-2xl"
 				>
 					¡Comprá tus pasajes ahora!
 				</p>
@@ -161,7 +181,13 @@ const heroSlides = [
 						class="absolute inset-0 flex items-center justify-start 
 						gap-2.5 pr-5 pl-[12%]
 						sm:gap-3 sm:pr-6 sm:pl-[11%]
-						lg:gap-3 lg:pr-7 lg:pl-[10%]"
+						lg:gap-3 lg:pr-7 lg:pl-[10%]
+						
+						sm-short:gap-2 sm-short:pr-4 sm-short:pl-[10%]
+						md-short:gap-2.5 md-short:pr-5 md-short:pl-[9%]
+						lg-short:gap-3 lg-short:pr-6 lg-short:pl-[8%]
+						xl-short:gap-3.5 xl-short:pr-7 xl-short:pl-[7%]
+						2xl-short:gap-4 2xl-short:pr-8 2xl-short:pl-[6%]"
 					>
 						<span
 							class="text-xl font-extrabold tracking-wide text-launion sm:text-2xl lg:text-[1.65rem] xl:text-[1.85rem]"
