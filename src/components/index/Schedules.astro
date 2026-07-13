@@ -1,11 +1,29 @@
 ---
 const routes = [
-	{ label: "LOCAL", href: "#" },
-	{ label: "URBANO PERIFÉRICO", href: "#" },
-	{ label: "SAN RAFAEL BOWEN", href: "#" },
-	{ label: "MENDOZA BOWEN", href: "#" },
-	{ label: "SAN RAFAEL BUENOS AIRES", href: "#" },
-	{ label: "MENDOZA BUENOS AIRES", href: "#" },
+	{
+		label: "LOCAL",
+		href: "/PDF/Horario-Vacaciones-Inv.-desde-el-06-07-26-al-17-07-26.pdf",
+	},
+	{
+		label: "URBANO PERIFÉRICO",
+		href: "/PDF/Horario-Ugacoop-OK-Vacaciones-Inv.-06-07-26-al-17-07-26.pdf",
+	},
+	{
+		label: "SAN RAFAEL BOWEN",
+		href: "/PDF/Horario-San-Rafael-Receso-Invernal-desde-06-07-26-al-19-07-26.pdf",
+	},
+	{
+		label: "MENDOZA BOWEN",
+		href: "/PDF/Horario-Linea-Mendoza-scaled.jpg",
+	},
+	{
+		label: "SAN RAFAEL BUENOS AIRES",
+		href: "/PDF/Linea_SanRafael_BsAs_Horario_.pdf",
+	},
+	{
+		label: "MENDOZA BUENOS AIRES",
+		href: "/PDF/Linea_Mendoza_BsAs_Horario.pdf",
+	},
 ];
 ---
 
@@ -57,6 +75,7 @@ const routes = [
 				routes.map(({ label, href }, index) => (
 					<a
 						href={href}
+						download
 						class="group relative flex w-32 sm:w-44 xl:w-full shrink-0 snap-center flex-col items-center justify-center transition-opacity hover:opacity-90"
 						data-aos="fade-up"
 						data-aos-duration="600"
