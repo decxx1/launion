@@ -1,16 +1,18 @@
 ---
+import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
+
 const routes = [
 	{
 		label: "LOCAL",
-		href: "/PDF/Horario-Vacaciones-Inv.-desde-el-06-07-26-al-17-07-26.pdf",
+		href: "/PDF/Horario Invierno 20-07-26.pdf",
 	},
 	{
 		label: "URBANO PERIFÉRICO",
-		href: "/PDF/Horario-Ugacoop-OK-Vacaciones-Inv.-06-07-26-al-17-07-26.pdf",
+		href: "/PDF/Horario Periferia Alvear desde 20-07-26.pdf",
 	},
 	{
 		label: "SAN RAFAEL BOWEN",
-		href: "/PDF/Horario-San-Rafael-Receso-Invernal-desde-06-07-26-al-19-07-26.pdf",
+		href: "/PDF/Horario San Rafael desde 20-07-26.pdf",
 	},
 	{
 		label: "MENDOZA BOWEN",
@@ -27,7 +29,7 @@ const routes = [
 ];
 ---
 
-<section class="relative overflow-hidden bg-white pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-16">
+<section class="relative overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-16">
 	<!-- Rombo de fondo (lado izquierdo) -->
 	<div
 		class="pointer-events-none absolute inset-0 overflow-hidden"
@@ -47,26 +49,26 @@ const routes = [
 		/>
 	</div>
 
-	<div class="relative z-10 container max-w-7xl mx-auto w-full px-4">
-		<!-- Título -->
-		<div
-			class="flex items-center justify-center gap-3 rounded-tl-[3.5rem] rounded-br-[3.5rem] bg-launion px-5 py-3.5 sm:gap-4 sm:px-7 sm:py-4 lg:px-8"
-			data-aos="fade-up"
+	<ArrowImageBanner
+		id="horarios-banner"
+		image="/images/home/schedules.webp"
+		imageAlt="Colectivo de LA UNION S.R.L."
+		align="startLeft"
+		imageClass="object-cover object-[center_40%] sm:object-center"
+	>
+		<h1
+			class="text-left text-lg sm:text-2xl md:text-3xl xl:text-4xl"
+			data-aos="fade-left"
+			data-aos-duration="800"
+			data-aos-delay="200"
 		>
-			<img
-				src="/images/icons/icon-clock.svg"
-				alt="icono de reloj para horarios"
-				class="size-9 shrink-0 sm:size-10 lg:size-11"
-				aria-hidden="true"
-				loading="lazy"
-			/>
-			<h2
-				class="text-base lg:text-lg xl:text-xl font-semibold sm:font-bold leading-tight text-white"
-			>
-				Descargá los horarios de nuestras líneas de colectivo
-			</h2>
-		</div>
+			Descargá los horarios <br class="hidden sm:block" />
+			de nuestras líneas <br class="hidden sm:block" />
+			de colectivo
+		</h1>
+	</ArrowImageBanner>
 
+	<div class="relative z-10 container max-w-7xl mx-auto w-full px-4">
 		<!-- Botones en rombo -->
 		<div
 			class="my-16 sm:my-10 md:my-16 lg:my-20 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 items-center justify-items-center pb-2 lg:pb-0"
@@ -109,42 +111,8 @@ const routes = [
 			}
 		</div>
 	</div>
-
-	<!-- Imagen del colectivo -->
-	<div class="relative z-10 mr-10 md:mr-20 lg:mr-32 xl:mr-56">
-		<div 
-			class="schedules-image-clip relative aspect-700/250 sm:aspect-855/210 w-full overflow-hidden"
-			data-aos="fade-right"
-			data-aos-duration="1000"
-			data-aos-delay="800"
-			data-aos-offset="0"
-		>
-			<img
-				src="/images/home/schedules.webp"
-				alt="Colectivo de LA UNION S.R.L."
-				class="absolute inset-0 h-full w-full object-cover object-[center_40%] sm:object-center"
-				loading="lazy"
-			/>
-			<div
-				class="pointer-events-none absolute inset-0 bg-linear-to-r from-launion from-0% via-launion/20 via-15% sm:via-35% to-transparent to-100%"
-				aria-hidden="true"
-			/>
-		</div>
-	</div>
 </section>
-<svg width="0" height="0" style="position:absolute">
-	<defs>
-	  <clipPath id="flecha-clip-base" clipPathUnits="objectBoundingBox">
-		<path d="M 0 0 L 0.83 0 Q 0.84 0 0.85 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.85 0.97 Q 0.84 1 0.83 1 L 0 1 Z" />
-	  </clipPath>
-	  <clipPath id="flecha-clip-sm" clipPathUnits="objectBoundingBox">
-		<path d="M 0 0 L 0.85 0 Q 0.86 0 0.87 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.87 0.97 Q 0.86 1 0.85 1 L 0 1 Z" />
-	  </clipPath>
-	  <clipPath id="flecha-clip-lg" clipPathUnits="objectBoundingBox">
-		<path d="M 0 0 L 0.87 0 Q 0.88 0 0.89 0.03 L 0.975 0.40 Q 1 0.5 0.975 0.60 L 0.89 0.97 Q 0.88 1 0.87 1 L 0 1 Z" />
-	  </clipPath>
-	</defs>
-  </svg>
+
 <style>
 	.schedule-route-inner {
 		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -188,22 +156,6 @@ const routes = [
 	.schedule-route-btn:hover .schedule-route-label,
 	.schedule-route-btn:focus-visible .schedule-route-label {
 		letter-spacing: 0.08em;
-	}
-
-	.schedules-image-clip {
-		clip-path: url(#flecha-clip-base);
-	}
-
-	@media (min-width: 640px) {
-		.schedules-image-clip {
-			clip-path: url(#flecha-clip-sm);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.schedules-image-clip {
-			clip-path: url(#flecha-clip-lg);
-		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
