@@ -18,8 +18,17 @@ for (let i = 0; i < images.length; i += perPage) {
 	pages.push(images.slice(i, i + perPage));
 }
 
-const galleryHeightClass = compact ? "h-36 sm:h-40" : "h-40 sm:h-44 lg:h-48";
+const galleryHeightClass = compact
+	? "min-h-[9rem] sm:min-h-[10rem]"
+	: perPage >= 4
+		? "aspect-square sm:aspect-[4/1]"
+		: "h-40 sm:h-44 lg:h-48";
 const pageGridClass = perPage >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2";
+const photoButtonClass =
+	perPage >= 4 ? "aspect-square w-full" : "h-full min-h-0";
+const galleryWrapperClass = compact
+	? "relative min-h-0 flex-1 overflow-hidden rounded-xl"
+	: "relative overflow-hidden rounded-xl";
 ---
 
 <div
@@ -47,7 +56,7 @@ const pageGridClass = perPage >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2
 				type="button"
 				class:list={[
 					"service-flip-open absolute z-10 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-sm",
-					compact ? "bottom-3 right-4 sm:bottom-4 sm:right-5" : "bottom-4 right-5 sm:bottom-5 sm:right-6",
+					compact ? "bottom-0 right-4 sm:right-5" : "bottom-4 right-5 sm:bottom-5 sm:right-6",
 				]}
 				aria-expanded="false"
 				aria-controls={galleryId}
@@ -107,10 +116,7 @@ const pageGridClass = perPage >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2
 				data-page-count={pages.length}
 			>
 				<div
-					class:list={[
-						"relative min-h-0 flex-1 overflow-hidden rounded-xl",
-						compact ? "min-h-[9rem] sm:min-h-[10rem]" : galleryHeightClass,
-					]}
+					class:list={[galleryWrapperClass, galleryHeightClass]}
 				>
 					{
 						pages.map((page, pageIndex) => (
@@ -128,7 +134,10 @@ const pageGridClass = perPage >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2
 									return (
 										<button
 											type="button"
-											class="group/photo relative h-full min-h-0 overflow-hidden rounded-lg ring-1 ring-white/15 transition hover:ring-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+											class:list={[
+												"group/photo relative overflow-hidden rounded-lg ring-1 ring-white/15 transition hover:ring-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
+												photoButtonClass,
+											]}
 											data-lightbox-open
 											data-lightbox-index={globalIndex}
 											aria-label={`Ver en alta calidad: ${image.alt}`}
