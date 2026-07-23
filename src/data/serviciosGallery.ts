@@ -2,15 +2,25 @@ export interface ServicioGalleryImage {
 	src: string;
 	thumb: string;
 	alt: string;
+	seatIcon?: string;
+	seatType?: string;
+	seatLabel?: string;
 }
 
 const galleryBase = "/images/galeria";
+const iconsBase = "/images/icons";
 
-function galleryImage(folder: string, filename: string, alt: string): ServicioGalleryImage {
+function galleryImage(
+	folder: string,
+	filename: string,
+	alt: string,
+	options?: Pick<ServicioGalleryImage, "seatIcon" | "seatType" | "seatLabel">,
+): ServicioGalleryImage {
 	return {
 		src: `${galleryBase}/${folder}/${filename}`,
 		thumb: `${galleryBase}/${folder}/thumb/${filename}`,
 		alt,
+		...options,
 	};
 }
 
@@ -30,9 +40,15 @@ export const largaDistanciaImages: ServicioGalleryImage[] = [
 	galleryImage(
 		"larga-distancia",
 		"cama-ejecutivo-piso-superior.webp",
-		"Cama ejecutivo en piso superior",
+		"Cama ejecutivo en piso superior, asiento 160°",
+		{ seatIcon: `${iconsBase}/asiento-160.svg`, seatType: "Cama ejecutivo", seatLabel: "160°" },
 	),
-	galleryImage("larga-distancia", "cama-suite-piso-inferior.webp", "Cama suite en piso inferior"),
+	galleryImage(
+		"larga-distancia",
+		"cama-suite-piso-inferior.webp",
+		"Cama suite en piso inferior, asiento 180°",
+		{ seatIcon: `${iconsBase}/asiento-180.svg`, seatType: "Cama suite", seatLabel: "180°" },
+	),
 	galleryImage("larga-distancia", "servicio-a-bordo.webp", "Servicio a bordo en larga distancia"),
 	galleryImage("larga-distancia", "unidad-0-km-frente.webp", "Unidad 0 km vista frontal"),
 	galleryImage("larga-distancia", "unidad-0-km-lateral.webp", "Unidad 0 km vista lateral"),

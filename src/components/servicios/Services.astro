@@ -195,18 +195,47 @@ const camaSuiteFeatures = [
 				>
 					Larga distancia
 				</h3>
-				<ul
-					class="mx-auto mt-4 mb-10 max-w-4xl space-y-1 text-sm sm:text-base font-medium list-disc sm:mt-5 lg:mb-8"
+				<div
+					class="mx-auto mt-4 mb-10 grid max-w-4xl grid-cols-1 items-start gap-4 sm:mt-5 sm:grid-cols-12 sm:gap-6 lg:mb-8"
 					data-aos="fade-up"
 					data-aos-duration="800"
 					data-aos-delay="100"
 				>
-					{
-						largaDistanciaSharedFeatures.map((feature) => (
-							<li>{feature}</li>
-						))
-					}
-				</ul>
+					<div
+						class="col-span-1 sm:col-span-3 gap-3 sm:gap-4 lg:gap-5 flex flex-row sm:flex-row flex-wrap items-center justify-center"
+					>
+						<img
+							src="/images/icons/servicio-a-bordo.svg"
+							alt="Servicio a bordo en el viaje"
+							loading="lazy"
+							class="h-20 w-auto shrink-0 sm:h-16 md:h-18 lg:h-20"
+							aria-hidden="true"
+						/>
+						<img
+							src="/images/icons/wifi-satelital.svg"
+							alt="Wifi satelital en el viaje"
+							loading="lazy"
+							class="h-20 w-auto shrink-0 sm:h-16 md:h-18 lg:h-20"
+							aria-hidden="true"
+						/>
+						<img
+							src="/images/icons/entretenimiento.svg"
+							alt="Entretención en el viaje"
+							loading="lazy"
+							class="h-20 w-auto shrink-0 sm:h-16 md:h-18 lg:h-20"
+							aria-hidden="true"
+						/>
+					</div>
+					<ul
+						class="col-span-1 space-y-1 text-sm font-medium list-disc sm:col-span-9 sm:text-base"
+					>
+						{
+							largaDistanciaSharedFeatures.map((feature) => (
+								<li>{feature}</li>
+							))
+						}
+					</ul>
+				</div>
 				<div
 					class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0 lg:divide-x-2 lg:divide-white"
 				>
@@ -221,10 +250,10 @@ const camaSuiteFeatures = [
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
 							<img
-								src="/images/icons/ejecutive.svg"
-								alt="iconos de cama ejecutivo"
+								src="/images/icons/asiento-160.svg"
+								alt="Asiento cama ejecutivo reclinable 160 grados"
 								loading="lazy"
-								class="mr-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
+								class="mr-auto h-24 w-auto shrink-0 sm:mx-0 sm:h-28 lg:h-36"
 								aria-hidden="true"
 								data-aos="fade-right"
 								data-aos-duration="800"
@@ -258,10 +287,10 @@ const camaSuiteFeatures = [
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
 							<img
-								src="/images/icons/suite.svg"
-								alt="iconos de cama suite"
+								src="/images/icons/asiento-180.svg"
+								alt="Asiento cama suite reclinable 180 grados"
 								loading="lazy"
-								class="mr-auto w-36 shrink-0 sm:mx-0 sm:w-40 lg:w-44"
+								class="mr-auto h-24 w-auto shrink-0 sm:mx-0 sm:h-28 lg:h-36"
 								aria-hidden="true"
 								data-aos="fade-left"
 								data-aos-duration="800"

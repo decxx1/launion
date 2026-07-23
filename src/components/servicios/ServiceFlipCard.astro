@@ -1,5 +1,6 @@
 ---
 import type { ServicioGalleryImage } from "@/data/serviciosGallery";
+import GallerySeatBadge from "@/components/servicios/GallerySeatBadge.astro";
 
 interface Props {
 	id: string;
@@ -150,7 +151,17 @@ const galleryWrapperClass = compact
 												decoding="async"
 												draggable="false"
 											/>
-											<span class="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/50 to-transparent px-2 py-1.5 text-left text-[10px] font-semibold uppercase tracking-wide text-white opacity-0 transition group-hover/photo:opacity-100 sm:text-[11px]">
+											{
+												image.seatIcon && image.seatType && image.seatLabel && (
+													<GallerySeatBadge
+														icon={image.seatIcon}
+														title={image.seatType}
+														label={image.seatLabel}
+														compact
+													/>
+												)
+											}
+											<span class="pointer-events-none absolute top-1.5 right-1.5 rounded-full bg-black/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-white opacity-0 transition group-hover/photo:opacity-100 sm:text-[11px]">
 												Ampliar
 											</span>
 										</button>

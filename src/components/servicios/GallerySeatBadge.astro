@@ -1,0 +1,50 @@
+---
+interface Props {
+	icon: string;
+	title: string;
+	label: string;
+	compact?: boolean;
+}
+
+const { icon, title, label, compact = false } = Astro.props;
+---
+
+<div
+	class:list={[
+		"pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-launion/95 via-launion/80 to-transparent",
+		compact ? "px-1.5 pb-1.5 pt-4" : "px-2 pb-2 pt-5 sm:px-2.5 sm:pb-2.5 sm:pt-6",
+	]}
+>
+	<div class="flex items-end gap-1.5 sm:gap-2">
+		<img
+			src={icon}
+			alt=""
+			class:list={[
+				"w-auto shrink-0 drop-shadow-sm",
+				compact ? "h-7 sm:h-8" : "h-9 sm:h-10 md:h-11",
+			]}
+			aria-hidden="true"
+			loading="lazy"
+			decoding="async"
+			draggable="false"
+		/>
+		<div class="min-w-0 pb-0.5">
+			<p
+				class:list={[
+					"font-bold uppercase leading-tight text-white",
+					compact ? "text-[9px] sm:text-[10px]" : "text-[10px] sm:text-xs",
+				]}
+			>
+				{title}
+			</p>
+			<p
+				class:list={[
+					"font-semibold leading-none text-white/80",
+					compact ? "text-[8px] sm:text-[9px]" : "text-[9px] sm:text-[10px]",
+				]}
+			>
+				Reclinación {label}
+			</p>
+		</div>
+	</div>
+</div>
