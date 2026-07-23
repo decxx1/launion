@@ -1,0 +1,66 @@
+---
+import type { ServicioGalleryImage } from "@/data/serviciosGallery";
+
+interface GallerySection {
+	id: string;
+	title: string;
+	images: ServicioGalleryImage[];
+}
+
+interface Props {
+	sections: readonly GallerySection[];
+}
+
+const { sections } = Astro.props;
+---
+
+<div class="mt-8 space-y-8 sm:mt-10 sm:space-y-10">
+	{
+		sections.map((section) => (
+			<section
+				class="space-y-4"
+				data-aos="fade-up"
+				data-aos-duration="800"
+				aria-labelledby={`galeria-${section.id}`}
+			>
+				<h3
+					id={`galeria-${section.id}`}
+					class="text-xl font-bold uppercase text-launion sm:text-2xl"
+				>
+					{section.title}
+				</h3>
+
+				<div
+					class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5"
+					data-lightbox-gallery={JSON.stringify(
+						section.images.map(({ src, alt }) => ({ src, alt })),
+					)}
+				>
+					{section.images.map((image, index) => (
+						<button
+							type="button"
+							class="group relative aspect-4/3 overflow-hidden rounded-xl bg-launion/5 ring-1 ring-launion/10 transition hover:ring-launion/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-launion"
+							data-lightbox-open
+							data-lightbox-index={index}
+							aria-label={`Ver imagen ampliada: ${image.alt}`}
+						>
+							<img
+								src={image.thumb}
+								alt={image.alt}
+								class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+								loading="lazy"
+								decoding="async"
+								draggable="false"
+							/>
+							<span class="pointer-events-none absolute inset-0 flex items-end justify-end bg-linear-to-t from-black/35 via-transparent to-transparent p-2 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
+								<span class="rounded-full bg-white/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-launion sm:text-xs">
+									Ampliar
+								</span>
+							</span>
+						</button>
+					))}
+				</div>
+			</section>
+		))
+	}
+</div>

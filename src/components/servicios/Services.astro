@@ -1,5 +1,14 @@
 ---
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
+import ImageLightbox from "@/components/servicios/ImageLightbox.astro";
+import ServiceFlipCard from "@/components/servicios/ServiceFlipCard.astro";
+import ServicesGallery from "@/components/servicios/ServicesGallery.astro";
+import {
+	largaDistanciaImages,
+	mediaDistanciaImages,
+	serviciosGallerySections,
+	urbanoImages,
+} from "@/data/serviciosGallery";
 
 const mediaDistanciaFeatures = [
 	"Semicama para recorridos provinciales.",
@@ -8,22 +17,22 @@ const mediaDistanciaFeatures = [
 	"Wifi.",
 ];
 
-const camaEjecutivoFeatures = [
-	"Servicio a bordo: comida fría o caliente a elección, postre y bebida, merienda y desayuno (opción vegana, vegetariana y sin gluten)",
-	"Pantallas de 23 pulgadas",
-	"Wifi y puertos USB",
-	"Reclinación 160°, reposacabezas ergonómico y climatización integral.",
+const largaDistanciaSharedFeatures = [
+	"Servicio a bordo: comida fría o caliente a elección, postre y bebida, merienda y desayuno",
+	"opción vegana, vegetariana y sin gluten.",
+	"Wifi y puertos USB.",
 	"Mantas y almohadas individuales.",
 	"Atención personalizada.",
 ];
 
+const camaEjecutivoFeatures = [
+	"Pantallas de 23 pulgadas",
+	"Reclinación 160°, reposacabezas ergonómico y climatización integral.",
+];
+
 const camaSuiteFeatures = [
-	"Servicio a bordo: comida fría o caliente a elección, postre y bebida, merienda y desayuno (opción vegana, vegetariana y sin gluten)",
 	"Pantallas individuales.",
-	"Wifi y puertos USB",
 	"Reclinación total, reposacabezas ergonómico y climatización integral.",
-	"Mantas y almohadas individuales.",
-	"Atención personalizada.",
 ];
 ---
 
@@ -88,96 +97,121 @@ const camaSuiteFeatures = [
 		<div class="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 sm:gap-5">
 				<!-- Urbano -->
-				<div
-					class="grid grid-cols-12 gap-2 sm:gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
+				<ServiceFlipCard
+					id="servicio-urbano"
+					images={urbanoImages}
+					compact
+					class="rounded-2xl bg-launion px-5 py-4 text-white sm:px-6 sm:py-5"
 				>
-					<div class="col-span-12 xs:col-span-3 flex items-center justify-center">
-						<img
-							src="/images/icons/icon-bus.svg"
-							alt="ícono de un micro"
-							loading="lazy"
-							class="size-12 sm:size-14 md:size-24"
-							aria-hidden="true"
-							data-aos="fade-right"
-							data-aos-duration="800"
-						/>
+					<div class="grid grid-cols-12 items-start gap-2 sm:gap-4">
+						<div class="col-span-12 xs:col-span-3 flex items-start justify-center">
+							<img
+								src="/images/icons/icon-bus.svg"
+								alt="ícono de un micro"
+								loading="lazy"
+								class="size-12 sm:size-14 md:size-20"
+								aria-hidden="true"
+								data-aos="fade-right"
+								data-aos-duration="800"
+							/>
+						</div>
+						<div class="col-span-12 xs:col-span-9 self-start">
+							<h3
+								class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
+								data-aos="fade-right"
+								data-aos-duration="800"
+								data-aos-delay="100"
+							>
+								Urbano
+							</h3>
+							<ul
+								class="mt-1 text-sm sm:text-base font-medium list-disc"
+								data-aos="fade-right"
+								data-aos-duration="800"
+								data-aos-delay="200"
+							>
+								<li>Micros destinados a recorridos cortos o urbanos.</li>
+							</ul>
+						</div>
 					</div>
-					<div class="col-span-12 xs:col-span-9 self-start">
-						<h3
-							class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
-							data-aos="fade-right"
-							data-aos-duration="800"
-							data-aos-delay="100"
-						>
-							Urbano
-						</h3>
-						<ul
-							class="mt-1 text-sm sm:text-base font-medium list-disc"
-							data-aos="fade-right"
-							data-aos-duration="800"
-							data-aos-delay="200"
-						>
-							<li>Micros destinados a recorridos cortos o urbanos.</li>
-						</ul>
-					</div>
-				</div>
+				</ServiceFlipCard>
 
 				<!-- Media distancia -->
-				<div
-					class="grid grid-cols-12 gap-2 sm:gap-4 rounded-2xl bg-launion px-5 py-5 text-white sm:px-6 sm:py-6"
+				<ServiceFlipCard
+					id="servicio-media-distancia"
+					images={mediaDistanciaImages}
+					compact
+					class="rounded-2xl bg-launion px-5 py-4 text-white sm:px-6 sm:py-5"
 				>
-					<div class="col-span-12 xs:col-span-3 flex items-center justify-center">
-						<img
-							src="/images/icons/icon-bus.svg"
-							alt="ícono de un micro"
-							loading="lazy"
-							class="size-12 sm:size-14 md:size-24"
-							aria-hidden="true"
-							data-aos="fade-left"
-							data-aos-duration="800"
-						/>
+					<div class="grid grid-cols-12 items-start gap-2 sm:gap-4">
+						<div class="col-span-12 xs:col-span-3 flex items-start justify-center">
+							<img
+								src="/images/icons/icon-bus.svg"
+								alt="ícono de un micro"
+								loading="lazy"
+								class="size-12 sm:size-14 md:size-20"
+								aria-hidden="true"
+								data-aos="fade-left"
+								data-aos-duration="800"
+							/>
+						</div>
+						<div class="col-span-12 xs:col-span-9 self-start">
+							<h3
+								class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
+								data-aos="fade-left"
+								data-aos-duration="800"
+								data-aos-delay="100"
+							>
+								Media distancia
+							</h3>
+							<ul
+								class="mt-1 space-y-0.5 text-sm sm:text-base font-medium list-disc"
+								data-aos="fade-left"
+								data-aos-duration="800"
+								data-aos-delay="200"
+							>
+								{
+									mediaDistanciaFeatures.map((feature) => (
+										<li>{feature}</li>
+									))
+								}
+							</ul>
+						</div>
 					</div>
-					<div class="col-span-12 xs:col-span-9 self-start">
-						<h3
-							class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
-							data-aos="fade-left"
-							data-aos-duration="800"
-							data-aos-delay="100"
-						>
-							Media distancia
-						</h3>
-						<ul
-							class="mt-2 space-y-0.5 text-sm sm:text-base font-medium list-disc"
-							data-aos="fade-left"
-							data-aos-duration="800"
-							data-aos-delay="200"
-						>
-							{
-								mediaDistanciaFeatures.map((feature) => (
-									<li>{feature}</li>
-								))
-							}
-						</ul>
-					</div>
-				</div>
+				</ServiceFlipCard>
 			</div>
 
 			<!-- Larga distancia -->
-			<div class="rounded-2xl bg-launion px-5 py-6 text-white sm:px-8 sm:py-8">
+			<ServiceFlipCard
+				id="servicio-larga-distancia"
+				images={largaDistanciaImages}
+				perPage={4}
+				class="rounded-2xl bg-launion px-5 py-6 text-white sm:px-8 sm:py-8"
+			>
 				<h3
-					class="mb-16 lg:mb-10 text-center text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
+					class="text-center text-2xl md:text-3xl lg:text-4xl font-bold uppercase"
 					data-aos="fade-up"
 					data-aos-duration="800"
 				>
 					Larga distancia
 				</h3>
+				<ul
+					class="mx-auto mt-4 mb-10 max-w-4xl space-y-1 text-sm sm:text-base font-medium list-disc sm:mt-5 lg:mb-8"
+					data-aos="fade-up"
+					data-aos-duration="800"
+					data-aos-delay="100"
+				>
+					{
+						largaDistanciaSharedFeatures.map((feature) => (
+							<li>{feature}</li>
+						))
+					}
+				</ul>
 				<div
 					class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0 lg:divide-x-2 lg:divide-white"
 				>
 					<!-- Cama ejecutivo -->
-					<div
-						class="flex flex-col gap-4 lg:pr-8"
-					>
+					<div class="flex flex-col gap-4 lg:pr-8">
 						<h4
 							class="text-lg sm:text-xl md:text-2xl font-bold uppercase"
 							data-aos="fade-right"
@@ -214,9 +248,7 @@ const camaSuiteFeatures = [
 					</div>
 
 					<!-- Cama suite -->
-					<div
-						class="flex flex-col gap-4 lg:pl-8"
-					>
+					<div class="flex flex-col gap-4 lg:pl-8">
 						<h4
 							class="text-lg sm:text-xl md:text-2xl font-bold uppercase"
 							data-aos="fade-left"
@@ -252,8 +284,10 @@ const camaSuiteFeatures = [
 						</div>
 					</div>
 				</div>
-			</div>
+			</ServiceFlipCard>
 		</div>
+
+		<ServicesGallery sections={serviciosGallerySections} />
 
 		<!-- Outro -->
 		<p
@@ -282,4 +316,6 @@ const camaSuiteFeatures = [
 			Con La Unión disfrutás cada kilómetro del camino.
 		</p>
 	</ArrowImageBanner>
+
+	<ImageLightbox />
 </section>
