@@ -87,6 +87,13 @@ export const provinces: Province[] = [
 				details: ["Tel y WhatsApp: +54 9 2665 000688"],
 			},
 			{
+				title: "San Luis (Encomiendas)",
+				details: [
+					"Local 25 subsuelo",
+					"Horario de atención de 9 a 19 h. Sábados de 9 a 13 h",
+				],
+			},
+			{
 				title: "Villa Mercedes (Pasajes)",
 				details: ["Tel y WhatsApp: +54 2657 306116"],
 			},
@@ -148,6 +155,10 @@ export function isEncomiendasLocation(title: string): boolean {
 	return /\(pasajes y encomiendas\)|\(encomiendas\)/i.test(title);
 }
 
+export function isExclusiveEncomiendasLocation(title: string): boolean {
+	return /\(encomiendas\)/i.test(title) && !/\(pasajes y encomiendas\)/i.test(title);
+}
+
 export function getEncomiendasProvinces(): Province[] {
 	return provinces
 		.map((province) => ({
@@ -157,4 +168,21 @@ export function getEncomiendasProvinces(): Province[] {
 			),
 		}))
 		.filter((province) => province.locations.length > 0);
+}
+
+export function getPuntosDeVentaProvinces(): Province[] {
+	return provinces
+		.map((province) => ({
+			...province,
+			locations: province.locations.filter(
+				(location) => !isExclusiveEncomiendasLocation(location.title),
+			),
+		}))
+		.filter((province) => province.locations.length > 0);
+}
+
+export function getLocationDisplayTitle(title: string): string {
+	return title
+		.replace(/\s*\((Pasajes y encomiendas|Encomiendas|Pasajes)\)\s*$/i, "")
+		.trim();
 }

@@ -1,11 +1,12 @@
 ---
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
-import { ADDRESS, MAP_IFRAME } from "astro:env/server";
-import { EMAIL } from "astro:env/client";
-import { getEncomiendasProvinces } from "@/data/puntosDeVenta";
+import PageTitleHeader from "@/components/PageTitleHeader.astro";
+import {
+	getEncomiendasProvinces,
+	getLocationDisplayTitle,
+} from "@/data/puntosDeVenta";
 
 const encomiendasProvinces = getEncomiendasProvinces();
-const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 ---
 
 <section class="relative overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-16">
@@ -55,119 +56,73 @@ const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 		lleguen a destino con la tranquilidad de estar en buenas manos.
 	</p>
 
-	<!-- Puntos de venta + mapa -->
+	<!-- Puntos de entrega y retiro -->
 	<div class="relative z-10 mt-10 sm:mt-12 lg:mt-16">
-		<div class="relative mx-auto max-w-7xl">
-			<div
-				class="pointer-events-none absolute inset-y-0 right-0 left-[calc(50%-50vw)] rounded-r-3xl bg-launion xl:rounded-r-[2.5rem]"
-				aria-hidden="true"
-			></div>
+		<PageTitleHeader
+			title="Puntos de entrega y retiro"
+			id="encomiendas-puntos-header"
+		/>
+	</div>
 
-			<div
-				class="relative z-10 grid grid-cols-1 gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-2 lg:items-start lg:gap-10 lg:px-10 lg:py-12 xl:gap-14"
-			>
-				<div
-					class="flex flex-col gap-6 sm:gap-8"
-					data-aos="fade-right"
-					data-aos-duration="800"
-					data-aos-delay="100"
-				>
-					<div>
+	<div class="relative z-10 container mx-auto max-w-7xl px-4">
+		{
+			encomiendasProvinces.map((province, provinceIndex) => (
+				<section class="mb-10 last:mb-0 sm:mb-12 lg:mb-14">
+					<div
+						class="relative mb-6 inline-flex h-12 min-w-56 items-center sm:mb-8 sm:h-14 sm:min-w-64 md:min-w-80 lg:min-w-96"
+						data-aos="fade-right"
+						data-aos-duration="800"
+						data-aos-delay={provinceIndex * 100}
+					>
+						<img
+							src="/images/shapes/arrow-right-large-blue.svg"
+							alt="flecha grande azul para el punto de venta"
+							class="absolute inset-0 h-full w-full object-fill"
+							aria-hidden="true"
+							loading="lazy"
+						/>
 						<h2
-							class="text-xl font-bold tracking-wide text-white uppercase sm:text-2xl"
+							class="relative z-10 pl-6 pr-14 text-xl font-bold text-white sm:pl-8 sm:pr-16 sm:text-2xl md:text-3xl"
 						>
-							Puntos de entrega y retiro
+							{province.name}
 						</h2>
-						<p class="mt-2 text-sm font-medium text-white/80 sm:text-base">
-							Encontrá el punto más cercano para enviar o retirar tu encomienda.
-						</p>
 					</div>
 
-					{
-						encomiendasProvinces.map((province, provinceIndex) => (
-							<section>
-								<h3
-									class="mb-3 border-b border-white/20 pb-2 text-sm font-bold tracking-wider text-white uppercase sm:text-base"
-									data-aos="fade-right"
+					<ul
+						class="grid grid-cols-1 gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-7 md:grid-cols-2 lg:gap-x-14"
+					>
+						{
+							province.locations.map((location, index) => (
+								<li
+									class="flex items-start gap-3 sm:gap-4"
+									data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
 									data-aos-duration="800"
-									data-aos-delay={150 + provinceIndex * 75}
+									data-aos-delay={100 + index * 75}
 								>
-									{province.name}
-								</h3>
-								<ul class="space-y-3">
-									{province.locations.map((location, index) => (
-										<li
-											class="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4"
-											data-aos="fade-right"
-											data-aos-duration="800"
-											data-aos-delay={200 + provinceIndex * 75 + index * 50}
-										>
-											<p class="text-sm font-bold text-white sm:text-base">
-												{location.title}
-											</p>
-											<div class="mt-1 space-y-0.5">
-												{location.details.map((detail) => (
-													<p class="text-xs font-medium text-white/90 sm:text-sm">
-														{detail}
-													</p>
-												))}
-											</div>
-										</li>
-									))}
-								</ul>
-							</section>
-						))
-					}
-
-					<a
-						href="/puntos-de-venta"
-						class="inline-flex items-center gap-2 self-start text-sm font-semibold text-white underline-offset-4 transition-opacity hover:opacity-80 hover:underline sm:text-base"
-					>
-						Ver todos los puntos de venta
-						<span aria-hidden="true">→</span>
-					</a>
-				</div>
-
-				<div class="flex flex-col gap-5 lg:sticky lg:top-32">
-					<div
-						class="aspect-square w-full overflow-hidden rounded-2xl bg-white/10 sm:aspect-4/3 lg:aspect-square"
-						data-aos="fade-left"
-						data-aos-duration="800"
-					>
-						{
-							MAP_IFRAME && (
-								<iframe
-									src={MAP_IFRAME}
-									title="Ubicación de LA UNION S.R.L. en Google Maps"
-									class="h-full w-full border-0"
-									allowfullscreen
-									loading="lazy"
-									referrerpolicy="strict-origin-when-cross-origin"
-								></iframe>
-							)
+									<img
+										src="/images/icons/icon-disc.svg"
+										alt="icono de disco para el punto de venta"
+										class="mt-1.5 size-3 shrink-0 sm:mt-2 sm:size-3.5"
+										aria-hidden="true"
+										loading="lazy"
+									/>
+									<div class="space-y-0.5 text-sm text-gray-900 sm:text-base">
+										<p class="font-bold">
+											{getLocationDisplayTitle(location.title)}
+										</p>
+										{
+											location.details.map((detail) => (
+												<p class="font-medium">{detail}</p>
+											))
+										}
+									</div>
+								</li>
+							))
 						}
-					</div>
-					<div
-						class="space-y-1 text-sm font-medium text-white sm:text-base"
-						data-aos="fade-left"
-						data-aos-duration="800"
-						data-aos-delay="150"
-					>
-						{
-							emailHref && EMAIL && (
-								<a
-									href={emailHref}
-									class="block transition-opacity hover:opacity-80"
-								>
-									{EMAIL}
-								</a>
-							)
-						}
-						{ADDRESS && <p>{ADDRESS}</p>}
-					</div>
-				</div>
-			</div>
-		</div>
+					</ul>
+				</section>
+			))
+		}
 	</div>
 
 	<!-- Texto inferior -->

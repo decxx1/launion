@@ -1,6 +1,8 @@
 ---
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
-import { provinces } from "@/data/puntosDeVenta";
+import { getPuntosDeVentaProvinces, getLocationDisplayTitle } from "@/data/puntosDeVenta";
+
+const provinces = getPuntosDeVentaProvinces();
 ---
 
 <section class="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
@@ -82,7 +84,7 @@ import { provinces } from "@/data/puntosDeVenta";
 										loading="lazy"
 									/>
 									<div class="space-y-0.5 text-sm text-gray-900 sm:text-base">
-										<p class="font-bold">{location.title}</p>
+										<p class="font-bold">{getLocationDisplayTitle(location.title)}</p>
 										{
 											location.details.map((detail) => (
 												<p class="font-medium">{detail}</p>
