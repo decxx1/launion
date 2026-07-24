@@ -1,0 +1,102 @@
+---
+interface Props {
+	id?: string;
+	image?: string;
+	imageAlt?: string;
+}
+
+const {
+	id = "schedules-banner",
+	image = "/images/horarios/schedules-launion.webp",
+	imageAlt = "Colectivos de LA UNION S.R.L.",
+} = Astro.props;
+
+const clipBase = `${id}-base`;
+const clipSm = `${id}-sm`;
+const clipLg = `${id}-lg`;
+---
+
+<div
+	class="schedules-banner relative z-10 ml-auto w-full overflow-hidden xs:w-[90%] aspect-900/300 sm:aspect-900/120 lg:aspect-900/110"
+	data-aos="fade-left"
+	data-aos-duration="1000"
+	data-aos-offset="0"
+	style={`--clip-base: url(#${clipBase}); --clip-sm: url(#${clipSm}); --clip-lg: url(#${clipLg});`}
+>
+	<img
+		src={image}
+		alt={imageAlt}
+		class="absolute inset-0 h-full w-full object-cover object-center"
+		loading="lazy"
+	/>
+	<div
+		class="pointer-events-none absolute inset-0 bg-linear-to-l from-launion from-0% via-launion/85 via-30% to-transparent to-70% sm:to-50%"
+		aria-hidden="true"
+	></div>
+	<div
+		class="absolute inset-y-0 right-0 flex w-[70%] sm:w-[50%] items-center justify-center gap-2 px-3 xs:gap-3 xs:px-4 sm:gap-4 sm:px-5 md:px-6 lg:gap-5 lg:px-8"
+	>
+		<img
+			src="/images/icons/icon-clock.svg"
+			alt="ícono reloj"
+			aria-hidden="true"
+			class="size-7 shrink-0 xs:size-9 sm:size-11 md:size-14 lg:size-16"
+			loading="lazy"
+		/>
+		<div
+			class="min-w-0 text-white"
+			data-aos="fade-left"
+			data-aos-duration="800"
+			data-aos-delay="200"
+		>
+			<h1
+				class="text-xs font-bold leading-tight xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"
+			>
+				Descargá los horarios
+			</h1>
+			<p
+				class="mt-0.5 text-[0.6rem] font-normal leading-snug xs:text-[0.65rem] sm:text-xs md:text-sm lg:text-base xl:text-lg"
+			>
+				de nuestras líneas de colectivo
+			</p>
+		</div>
+	</div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+	<defs>
+		<clipPath id={clipBase} clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.17 0 Q 0.16 0 0.15 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.15 0.97 Q 0.16 1 0.17 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id={clipSm} clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.15 0 Q 0.14 0 0.13 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.13 0.97 Q 0.14 1 0.15 1 L 1 1 Z"
+			></path>
+		</clipPath>
+		<clipPath id={clipLg} clipPathUnits="objectBoundingBox">
+			<path
+				d="M 1 0 L 0.13 0 Q 0.12 0 0.11 0.03 L 0.025 0.40 Q 0 0.5 0.025 0.60 L 0.11 0.97 Q 0.12 1 0.13 1 L 1 1 Z"
+			></path>
+		</clipPath>
+	</defs>
+</svg>
+
+<style>
+	.schedules-banner {
+		clip-path: var(--clip-base);
+	}
+
+	@media (min-width: 640px) {
+		.schedules-banner {
+			clip-path: var(--clip-sm);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.schedules-banner {
+			clip-path: var(--clip-lg);
+		}
+	}
+</style>

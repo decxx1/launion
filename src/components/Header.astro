@@ -5,6 +5,7 @@ const navLinks = [
 	{ label: "SERVICIOS", href: "/servicios" },
 	{ label: "ENCOMIENDAS", href: "/encomiendas" },
 	{ label: "PUNTOS DE VENTA", href: "/puntos-de-venta" },
+	{ label: "PREGUNTAS FRECUENTES", href: "/preguntas-frecuentes" },
 	{ label: "CONTACTO", href: "/contacto" },
 ];
 
@@ -28,17 +29,17 @@ function isActiveLink(href: string): boolean {
 <div class="pointer-events-none fixed inset-x-0 top-0 z-50 hidden h-0 lg:block">
 	<header
 		id="desktop-header"
-		class="group/nav pointer-events-auto absolute top-0 left-full z-50 -translate-x-full transition-[top,left,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform data-scrolled:top-4 data-scrolled:left-[calc(50%-2.5rem)] data-scrolled:-translate-x-1/2"
+		class="group/nav pointer-events-auto absolute top-0 left-full z-50 flex -translate-x-full transition-[top,left,right,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform data-scrolled:top-4 data-scrolled:right-0 data-scrolled:left-0 data-scrolled:translate-x-0 data-scrolled:justify-center"
 		data-force-scrolled={forceScrolled ? "" : undefined}
 		data-scrolled={forceScrolled ? "" : undefined}
 		data-aos="fade-down-left"
 	>
 		<div
-			class="flex items-center gap-0 rounded-bl-[4.5rem] bg-white py-5 pr-8 pl-10 xl:py-6 xl:pr-12 xl:pl-28 xl-short:py-4 xl-short:pr-8 xl-short:pl-16 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]  group-data-scrolled/nav:gap-3 group-data-scrolled/nav:rounded-none group-data-scrolled/nav:bg-transparent group-data-scrolled/nav:p-0 group-data-scrolled/nav:xl:gap-4"
+			class="flex items-center gap-0 rounded-bl-[4.5rem] bg-white py-5 pr-8 pl-10 xl:py-6 xl:pr-12 xl:pl-28 xl-short:py-4 xl-short:pr-8 xl-short:pl-16 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:gap-3 group-data-scrolled/nav:rounded-none group-data-scrolled/nav:bg-transparent group-data-scrolled/nav:p-0 group-data-scrolled/nav:xl:gap-4"
 		>
 			<a
 				href="/"
-				class="header-logo block max-w-0 shrink-0 overflow-hidden opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:max-w-[18rem] group-data-scrolled/nav:rounded-full group-data-scrolled/nav:bg-white group-data-scrolled/nav:px-5 group-data-scrolled/nav:py-3 group-data-scrolled/nav:opacity-100 group-data-scrolled/nav:shadow-[0_10px_40px_-12px_rgba(11,88,134,0.28)] group-data-scrolled/nav:xl:max-w-[20rem] group-data-scrolled/nav:xl:px-6 group-data-scrolled/nav:xl:py-3.5"
+				class="header-logo block max-w-0 shrink-0 overflow-hidden opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:max-w-[18rem] group-data-scrolled/nav:overflow-visible group-data-scrolled/nav:rounded-full group-data-scrolled/nav:bg-white group-data-scrolled/nav:px-5 group-data-scrolled/nav:py-3 group-data-scrolled/nav:opacity-100 group-data-scrolled/nav:shadow-[0_10px_40px_-12px_rgba(11,88,134,0.28)] group-data-scrolled/nav:xl:max-w-[20rem] group-data-scrolled/nav:xl:px-6 group-data-scrolled/nav:xl:py-3.5"
 				aria-label="LA UNION S.R.L. - Inicio"
 				tabindex={forceScrolled ? 0 : -1}
 				aria-hidden={forceScrolled ? "false" : "true"}
@@ -57,7 +58,7 @@ function isActiveLink(href: string): boolean {
 				class="transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:rounded-full group-data-scrolled/nav:bg-white group-data-scrolled/nav:px-8 group-data-scrolled/nav:py-3.5 group-data-scrolled/nav:shadow-[0_10px_40px_-12px_rgba(11,88,134,0.28)] group-data-scrolled/nav:xl:px-10 group-data-scrolled/nav:xl:py-4"
 			>
 				<ul
-					class="flex items-center justify-center gap-4 text-sm font-semibold tracking-wide whitespace-nowrap text-black transition-[gap,font-size] duration-500 xl:gap-6 xl:text-base 2xl:gap-7 2xl:text-lg group-data-scrolled/nav:gap-3.5 group-data-scrolled/nav:text-[0.8125rem] group-data-scrolled/nav:xl:gap-5 group-data-scrolled/nav:xl:text-sm group-data-scrolled/nav:2xl:gap-5 group-data-scrolled/nav:2xl:text-base"
+					class="flex items-center justify-center gap-4 text-xs font-semibold tracking-wide whitespace-nowrap text-black transition-[gap,font-size] duration-500 xl:gap-6 xl:text-sm 2xl:gap-7 2xl:text-base group-data-scrolled/nav:gap-3.5 group-data-scrolled/nav:text-[0.6875rem] group-data-scrolled/nav:xl:gap-5 group-data-scrolled/nav:xl:text-xs group-data-scrolled/nav:2xl:gap-5 group-data-scrolled/nav:2xl:text-sm"
 				>
 					{
 						navLinks.map((link) => {
@@ -164,7 +165,7 @@ function isActiveLink(href: string): boolean {
 							<a
 								href={link.href}
 								class:list={[
-									"mobile-nav-link relative block border-b border-white/20 py-4 pl-4 text-sm font-semibold tracking-wide text-white transition-colors duration-300",
+									"mobile-nav-link relative block border-b border-white/20 py-4 pl-4 text-xs font-semibold tracking-wide text-white transition-colors duration-300",
 									active && "border-l-[3px] border-l-white bg-white/10 text-white",
 								]}
 								aria-current={active ? "page" : undefined}

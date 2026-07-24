@@ -1,5 +1,5 @@
 ---
-import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
+import SchedulesBanner from "@/components/index/SchedulesBanner.astro";
 
 const routes = [
 	{
@@ -49,26 +49,34 @@ const routes = [
 		/>
 	</div>
 
-	<ArrowImageBanner
-		id="horarios-banner"
-		image="/images/home/schedules.webp"
-		imageAlt="Colectivo de LA UNION S.R.L."
-		align="startLeft"
-		imageClass="object-cover object-[center_40%] sm:object-center"
-	>
-		<h1
-			class="text-left text-lg sm:text-2xl md:text-3xl xl:text-4xl"
+	<SchedulesBanner />
+
+	<div class="relative z-10 ml-auto pr-4 sm:pr-10 md:pr-20 mt-2 w-full xs:w-[90%] sm:mt-3">
+		<div
+			class="flex flex-col items-end gap-0.5 pr-1 text-right text-launion sm:gap-1 sm:pr-2"
 			data-aos="fade-left"
 			data-aos-duration="800"
-			data-aos-delay="200"
+			data-aos-delay="300"
 		>
-			Descargá los horarios <br class="hidden sm:block" />
-			de nuestras líneas <br class="hidden sm:block" />
-			de colectivo
-		</h1>
-	</ArrowImageBanner>
+			<p class="text-xs font-bold sm:text-sm md:text-base">
+				Disponibles para dispositivos
+			</p>
+			<div class="flex items-center gap-2 sm:gap-2.5">
+				<img
+					src="/images/icons/android-mac.svg"
+					alt=""
+					aria-hidden="true"
+					class="h-4 w-auto sm:h-5 md:h-6"
+					loading="lazy"
+				/>
+				<p class="text-[0.65rem] font-bold uppercase tracking-wide sm:text-xs md:text-sm">
+					PC | TABLETS | CELULARES
+				</p>
+			</div>
+		</div>
+	</div>
 
-	<div class="relative z-10 container max-w-7xl mx-auto w-full px-4">
+	<div class="relative z-10 container max-w-7xl mx-auto w-full pl-3 pr-4 sm:px-4">
 		<!-- Botones en rombo -->
 		<div
 			class="my-16 sm:my-10 md:my-16 lg:my-20 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 items-center justify-items-center pb-2 lg:pb-0"
@@ -77,7 +85,8 @@ const routes = [
 				routes.map(({ label, href }, index) => (
 					<a
 						href={href}
-						download
+						target="_blank"
+						rel="noopener noreferrer"
 						class="schedule-route-btn group relative flex w-32 sm:w-44 xl:w-full shrink-0 snap-center flex-col items-center justify-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-launion-light focus-visible:ring-offset-2"
 						data-aos="fade-up"
 						data-aos-duration="600"
@@ -92,16 +101,16 @@ const routes = [
 								loading="lazy"
 							/>
 							<span
-								class="absolute inset-0 flex flex-col items-center justify-start pr-3 pl-2 pt-6 sm:pt-8 lg:pt-6 xl:pt-8 gap-2 sm:gap-3 md:gap-4 sm:pl-2 sm:pr-4"
+								class="absolute inset-0 flex flex-col items-center justify-start gap-2 px-2 pt-5 sm:gap-3 sm:px-3 sm:pt-8 md:gap-4 lg:pt-6 xl:pt-8"
 							>
 								<img
 									src="/images/icons/icon-bus.svg"
 									alt="icono de colectivo para horarios"
-									class="schedule-route-icon size-7 sm:size-10 xl:size-14"
+									class="schedule-route-icon size-7 sm:size-10 xl:size-14 mr-2"
 									aria-hidden="true"
 									loading="lazy"
 								/>
-								<span class="schedule-route-label text-center text-[0.6rem] uppercase sm:text-xs 2xl:text-sm px-2 leading-tight font-bold tracking-wide text-white">
+								<span class="schedule-route-label px-1 text-center text-[0.6rem] uppercase leading-tight font-bold tracking-wide text-white sm:text-xs sm:px-2 2xl:text-sm">
 									{label}
 								</span>
 							</span>
