@@ -1,24 +1,10 @@
 ---
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
-import EncomiendasForm from "@/components/encomiendas/EncomiendasForm.tsx";
 import { ADDRESS, MAP_IFRAME } from "astro:env/server";
 import { EMAIL } from "astro:env/client";
+import { getEncomiendasProvinces } from "@/data/puntosDeVenta";
 
-const puntos = [
-	"Casa Central (Bowen)",
-	"Terminal Bowen",
-	"Oficina General Alvear",
-	"Terminal General Alvear",
-	"Real del Padre",
-	"Terminal San Rafael",
-	"Terminal Mendoza (Ciudad)",
-	"Punta de Agua",
-	"Monte Coman",
-	"Terminal Realico",
-	"Boletería Sarmiento (Bs. As.)",
-	"Terminal Retiro (Bs. As.)",
-];
-
+const encomiendasProvinces = getEncomiendasProvinces();
 const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 ---
 
@@ -69,22 +55,80 @@ const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 		lleguen a destino con la tranquilidad de estar en buenas manos.
 	</p>
 
-	<!-- Formulario + mapa centrados; azul desde el margen izquierdo hasta el mapa -->
+	<!-- Puntos de venta + mapa -->
 	<div class="relative z-10 mt-10 sm:mt-12 lg:mt-16">
 		<div class="relative mx-auto max-w-7xl">
-			<!-- Fondo: toca el borde izquierdo del viewport y corta a la derecha del contenido -->
 			<div
 				class="pointer-events-none absolute inset-y-0 right-0 left-[calc(50%-50vw)] rounded-r-3xl bg-launion xl:rounded-r-[2.5rem]"
 				aria-hidden="true"
 			></div>
 
 			<div
-				class="relative z-10 grid grid-cols-1 gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-2 lg:gap-10 lg:px-10 lg:py-12 xl:gap-14"
+				class="relative z-10 grid grid-cols-1 gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-2 lg:items-start lg:gap-10 lg:px-10 lg:py-12 xl:gap-14"
 			>
-				<EncomiendasForm client:load puntos={puntos} />
+				<div
+					class="flex flex-col gap-6 sm:gap-8"
+					data-aos="fade-right"
+					data-aos-duration="800"
+					data-aos-delay="100"
+				>
+					<div>
+						<h2
+							class="text-xl font-bold tracking-wide text-white uppercase sm:text-2xl"
+						>
+							Puntos de entrega y retiro
+						</h2>
+						<p class="mt-2 text-sm font-medium text-white/80 sm:text-base">
+							Encontrá el punto más cercano para enviar o retirar tu encomienda.
+						</p>
+					</div>
 
-				<!-- Mapa + datos -->
-				<div class="flex flex-col gap-5">
+					{
+						encomiendasProvinces.map((province, provinceIndex) => (
+							<section>
+								<h3
+									class="mb-3 border-b border-white/20 pb-2 text-sm font-bold tracking-wider text-white uppercase sm:text-base"
+									data-aos="fade-right"
+									data-aos-duration="800"
+									data-aos-delay={150 + provinceIndex * 75}
+								>
+									{province.name}
+								</h3>
+								<ul class="space-y-3">
+									{province.locations.map((location, index) => (
+										<li
+											class="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4"
+											data-aos="fade-right"
+											data-aos-duration="800"
+											data-aos-delay={200 + provinceIndex * 75 + index * 50}
+										>
+											<p class="text-sm font-bold text-white sm:text-base">
+												{location.title}
+											</p>
+											<div class="mt-1 space-y-0.5">
+												{location.details.map((detail) => (
+													<p class="text-xs font-medium text-white/90 sm:text-sm">
+														{detail}
+													</p>
+												))}
+											</div>
+										</li>
+									))}
+								</ul>
+							</section>
+						))
+					}
+
+					<a
+						href="/puntos-de-venta"
+						class="inline-flex items-center gap-2 self-start text-sm font-semibold text-white underline-offset-4 transition-opacity hover:opacity-80 hover:underline sm:text-base"
+					>
+						Ver todos los puntos de venta
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+
+				<div class="flex flex-col gap-5 lg:sticky lg:top-32">
 					<div
 						class="aspect-square w-full overflow-hidden rounded-2xl bg-white/10 sm:aspect-4/3 lg:aspect-square"
 						data-aos="fade-left"
@@ -161,12 +205,3 @@ const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 		</div>
 	</div>
 </section>
-
-<style is:global>
-	.encomiendas-select {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230b5886'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-		background-position: right 0.75rem center;
-		background-repeat: no-repeat;
-		background-size: 1rem;
-	}
-</style>
