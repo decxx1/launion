@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Toaster, toast } from "sonner";
-import { SECRET_KEY, SITE_KEY, ENDPOINT, EMAIL } from "astro:env/client";
+import { EMAIL, SECRET_KEY, SITE_KEY, ENDPOINT } from "astro:env/client";
 
 declare global {
 	interface Window {

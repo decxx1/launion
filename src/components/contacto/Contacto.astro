@@ -7,8 +7,8 @@ import {
 	PHONE_FORMAT,
 	ADDRESS,
 	MAP_IFRAME,
-} from "astro:env/server";
-import { EMAIL } from "astro:env/client";
+	EMAIL,
+} from "astro:env/client";
 
 const phoneHref = PHONE ? `tel:+54${PHONE}` : undefined;
 const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
