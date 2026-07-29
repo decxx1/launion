@@ -1,4 +1,5 @@
 ---
+import { withBase } from "@/utils/withBase";
 import PageTitleHeader from "@/components/PageTitleHeader.astro";
 
 const principiosSeguridadVial = [
@@ -29,13 +30,13 @@ const principiosCalidad = [
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg-gray.svg"
+			src={withBase("/images/shapes/shape-diamond-bg-gray.svg")}
 			alt="rombo de fondo gris"
 			loading="lazy"
 			class="absolute top-[72%] right-0 h-[150vh] w-auto max-w-none translate-x-[70%] -translate-y-1/2 select-none sm:top-[66%] sm:right-10 sm:h-[170vh] lg:hidden"
 		/>
 		<img
-			src="/images/shapes/shape-diamond-bg-gray.svg"
+			src={withBase("/images/shapes/shape-diamond-bg-gray.svg")}
 			alt="rombo de fondo gris"
 			loading="lazy"
 			class="absolute top-1/2 right-0 hidden h-[250vh] xl:h-[300vh] w-auto max-w-none translate-x-[56%] translate-y-[-44%] select-none lg:block  xl:translate-x-[58%] 2xl:translate-x-[50%]"
@@ -54,7 +55,7 @@ const principiosCalidad = [
 					data-aos-duration="500"
 				>
 					<img
-						src="/images/shapes/arrow-right-blue.svg"
+						src={withBase("/images/shapes/arrow-right-blue.svg")}
 						alt="flecha derecha azul"
 						class="absolute inset-0 h-full w-full object-cover"
 						aria-hidden="true"
@@ -111,7 +112,7 @@ const principiosCalidad = [
 								data-aos-delay={100 + index * 35}
 							>
 								<img
-									src="/images/icons/icon-disc.svg"
+									src={withBase("/images/icons/icon-disc.svg")}
 									alt="icono de disco"
 									loading="lazy"
 									class="policy-list-icon"
@@ -132,7 +133,7 @@ const principiosCalidad = [
 					data-aos-duration="500"
 				>
 					<img
-						src="/images/shapes/arrow-right-blue.svg"
+						src={withBase("/images/shapes/arrow-right-blue.svg")}
 						alt="flecha derecha azul"
 						class="absolute inset-0 h-full w-full object-cover"
 						aria-hidden="true"
@@ -177,7 +178,7 @@ const principiosCalidad = [
 								data-aos-delay={100 + index * 35}
 							>
 								<img
-									src="/images/icons/icon-disc.svg"
+									src={withBase("/images/icons/icon-disc.svg")}
 									alt="icono de disco"
 									loading="lazy"
 									class="policy-list-icon"
@@ -220,7 +221,7 @@ const principiosCalidad = [
 					data-aos-duration="500"
 				>
 					<img
-						src="/images/shapes/arrow-right-blue.svg"
+						src={withBase("/images/shapes/arrow-right-blue.svg")}
 						alt="flecha derecha azul"
 						class="absolute inset-0 h-full w-full object-cover"
 						aria-hidden="true"

@@ -1,3 +1,5 @@
+import { withBase } from "@/utils/withBase";
+
 export interface ServicioGalleryImage {
 	src: string;
 	thumb: string;
@@ -7,8 +9,8 @@ export interface ServicioGalleryImage {
 	seatLabel?: string;
 }
 
-const galleryBase = "/images/galeria";
-const iconsBase = "/images/icons";
+const galleryBase = withBase("/images/galeria");
+const iconsBase = withBase("/images/icons");
 
 function galleryImage(
 	folder: string,

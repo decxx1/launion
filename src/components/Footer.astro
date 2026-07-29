@@ -1,4 +1,5 @@
 ---
+import { withBase, withoutBase } from "@/utils/withBase";
 import {
 	SCHEDULES,
 	PHONE,
@@ -11,15 +12,14 @@ import {
 	INSTAGRAM_URL,
 } from "astro:env/client";
 
-const currentPath =
-	Astro.url.pathname.replace(/\/$/, "") || "/";
+const currentPath = withoutBase(Astro.url.pathname);
 
 const infoLinks = [
-	{ label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
-	{ label: "Política de seguridad", href: "/politica-de-seguridad" },
+	{ label: "Preguntas frecuentes", href: withBase("/preguntas-frecuentes") },
+	{ label: "Política de seguridad", href: withBase("/politica-de-seguridad") },
 	{
 		label: "Política de calidad",
-		href: "/politica-de-seguridad#politica-de-calidad",
+		href: withBase("/politica-de-seguridad#politica-de-calidad"),
 	},
 ];
 
@@ -44,8 +44,9 @@ const whatsappFormat = WHATSAPP_PHONE
 const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 
 function isActiveLink(href: string): boolean {
-	if (href === "/") return currentPath === "/";
-	return currentPath === href;
+	const normalized = withoutBase(href.split("#")[0]);
+	if (normalized === "/") return currentPath === "/";
+	return currentPath === normalized;
 }
 ---
 
@@ -58,7 +59,7 @@ function isActiveLink(href: string): boolean {
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="figura de rombo para el fondo"
 			loading="lazy"
 			class="absolute top-1/2 left-0 h-[165vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none xl:h-[175vh] xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
@@ -72,7 +73,7 @@ function isActiveLink(href: string): boolean {
 			aria-hidden="true"
 		>
 			<img
-				src="/images/shapes/shape-diamond-bg.svg"
+				src={withBase("/images/shapes/shape-diamond-bg.svg")}
 				alt="fondo de rombo"
 				loading="lazy"
 				class="absolute -right-24 -bottom-32 h-[70vh] w-auto max-w-none opacity-[0.08] select-none sm:-right-16 sm:h-[80vh] lg:-right-8"
@@ -85,9 +86,9 @@ function isActiveLink(href: string): boolean {
 			>
 				<!-- Logo y resumen -->
 				<div class="flex flex-col items-center text-center lg:col-span-3">
-					<a href="/" aria-label="LA UNION S.R.L. - Inicio">
+					<a href={withBase("/")} aria-label="LA UNION S.R.L. - Inicio">
 						<img
-							src="/images/logos/logo.svg"
+							src={withBase("/images/logos/logo.svg")}
 							alt="Logo LA UNION S.R.L."
 							class="mx-auto h-auto w-40 sm:w-48"
 							width="279"

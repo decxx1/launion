@@ -1,4 +1,6 @@
 ---
+import { withBase, withoutBase } from "@/utils/withBase";
+
 const navLinks = [
 	{ label: "INICIO", href: "/" },
 	{ label: "HORARIOS", href: "/horarios" },
@@ -16,8 +18,7 @@ interface Props {
 
 const { forceScrolled = false } = Astro.props;
 
-const currentPath =
-	Astro.url.pathname.replace(/\/$/, "") || "/";
+const currentPath = withoutBase(Astro.url.pathname);
 
 function isActiveLink(href: string): boolean {
 	if (href === "/") return currentPath === "/";
@@ -38,14 +39,14 @@ function isActiveLink(href: string): boolean {
 			class="flex items-center gap-0 rounded-bl-[4.5rem] bg-white py-5 pr-8 pl-10 xl:py-6 xl:pr-12 xl:pl-28 xl-short:py-4 xl-short:pr-8 xl-short:pl-16 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:gap-3 group-data-scrolled/nav:rounded-none group-data-scrolled/nav:bg-transparent group-data-scrolled/nav:p-0 group-data-scrolled/nav:xl:gap-4"
 		>
 			<a
-				href="/"
+				href={withBase("/")}
 				class="header-logo block max-w-0 shrink-0 overflow-hidden opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-scrolled/nav:max-w-[18rem] group-data-scrolled/nav:overflow-visible group-data-scrolled/nav:rounded-full group-data-scrolled/nav:bg-white group-data-scrolled/nav:px-5 group-data-scrolled/nav:py-3 group-data-scrolled/nav:opacity-100 group-data-scrolled/nav:shadow-[0_10px_40px_-12px_rgba(11,88,134,0.28)] group-data-scrolled/nav:xl:max-w-[20rem] group-data-scrolled/nav:xl:px-6 group-data-scrolled/nav:xl:py-3.5"
 				aria-label="LA UNION S.R.L. - Inicio"
 				tabindex={forceScrolled ? 0 : -1}
 				aria-hidden={forceScrolled ? "false" : "true"}
 			>
 				<img
-					src="/images/logos/logo-horizontal-azul.svg"
+					src={withBase("/images/logos/logo-horizontal-azul.svg")}
 					alt="Logo LA UNION S.R.L."
 					class="h-auto w-44 xl:w-52"
 					width="522"
@@ -66,7 +67,7 @@ function isActiveLink(href: string): boolean {
 							return (
 								<li>
 									<a
-										href={link.href}
+										href={withBase(link.href)}
 										class:list={[
 											"group/link relative inline-block pb-1.5 text-black transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-launion",
 											active && "text-launion",
@@ -111,9 +112,9 @@ function isActiveLink(href: string): boolean {
 	data-force-scrolled={forceScrolled ? "" : undefined}
 	data-scrolled={forceScrolled ? "" : undefined}
 >
-	<a href="/" aria-label="LA UNION S.R.L. - Inicio">
+	<a href={withBase("/")} aria-label="LA UNION S.R.L. - Inicio">
 		<img
-			src="/images/logos/logo-horizontal-blanco.svg"
+			src={withBase("/images/logos/logo-horizontal-blanco.svg")}
 			alt="LA UNION S.R.L."
 			loading="lazy"
 			class="h-3 w-auto transition-[height] duration-500 xs:h-4 sm:h-5 md:h-6 group-data-scrolled/mobile:h-3 group-data-scrolled/mobile:xs:h-4"
@@ -163,7 +164,7 @@ function isActiveLink(href: string): boolean {
 					return (
 						<li>
 							<a
-								href={link.href}
+								href={withBase(link.href)}
 								class:list={[
 									"mobile-nav-link relative block border-b border-white/20 py-4 pl-4 text-xs font-semibold tracking-wide text-white transition-colors duration-300",
 									active && "border-l-[3px] border-l-white bg-white/10 text-white",

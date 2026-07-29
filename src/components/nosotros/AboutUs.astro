@@ -1,4 +1,5 @@
 ---
+import { withBase } from "@/utils/withBase";
 const valores = [
 	["Respeto", "Responsabilidad", "Seriedad", "Empatía"],
 	["Personalización", "Calidez humana", "Confianza", "Compromiso"],
@@ -13,13 +14,13 @@ const valores = [
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="rombo de fondo azul"
 			loading="lazy"
 			class="absolute top-[72%] left-0 h-[150vh] sm:h-[170vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 lg:hidden"
 		/>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="rombo de fondo azul"
 			loading="lazy"
 			class="absolute top-1/2 left-0 hidden h-[190vh] xl:h-[240vh] w-auto max-w-none translate-x-[-56%] translate-y-[-44%] select-none lg:block xl:translate-x-[-58%] 2xl:translate-x-[-44%]"
@@ -40,7 +41,7 @@ const valores = [
 					data-aos-duration="800"
 				>
 					<img
-						src="/images/shapes/arrow-right-blue.svg"
+						src={withBase("/images/shapes/arrow-right-blue.svg")}
 						alt="flecha derecha"
 						class="absolute inset-0 h-full w-full object-fill"
 						aria-hidden="true"
@@ -81,7 +82,7 @@ const valores = [
 						data-aos-duration="800"
 					>
 						<img
-							src="/images/shapes/arrow-right-blue.svg"
+							src={withBase("/images/shapes/arrow-right-blue.svg")}
 							alt="flecha derecha"
 							loading="lazy"
 							class="absolute inset-0 h-full w-full object-fill"
@@ -114,7 +115,7 @@ const valores = [
 						data-aos-delay="100"
 					>
 						<img
-							src="/images/shapes/arrow-right-blue.svg"
+							src={withBase("/images/shapes/arrow-right-blue.svg")}
 							alt="flecha derecha"
 							loading="lazy"
 							class="absolute inset-0 h-full w-full object-fill"
@@ -150,7 +151,7 @@ const valores = [
 		data-aos-offset="0"
 	>
 		<img
-			src="/images/nosotros/nosotros-la-union.webp"
+			src={withBase("/images/nosotros/nosotros-la-union.webp")}
 			alt="Colectivo de LA UNION S.R.L. en ruta"
 			class="absolute inset-0 h-full w-full object-cover object-left md:object-center"
 			loading="lazy"
@@ -170,7 +171,7 @@ const valores = [
 				data-aos-duration="800"
 			>
 				<img
-					src="/images/shapes/arrow-right-blue.svg"
+					src={withBase("/images/shapes/arrow-right-blue.svg")}
 					alt="flecha derecha"
 					class="absolute inset-0 h-full w-full object-fill"
 					aria-hidden="true"

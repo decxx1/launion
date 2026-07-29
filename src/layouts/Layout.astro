@@ -9,6 +9,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp.astro";
 import 'aos/dist/aos.css';
 
 import type { Preload } from "@/types/Preload";
+import { withBase, withoutBase } from "@/utils/withBase";
 
 interface Props {
 	title: string;
@@ -20,9 +21,8 @@ interface Props {
 }
 
 const { title, canonical, metaDescription, metaImg, preLoad, hideFooter = false } = Astro.props;
-const urlBase = Astro.url.origin;
-const fullImg = urlBase + metaImg;
-const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
+const fullImg = new URL(withBase(metaImg), Astro.site).toString();
+const isHome = withoutBase(Astro.url.pathname) === "/";
 
 ---
 
@@ -32,14 +32,14 @@ const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="sitemap" href={withBase("/sitemap-index.xml")} />
 		<!-- Favicons -->
-		<link href="/images/logos/logo-mini-azul.svg" type="image/svg+xml" rel="icon" />
+		<link href={withBase("/images/logos/logo-mini-azul.svg")} type="image/svg+xml" rel="icon" />
 		<!-- Favicon compatibilidad -->
-		<link href="/images/logos/favicons/faviconx64.png" type="image/png" sizes="64x64" rel="icon" />
-		<link href="/images/logos/favicons/faviconx56.png" type="image/png" sizes="56x56" rel="icon" />
-		<link href="/images/logos/favicons/faviconx32.png" type="image/png" sizes="32x32" rel="icon" />
-		<link href="/images/logos/favicons/faviconx180.png" rel="apple-touch-icon" sizes="180x180" />
+		<link href={withBase("/images/logos/favicons/faviconx64.png")} type="image/png" sizes="64x64" rel="icon" />
+		<link href={withBase("/images/logos/favicons/faviconx56.png")} type="image/png" sizes="56x56" rel="icon" />
+		<link href={withBase("/images/logos/favicons/faviconx32.png")} type="image/png" sizes="32x32" rel="icon" />
+		<link href={withBase("/images/logos/favicons/faviconx180.png")} rel="apple-touch-icon" sizes="180x180" />
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>{title}</title>
@@ -68,7 +68,7 @@ const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 
 		{
 			preLoad?.map(({ href, as, type }) => (
-				<link rel="preload" {as} {href} {type} />
+				<link rel="preload" {as} href={withBase(href)} {type} />
 			))
 		}
 	</head>

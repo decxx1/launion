@@ -1,4 +1,5 @@
 ---
+import { withBase } from "@/utils/withBase";
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
 import ContactoForm from "@/components/contacto/ContactoForm.tsx";
 import {
@@ -21,13 +22,13 @@ const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			loading="lazy"
 			alt="rombo de fondo azul para el contacto"
 			class="absolute top-[72%] left-0 h-[110vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 sm:h-[115vh] lg:hidden"
 		/>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			loading="lazy"
 			alt="rombo de fondo azul para el contacto"
 			class="absolute top-1/2 left-0 hidden h-[200vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:h-[300vh] 2xl:translate-x-[-40%]"
@@ -36,7 +37,7 @@ const emailHref = EMAIL ? `mailto:${EMAIL}` : undefined;
 
 	<ArrowImageBanner
 		id="contacto-banner"
-		image="/images/contacto/atencion-cliente.webp"
+		image={withBase("/images/contacto/atencion-cliente.webp")}
 		imageAlt="Atención al cliente de LA UNION S.R.L."
 		align="end"
 	>

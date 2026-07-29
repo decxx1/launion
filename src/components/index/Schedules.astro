@@ -1,30 +1,31 @@
 ---
+import { withBase } from "@/utils/withBase";
 import SchedulesBanner from "@/components/index/SchedulesBanner.astro";
 
 const routes = [
 	{
 		label: "LOCAL",
-		href: "/PDF/Horario Invierno 20-07-26.pdf",
+		href: withBase("/PDF/Horario Invierno 20-07-26.pdf"),
 	},
 	{
 		label: "URBANO PERIFÉRICO",
-		href: "/PDF/Horario Periferia Alvear desde 20-07-26.pdf",
+		href: withBase("/PDF/Horario Periferia Alvear desde 20-07-26.pdf"),
 	},
 	{
 		label: "SAN RAFAEL BOWEN",
-		href: "/PDF/Horario San Rafael desde 20-07-26.pdf",
+		href: withBase("/PDF/Horario San Rafael desde 20-07-26.pdf"),
 	},
 	{
 		label: "MENDOZA BOWEN",
-		href: "/PDF/Horario-Linea-Mendoza-scaled.jpg",
+		href: withBase("/PDF/Horario-Linea-Mendoza-scaled.jpg"),
 	},
 	{
 		label: "SAN RAFAEL BUENOS AIRES",
-		href: "/PDF/Linea_SanRafael_BsAs_Horario_.pdf",
+		href: withBase("/PDF/Linea_SanRafael_BsAs_Horario_.pdf"),
 	},
 	{
 		label: "MENDOZA BUENOS AIRES",
-		href: "/PDF/Linea_Mendoza_BsAs_Horario.pdf",
+		href: withBase("/PDF/Linea_Mendoza_BsAs_Horario.pdf"),
 	},
 ];
 ---
@@ -36,13 +37,13 @@ const routes = [
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="figura de rombo para el fondo"
 			loading="lazy"
 			class="absolute top-[72%] left-0 h-[110vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 sm:h-[115vh] lg:hidden"
 		/>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="figura de rombo para el fondo"
 			loading="lazy"
 			class="absolute top-1/2 left-0 hidden h-[165vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
@@ -63,7 +64,7 @@ const routes = [
 			</p>
 			<div class="flex items-center gap-2 sm:gap-2.5">
 				<img
-					src="/images/icons/android-mac.svg"
+					src={withBase("/images/icons/android-mac.svg")}
 					alt=""
 					aria-hidden="true"
 					class="h-4 w-auto sm:h-5 md:h-6"
@@ -94,7 +95,7 @@ const routes = [
 					>
 						<div class="schedule-route-inner relative aspect-226/217 w-full">
 							<img
-								src="/images/shapes/shape-button-diamond.svg"
+								src={withBase("/images/shapes/shape-button-diamond.svg")}
 								alt="figura de rombo para el botón"
 								class="schedule-route-diamond absolute inset-0 h-full w-full"
 								aria-hidden="true"
@@ -104,7 +105,7 @@ const routes = [
 								class="absolute inset-0 flex flex-col items-center justify-start gap-2 px-2 pt-5 sm:gap-3 sm:px-3 sm:pt-8 md:gap-4 lg:pt-6 xl:pt-8"
 							>
 								<img
-									src="/images/icons/icon-bus.svg"
+									src={withBase("/images/icons/icon-bus.svg")}
 									alt="icono de colectivo para horarios"
 									class="schedule-route-icon size-7 sm:size-10 xl:size-14 mr-2"
 									aria-hidden="true"

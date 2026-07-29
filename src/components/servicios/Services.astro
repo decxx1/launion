@@ -1,4 +1,5 @@
 ---
+import { withBase } from "@/utils/withBase";
 import ArrowImageBanner from "@/components/ArrowImageBanner.astro";
 import ImageLightbox from "@/components/servicios/ImageLightbox.astro";
 import ServiceFlipCard from "@/components/servicios/ServiceFlipCard.astro";
@@ -43,13 +44,13 @@ const camaSuiteFeatures = [
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="rombo de fondo azul"
 			loading="lazy"
 			class="absolute top-[72%] left-0 h-[190vh] w-auto max-w-none translate-x-[-70%] -translate-y-1/2 select-none sm:top-[66%] sm:left-10 sm:h-[195vh] lg:hidden"
 		/>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="rombo de fondo azul"
 			loading="lazy"
 			class="absolute top-1/2 left-0 hidden h-[280vh] xl:h-[300vh] w-auto max-w-none translate-x-[-56%] -translate-y-1/2 select-none lg:block xl:translate-x-[-58%] 2xl:translate-x-[-46%]"
@@ -58,7 +59,7 @@ const camaSuiteFeatures = [
 
 	<ArrowImageBanner
 		id="servicios-top"
-		image="/images/servicios/unidades.webp"
+		image={withBase("/images/servicios/unidades.webp")}
 		imageAlt="Interiores de colectivos de LA UNION S.R.L."
 		align="end"
 	>
@@ -106,7 +107,7 @@ const camaSuiteFeatures = [
 					<div class="grid grid-cols-12 items-start gap-2 sm:gap-4">
 						<div class="col-span-12 xs:col-span-3 flex items-start justify-center">
 							<img
-								src="/images/icons/icon-bus.svg"
+								src={withBase("/images/icons/icon-bus.svg")}
 								alt="ícono de un micro"
 								loading="lazy"
 								class="size-12 sm:size-14 md:size-20"
@@ -146,7 +147,7 @@ const camaSuiteFeatures = [
 					<div class="grid grid-cols-12 items-start gap-2 sm:gap-4">
 						<div class="col-span-12 xs:col-span-3 flex items-start justify-center">
 							<img
-								src="/images/icons/icon-bus.svg"
+								src={withBase("/images/icons/icon-bus.svg")}
 								alt="ícono de un micro"
 								loading="lazy"
 								class="size-12 sm:size-14 md:size-20"
@@ -205,21 +206,21 @@ const camaSuiteFeatures = [
 						class="col-span-1 sm:col-span-3 gap-3 sm:gap-4 lg:gap-5 flex flex-row sm:flex-row flex-wrap items-center justify-center"
 					>
 						<img
-							src="/images/icons/servicio-a-bordo.svg"
+							src={withBase("/images/icons/servicio-a-bordo.svg")}
 							alt="Servicio a bordo en el viaje"
 							loading="lazy"
 							class="h-20 w-auto shrink-0 sm:h-16 md:h-18 lg:h-20"
 							aria-hidden="true"
 						/>
 						<img
-							src="/images/icons/wifi-satelital.svg"
+							src={withBase("/images/icons/wifi-satelital.svg")}
 							alt="Wifi satelital en el viaje"
 							loading="lazy"
 							class="h-20 w-auto shrink-0 sm:h-16 md:h-18 lg:h-20"
 							aria-hidden="true"
 						/>
 						<img
-							src="/images/icons/entretenimiento.svg"
+							src={withBase("/images/icons/entretenimiento.svg")}
 							alt="Entretención en el viaje"
 							loading="lazy"
 							class="h-20 w-auto shrink-0 sm:h-16 md:h-18 lg:h-20"
@@ -250,7 +251,7 @@ const camaSuiteFeatures = [
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
 							<img
-								src="/images/icons/asiento-160.svg"
+								src={withBase("/images/icons/asiento-160.svg")}
 								alt="Asiento cama ejecutivo reclinable 160 grados"
 								loading="lazy"
 								class="mr-auto h-24 w-auto shrink-0 sm:mx-0 sm:h-28 lg:h-36"
@@ -287,7 +288,7 @@ const camaSuiteFeatures = [
 						</h4>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
 							<img
-								src="/images/icons/asiento-180.svg"
+								src={withBase("/images/icons/asiento-180.svg")}
 								alt="Asiento cama suite reclinable 180 grados"
 								loading="lazy"
 								class="mr-auto h-24 w-auto shrink-0 sm:mx-0 sm:h-28 lg:h-36"
@@ -332,7 +333,7 @@ const camaSuiteFeatures = [
 
 	<ArrowImageBanner
 		id="servicios-bottom"
-		image="/images/servicios/suite-ejecutivo.webp"
+		image={withBase("/images/servicios/suite-ejecutivo.webp")}
 		imageAlt="Cama ejecutivo y suite de LA UNION S.R.L."
 		align="start"
 	>

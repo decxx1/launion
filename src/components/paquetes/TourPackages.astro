@@ -1,10 +1,11 @@
 ---
+import { withBase } from "@/utils/withBase";
 import TourPackageCard from "@/components/paquetes/TourPackageCard.astro";
 
 const packages = [
 	{
 		title: "TERMAS DE RÍO HONDO",
-		image: "/images/paquetes/termas-rio-hondo.jpg",
+		image: withBase("/images/paquetes/termas-rio-hondo.jpg"),
 		imageAlt: "Termas de Río Hondo",
 		duration: "5 Días | 7 Noches",
 		details: ["Desayuno y cena", "Habitación doble"],
@@ -13,7 +14,7 @@ const packages = [
 	},
 	{
 		title: "TERMAS DE RÍO HONDO",
-		image: "/images/paquetes/termas-rio-hondo.jpg",
+		image: withBase("/images/paquetes/termas-rio-hondo.jpg"),
 		imageAlt: "Termas de Río Hondo",
 		duration: "5 Días | 7 Noches",
 		details: ["Desayuno y cena", "Habitación doble"],
@@ -22,7 +23,7 @@ const packages = [
 	},
 	{
 		title: "TERMAS DE RÍO HONDO",
-		image: "/images/paquetes/termas-rio-hondo.jpg",
+		image: withBase("/images/paquetes/termas-rio-hondo.jpg"),
 		imageAlt: "Termas de Río Hondo",
 		duration: "5 Días | 7 Noches",
 		details: ["Desayuno y cena", "Habitación doble"],
@@ -39,13 +40,13 @@ const packages = [
 		aria-hidden="true"
 	>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="figura de rombo para el fondo"
 			loading="lazy"
 			class="rotate-180 absolute top-[28%] right-0 h-[110vh] w-auto max-w-none translate-x-[70%] -translate-y-1/2 select-none sm:top-[34%] sm:right-10 sm:h-[115vh] lg:hidden"
 		/>
 		<img
-			src="/images/shapes/shape-diamond-bg.svg"
+			src={withBase("/images/shapes/shape-diamond-bg.svg")}
 			alt="figura de rombo para el fondo"
 			loading="lazy"
 			class="rotate-180 absolute top-[35%] right-0 hidden h-[165vh] w-auto max-w-none translate-x-[56%] -translate-y-1/2 select-none lg:block xl:h-[175vh] xl:translate-x-[58%] 2xl:translate-x-[46%]"
@@ -58,7 +59,7 @@ const packages = [
 			class="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8 lg:gap-12"
 		>
 			<img
-				src="/images/paquetes/colectivo-la-union.webp"
+				src={withBase("/images/paquetes/colectivo-la-union.webp")}
 				alt="Colectivo de LA UNION S.R.L."
 				class="h-auto w-56 shrink-0 sm:w-64 lg:w-80 xl:w-96"
 				loading="lazy"
