@@ -120,12 +120,12 @@ export const provinces: Province[] = [
 				],
 			},
 			{
-				title: "Boletería Sarmiento (Encomiendas)",
+				title: "Boletería Sarmiento (Pasajes y encomiendas)",
 				details: [
 					"Sarmiento 1947, C.A.B.A.",
 					"Tel: 011 – 49541839",
 					"WhatsApp: 11-4954-1839",
-					"Lunes a viernes de 9 a 20.30 h",
+					" lunes a sabados de 9 a 20:30 hs y domingos de 18 a 20:30 hs",
 				],
 			},
 			{
