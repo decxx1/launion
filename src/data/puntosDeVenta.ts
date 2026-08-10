@@ -18,7 +18,8 @@ export const provinces: Province[] = [
 					"Centenario 150, Bowen, Gral. Alvear.",
 					"Tel: 02625 – 480041",
 					"WhatsApp: +54 9 2625 445079",
-					"Lunes a viernes de 8 a 12 h y de 16.30 a 20 h. Sábados de 8 a 12 h",
+					"Lunes a viernes de 8:00 a 12:00 hs y de 16:30 a 20:00 hs",
+					"Sábados de 8:00 a 12:00 hs",
 				],
 			},
 			{
@@ -34,7 +35,8 @@ export const provinces: Province[] = [
 					"Chaperouge 94, Gral. Alvear.",
 					"Tel: +54 9 02625 424550",
 					"WhatsApp: +54 9 2625 64 4251",
-					"Lunes a sábados de 7 a 22 h. Domingos de 14 a 15 h y de 19 a 20 h",
+					"Lunes a sábados de 7:00 a 22:00 hs.",
+					"Domingos de 14:00 a 15:00 hs y de 19:00 a 20:00 hs",
 				],
 			},
 			{
@@ -57,9 +59,9 @@ export const provinces: Province[] = [
 					"Granaderos y Gral. Paz, San Rafael.",
 					"Tel: 0260 4433233",
 					"WhatsApp: +54 9 2604 12 2086",
-					"Lunes a viernes de 8:30 a 13 h y de 16 a 20.30 h",
-					"Sábados de 8:30 a 13 h y de 16.30 a 19.30 h",
-					"Domingos de 16 a 18.15 h",
+					"Lunes a viernes de 8:30 a 13:00 h y de 16:00 a 20:30 hs",
+					"Sábados de 8:30 a 13:00 h y de 16:30 a 19:30 hs",
+					"Domingos de 16:00 a 18:15 hs",
 				],
 			},
 			{
@@ -67,7 +69,8 @@ export const provinces: Province[] = [
 				details: [
 					"Local 21, Alberdi 435, San José, Ala Este.",
 					"Tel: +54 9 2613 35 4036",
-					"Lunes a sábados de 7 a 20 h. Domingos de 17 a 20 h",
+					"Lunes a Sábados de 7:00 a 20:00 hs",
+					"Domingos de 17:00 a 20:00 hs",
 				],
 			},
 			{
@@ -90,7 +93,8 @@ export const provinces: Province[] = [
 				title: "San Luis (Encomiendas)",
 				details: [
 					"Local 25 subsuelo",
-					"Horario de atención de 9 a 19 h. Sábados de 9 a 13 h",
+					"Horario de atención de 9:00 a 19:00 hs",
+					"Sábados de 9:00 a 13:00 hs",
 				],
 			},
 			{
@@ -113,7 +117,7 @@ export const provinces: Province[] = [
 				title: "Terminal Retiro (Pasajes)",
 				details: [
 					"Boleterias de Retiro, lado impar: Nº 47/49/51",
-					"Horarios de 8 a 21 h",
+					"Horarios de 8:00 a 21:00 hs",
 					"Tel y WhatsApp: +54 9 11 5507 3550",
 					"-Boletería 76.",
 					"Tel: +54 9 11 5527 6488",
@@ -125,7 +129,8 @@ export const provinces: Province[] = [
 					"Sarmiento 1947, C.A.B.A.",
 					"Tel: 011 – 49541839",
 					"WhatsApp: 11-4954-1839",
-					" lunes a sabados de 9 a 20:30 hs y domingos de 18 a 20:30 hs",
+					"Lunes a Sabados de 9:00 a 20:30 hs",
+					"Domingos de 18:00 a 20:30 hs.",
 				],
 			},
 			{
