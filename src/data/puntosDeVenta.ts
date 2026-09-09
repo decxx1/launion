@@ -120,7 +120,7 @@ export const provinces: Province[] = [
 					"Horarios de 8:00 a 21:00 hs",
 					"Tel y WhatsApp: +54 9 11 5507 3550",
 					"-Boletería 76.",
-					"Tel: +54 9 11 5527 6488",
+					"Tel: +54 011 7234 4375",
 				],
 			},
 			{
