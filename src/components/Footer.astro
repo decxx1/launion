@@ -1,5 +1,6 @@
 ---
 import { withBase, withoutBase } from "@/utils/withBase";
+import { ticketSaleUrl } from "@/utils/ticketSale";
 import {
 	SCHEDULES,
 	PHONE,
@@ -26,11 +27,13 @@ const infoLinks = [
 const externalLinks = [
 	{
 		label: "Pasajes",
-		href: "https://abmws.com.ar/luweb-nuebus/sale/paso1.php",
+		href: ticketSaleUrl(),
+		ticketSale: true,
 	},
 	{
 		label: "Acceso",
 		href: "https://launionsrl.com:8443/",
+		ticketSale: false,
 	},
 ];
 
@@ -218,6 +221,7 @@ function isActiveLink(href: string): boolean {
 										href={link.href}
 										target="_blank"
 										rel="noopener noreferrer"
+										data-ticket-sale-trigger={link.ticketSale ? "" : undefined}
 										class="group inline-flex items-center gap-1 text-sm font-semibold text-white/80 transition-colors duration-200 hover:text-white sm:text-[0.9375rem]"
 										data-aos="fade"
 										data-aos-duration="500"

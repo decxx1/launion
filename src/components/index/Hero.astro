@@ -1,6 +1,8 @@
 ---
 import { withBase } from "@/utils/withBase";
-const ticketUrl = "https://abmws.com.ar/luweb-nuebus/sale/paso1.php";
+import { ticketSaleUrl } from "@/utils/ticketSale";
+
+const ticketUrl = ticketSaleUrl();
 
 const heroSlides = [
 	{
@@ -169,6 +171,7 @@ const heroSlides = [
 					href={ticketUrl}
 					target="_blank"
 					rel="noopener noreferrer"
+					data-ticket-sale-trigger
 					class="group relative ml-auto block w-full transition-opacity hover:opacity-95"
 				>
 					<img

@@ -1,0 +1,297 @@
+---
+import { withBase } from "@/utils/withBase";
+import {
+	LEGACY_TICKET_URL,
+	NEW_TICKET_URL,
+	isLegacyTicketSaleOpen,
+} from "@/utils/ticketSale";
+
+const showModal = isLegacyTicketSaleOpen();
+---
+
+{
+	showModal && (
+		<div
+			id="ticket-sale-modal"
+			class="ticket-sale-modal fixed inset-0 z-100 hidden items-center justify-center p-3 sm:p-5"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="ticket-sale-title"
+			aria-describedby="ticket-sale-desc"
+			hidden
+		>
+			<div
+				class="ticket-sale-backdrop absolute inset-0 bg-launion/50"
+				data-ticket-sale-close
+			></div>
+
+			<div class="ticket-sale-panel relative max-h-[min(40rem,calc(100dvh-1.5rem))] w-full max-w-lg overflow-y-auto overflow-x-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] bg-white shadow-[0_18px_50px_-16px_rgba(11,88,134,0.45)] sm:max-h-[min(42rem,calc(100dvh-2.5rem))] sm:rounded-tl-[3.5rem] sm:rounded-br-[3.5rem]">
+				<div
+					class="pointer-events-none absolute inset-0 overflow-hidden"
+					aria-hidden="true"
+				>
+					<img
+						src={withBase("/images/shapes/shape-diamond-bg.svg")}
+						alt=""
+						class="absolute top-1/2 left-0 h-[140%] w-auto max-w-none translate-x-[-58%] -translate-y-1/2 opacity-[0.07]"
+					/>
+				</div>
+
+				<button
+					type="button"
+					class="absolute top-3 right-3 z-10 flex size-10 items-center justify-center rounded-full text-launion transition-colors hover:bg-launion/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-launion sm:top-4 sm:right-4"
+					data-ticket-sale-close
+					aria-label="Cerrar"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						class="size-5"
+						aria-hidden="true"
+					>
+						<path d="M18 6 6 18M6 6l12 12" />
+					</svg>
+				</button>
+
+				<div class="relative px-6 pt-8 pb-6 sm:px-9 sm:pt-10 sm:pb-8">
+					<h2
+						id="ticket-sale-title"
+						class="pr-8 text-2xl font-bold tracking-tight text-launion sm:text-3xl"
+					>
+						¿Cuándo viajás?
+					</h2>
+					<p
+						id="ticket-sale-desc"
+						class="mt-3 max-w-[40ch] text-sm leading-relaxed font-medium text-launion/80 sm:mt-3.5 sm:text-base"
+					>
+						Estamos cambiando el sistema de venta. Elegí según la fecha de tu viaje.
+					</p>
+
+					<div class="mt-6 flex flex-col gap-3 sm:mt-7">
+						<a
+							href={LEGACY_TICKET_URL}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group relative flex flex-col rounded-tl-3xl rounded-br-3xl bg-launion px-5 py-4 text-white transition-opacity duration-200 hover:opacity-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-launion sm:px-6 sm:py-5"
+							data-ticket-sale-choice
+						>
+							<p class="text-xl font-extrabold tracking-wide whitespace-nowrap tabular-nums sm:text-2xl">
+								Hasta el 31/10/2026
+							</p>
+							<p class="mt-1 text-sm font-medium text-white/80">
+								Viajes con fecha hasta ese día inclusive.
+							</p>
+							<span class="mt-3 inline-flex items-center gap-1 text-sm font-bold tracking-wide">
+								Comprar pasaje
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.25"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							</span>
+						</a>
+
+						<a
+							href={NEW_TICKET_URL}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group relative flex flex-col rounded-tl-3xl rounded-br-3xl bg-white px-5 py-4 text-launion ring-2 ring-launion/15 transition-shadow duration-200 hover:ring-launion/40 hover:shadow-[0_10px_28px_-16px_rgba(11,88,134,0.45)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-launion sm:px-6 sm:py-5"
+							data-ticket-sale-choice
+						>
+							<p class="text-xl font-extrabold tracking-wide whitespace-nowrap tabular-nums sm:text-2xl">
+								Desde el 1/11/2026
+							</p>
+							<p class="mt-1 text-sm font-medium text-launion/70">
+								Viajes posteriores a esa fecha.
+							</p>
+							<span class="mt-3 inline-flex items-center gap-1 text-sm font-bold tracking-wide">
+								Comprar pasaje
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.25"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							</span>
+						</a>
+					</div>
+
+					<p class="mt-5 text-xs leading-relaxed font-medium text-launion/70 sm:mt-6 sm:text-sm">
+						Si tu ida y tu vuelta caen en distintos períodos, comprá cada tramo por separado.
+					</p>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+<style>
+	.ticket-sale-modal.is-open {
+		display: flex;
+		animation: ticket-sale-in 280ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	@keyframes ticket-sale-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.ticket-sale-modal.is-open .ticket-sale-panel {
+		animation: ticket-sale-panel-in 280ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	@keyframes ticket-sale-panel-in {
+		from {
+			opacity: 0;
+			transform: translateY(0.75rem) scale(0.98);
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.ticket-sale-modal.is-open,
+		.ticket-sale-modal.is-open .ticket-sale-panel {
+			animation: none;
+		}
+	}
+</style>
+
+<script>
+	import { NEW_TICKET_URL, isLegacyTicketSaleOpen } from "@/utils/ticketSale";
+
+	const modal = document.getElementById("ticket-sale-modal");
+	const closeControls = modal?.querySelectorAll<HTMLElement>("[data-ticket-sale-close]");
+	const firstChoice = modal?.querySelector<HTMLElement>("[data-ticket-sale-choice]");
+	const triggers = Array.from(
+		document.querySelectorAll<HTMLAnchorElement>("[data-ticket-sale-trigger]"),
+	);
+
+	let lastFocused: HTMLElement | null = null;
+
+	const focusableSelector =
+		'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+	const getFocusable = () => {
+		if (!modal) return [];
+		return Array.from(modal.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+			(element) => {
+				if (element.hasAttribute("hidden")) return false;
+				const style = window.getComputedStyle(element);
+				return style.display !== "none" && style.visibility !== "hidden";
+			},
+		);
+	};
+
+	const bindDirectSale = () => {
+		for (const trigger of triggers) {
+			trigger.href = NEW_TICKET_URL;
+			trigger.removeAttribute("aria-haspopup");
+			trigger.removeAttribute("aria-controls");
+		}
+		modal?.remove();
+	};
+
+	const closeModal = () => {
+		if (!modal || modal.hidden) return;
+		modal.hidden = true;
+		modal.classList.add("hidden");
+		modal.classList.remove("flex", "is-open");
+		document.body.style.overflow = "";
+		lastFocused?.focus();
+	};
+
+	const openModal = () => {
+		if (!modal) return;
+		lastFocused =
+			document.activeElement instanceof HTMLElement ? document.activeElement : null;
+		modal.hidden = false;
+		modal.classList.remove("hidden");
+		modal.classList.add("flex", "is-open");
+		document.body.style.overflow = "hidden";
+		(firstChoice ?? closeControls?.[0])?.focus();
+	};
+
+	const closeIfCutoffPassed = () => {
+		if (isLegacyTicketSaleOpen()) return false;
+		closeModal();
+		bindDirectSale();
+		return true;
+	};
+
+	if (!isLegacyTicketSaleOpen()) {
+		bindDirectSale();
+	} else if (modal) {
+		for (const trigger of triggers) {
+			trigger.setAttribute("aria-haspopup", "dialog");
+			trigger.setAttribute("aria-controls", "ticket-sale-modal");
+			trigger.addEventListener("click", (event) => {
+				if (closeIfCutoffPassed()) return;
+				event.preventDefault();
+				openModal();
+			});
+		}
+
+		closeControls?.forEach((control) => {
+			control.addEventListener("click", closeModal);
+		});
+
+		modal.querySelectorAll<HTMLAnchorElement>("[data-ticket-sale-choice]").forEach((choice) => {
+			choice.addEventListener("click", () => closeModal());
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (modal.hidden) return;
+
+			if (event.key === "Escape") {
+				event.preventDefault();
+				closeModal();
+				return;
+			}
+
+			if (event.key !== "Tab") return;
+
+			const focusable = getFocusable();
+			if (focusable.length === 0) return;
+
+			const first = focusable[0];
+			const last = focusable[focusable.length - 1];
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+			} else if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
+		});
+
+		document.addEventListener("visibilitychange", () => {
+			if (document.visibilityState === "visible") closeIfCutoffPassed();
+		});
+	}
+</script>
