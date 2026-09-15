@@ -46,7 +46,7 @@ jobs:
           protocol: ftps
           security: loose
           local-dir: ./dist/
-          # La cuenta FTP ya está jailed a /home/pronavec/public_html
+          # La cuenta FTP ya está jailed a /home/launion/public_html
           server-dir: ./
           timeout: 60000
           exclude: |
