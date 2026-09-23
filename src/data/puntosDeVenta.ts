@@ -87,7 +87,7 @@ export const provinces: Province[] = [
 		locations: [
 			{
 				title: "San Luis (Pasajes)",
-				details: ["Tel y WhatsApp: +54 9 2665 000688"],
+				details: ["Tel y WhatsApp: +54 9 2665 275071"],
 			},
 			{
 				title: "San Luis (Encomiendas)",
