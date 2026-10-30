@@ -3,10 +3,11 @@ import { withBase } from "@/utils/withBase";
 import {
 	LEGACY_TICKET_URL,
 	NEW_TICKET_URL,
+	TICKET_SALE_MODAL_ENABLED,
 	isLegacyTicketSaleOpen,
 } from "@/utils/ticketSale";
 
-const showModal = isLegacyTicketSaleOpen();
+const showModal = TICKET_SALE_MODAL_ENABLED && isLegacyTicketSaleOpen();
 ---
 
 {

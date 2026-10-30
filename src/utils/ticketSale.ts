@@ -1,3 +1,9 @@
+/**
+ * Modal de elección entre nuebus/sisorg. En `false`, los CTAs van directo a
+ * `LEGACY_TICKET_URL` y este componente no se renderiza.
+ */
+export const TICKET_SALE_MODAL_ENABLED = false;
+
 /** Sistema vigente para viajes hasta el 31/10/2026 inclusive. */
 export const LEGACY_TICKET_URL =
 	"https://abmws.com.ar/luweb-nuebus/sale/paso1.php";
@@ -30,4 +36,10 @@ export function isLegacyTicketSaleOpen(now = new Date()): boolean {
 
 export function ticketSaleUrl(now = new Date()): string {
 	return isLegacyTicketSaleOpen(now) ? LEGACY_TICKET_URL : NEW_TICKET_URL;
+}
+
+/** URL usada por los botones/enlaces de compra en el sitio público. */
+export function activeTicketSaleUrl(now = new Date()): string {
+	if (!TICKET_SALE_MODAL_ENABLED) return LEGACY_TICKET_URL;
+	return ticketSaleUrl(now);
 }

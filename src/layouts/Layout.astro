@@ -84,6 +84,7 @@ const isHome = withoutBase(Astro.url.pathname) === "/";
 		</div>
 		<FloatingWhatsApp />
 		{!hideFooter && <Footer />}
+		<!-- Modal de pasajes: activar con TICKET_SALE_MODAL_ENABLED en ticketSale.ts -->
 		<TicketSaleModal />
 		<!-- AOS Script -->
 		<script>
